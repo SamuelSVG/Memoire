@@ -55,3 +55,31 @@ class GiteaForgejo(BasePlatform):
             ]
             return data
         return None
+
+    # Function to Fetch #collaborators metric from Gitea/Forgejo API
+    def get_contributors(self, platform, owner, repo):
+        url = getattr(Endpoints, platform.name + "_CONTRIBUTORS")(owner, repo)
+        try:
+            response = requests.get(url, headers=self.headers)
+            if response.status_code == 200:
+                return len(response.json())-1
+            elif response.status_code == 404:
+                print(f"Repository not found: {owner}/{repo}")
+                return None
+            else:
+                print(f"Error fetching {owner}/{repo}: {response.status_code}")
+                return None
+        except Exception as e:
+            print(f"Exception fetching {owner}/{repo}: {e}")
+            return None
+
+    def add_contributors(self, df, platform):
+        # Iterate Over Each Repository and Fetch Contributors
+        contributor_counts = []
+        for index, row in df.iterrows():
+            owner, repo = row["owner"], row["repo"]
+            # print(f"Fetching data for {owner}/{repo}...")
+            contributor_counts.append(self.get_contributors(platform, owner, repo))
+
+        # Add Results to DataFrame
+        df[Metrics.CONTRIBUTORS.value] = contributor_counts

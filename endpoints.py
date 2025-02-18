@@ -52,3 +52,23 @@ class Endpoints(Enum):
     @staticmethod
     def FORGEJO_PULL_REQUESTS(owner, repo):
         return f"https://codeberg.org/api/v1/repos/{owner}/{repo}/pulls?limit=1"
+
+    GITLAB_SEARCH = "https://gitlab.com/api/v4/projects"
+    @staticmethod
+    def GITLAB_COMMITS_CONTRIBUTORS(owner, repo, branch):
+        return f"https://gitlab.com/{owner}/{repo}/-/graphs/{branch}?format=json&ref_type=heads"
+    @staticmethod
+    def GITLAB_BRANCHES(id):
+        return f"https://gitlab.com/api/v4/projects/{id}/repository/branches"
+    @staticmethod
+    def GITLAB_GRAPHQL():
+        return "https://gitlab.com/api/graphql"
+    @staticmethod
+    def GITLAB_PULL_REQUESTS(owner, repo):
+        return "{project(fullPath: " + f"\"{owner}/{repo}\"" + "){mergeRequests{count}}}"
+    @staticmethod
+    def GITLAB_LANGUAGE(id):
+        return f"https://gitlab.com/api/v4/projects/{id}/languages"
+    @staticmethod
+    def GITLAB_LICENSE(id):
+        return f"https://gitlab.com/api/v4/projects/{id}?license=true"

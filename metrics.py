@@ -6,3 +6,5 @@ class Metrics(Enum):
     CONTRIBUTORS = "#contributors"
     ISSUES = "#issues"
     PULL_REQUESTS = "#pull_requests"
+    LANGUAGE= "language"
+    LICENSE= "license"
