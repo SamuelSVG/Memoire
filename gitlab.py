@@ -53,12 +53,15 @@ class Gitlab(BasePlatform):
             return data
         return None
 
-    def add_metric(self, df, metric):
+    def add_metric(self, df, metric, platform=None):
         # Iterate Over Each Repository and Fetch Metrics
         metric_counts = []
         for index, row in df.iterrows():
             match metric:
-                case Metrics.COMMIT, Metrics.CONTRIBUTOR:
+                case Metrics.COMMIT:
+                    owner, repo, default_branch = row["owner"], row["repo"], row["default_branch"]
+                    metric_counts.append(self.get_commits_contributors(owner,repo,default_branch))
+                case Metrics.CONTRIBUTOR:
                     owner, repo, default_branch = row["owner"], row["repo"], row["default_branch"]
                     metric_counts.append(self.get_commits_contributors(owner,repo,default_branch))
                 case Metrics.BRANCH:
@@ -78,10 +81,14 @@ class Gitlab(BasePlatform):
                     metric_counts.append(self.get_license(id))
 
         # Add Results to DataFrame
-        df[metric.value] = metric_counts
+        if metric == Metrics.COMMIT or metric == Metrics.CONTRIBUTOR:
+            df[Metrics.COMMIT.value] = [count[0] if count else None for count in metric_counts]
+            df[Metrics.CONTRIBUTOR.value] = [count[1] if count else None for count in metric_counts]
+        else:
+            df[metric.value] = metric_counts
 
     def get_commits_contributors(self, owner, repo, default_branch):
-        url = Endpoints.GITLAB_COMMITS_CONTRIBUTORS(owner, repo, default_branch)
+        url = Endpoints.GITLAB_COMMIT(owner, repo, default_branch)
         try:
             response = self.request_with_retry(url, headers=self.headers)
             if response.status_code == 200:
@@ -96,7 +103,7 @@ class Gitlab(BasePlatform):
             return None
 
     def get_branches(self, id):
-        url = Endpoints.GITLAB_BRANCHES(id)
+        url = Endpoints.GITLAB_BRANCH(id)
         total_branches = 0
         page = 1
 

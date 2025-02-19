@@ -103,7 +103,7 @@ class GiteaForgejo(BasePlatform):
 
     # Function to Fetch #collaborators metric from Gitea/Forgejo API
     def get_contributors(self, platform, owner, repo):
-        url = getattr(Endpoints, platform.name + "_CONTRIBUTORS")(owner, repo)
+        url = getattr(Endpoints, platform.name + "_CONTRIBUTOR")(owner, repo)
         try:
             response = self.request_with_retry(url, headers=self.headers)
             if response.status_code == 200:

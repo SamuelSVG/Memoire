@@ -34,10 +34,10 @@ class BasePlatform(ABC):
 
         try:
             response = self.request_with_retry(url, headers=self.headers)
-            if response.status_code == 200:
+            if not str(response.status_code).startswith('4'):
                 link_header = response.headers.get("Link", "")
                 if 'rel="last"' in link_header:
-                    last_page = link_header.split("page=")[-1].split(">")[0]
+                    last_page = link_header.split("page=")[-1].split(">")[0].split("&")[0]
                     return int(last_page)
                 return 1  # If no pagination, assume 1 entry
             else:
