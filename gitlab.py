@@ -10,29 +10,27 @@ class Gitlab(BasePlatform):
     def __init__(self, headers):
         self.headers = headers
 
+    def fetch_page(self, page):
+        params = {
+            "visibility": "public",
+            "order_by": "last_activity_at",  # Sort by most recently updated
+            "sort": "desc",  # Descending order
+            "per_page": 100,  # Maximum allowed per page
+            "page": page,  # Current page
+        }
+        response = self.request_with_retry(Endpoints.GITLAB_SEARCH.value, headers=self.headers, params=params)
+        return response.json()
 
-    # Function to fetch repositories
     def fetch_repositories(self, page_num, platform=""):
         repositories = []
         for page in range(1, page_num):  # 10 pages × 100 repos per page = 1,000 repos
-            print(f"Fetching page {page}...")
-            params = {
-                "visibility": "public",
-                "order_by": "last_activity_at",  # Sort by most recently updated
-                "sort": "desc",  # Descending order
-                "per_page": 100,  # Maximum allowed per page
-                "page": page,  # Current page
-            }
-            response = requests.get(Endpoints.GITLAB_SEARCH.value, headers=self.headers, params=params)
-
-            # Check for errors
-            if response.status_code != 200:
-                print(f"Error: {response.status_code}, {response.json()}")
+            self.logger.info(f"Fetching page {page}...")
+            try:
+                data = self.fetch_page(page)
+                repositories.extend(data)
+            except requests.exceptions.RequestException as e:
+                self.logger.error(f"Error fetching page {page}: {e}")
                 break
-
-            data = response.json()
-            repositories.extend(data)
-            time.sleep(5)
 
         if repositories:
             data = [
@@ -43,7 +41,7 @@ class Gitlab(BasePlatform):
                     "id": repo["id"],
                     "created": repo["created_at"],
                     "updated": repo["last_activity_at"],
-                    "default_branch": repo["default_branch"],
+                    "default_branch": repo.get("default_branch", None),
                     "language": None,
                     "license": None,
                     "size": None,
@@ -85,19 +83,16 @@ class Gitlab(BasePlatform):
     def get_commits_contributors(self, owner, repo, default_branch):
         url = Endpoints.GITLAB_COMMITS_CONTRIBUTORS(owner, repo, default_branch)
         try:
-            response = requests.get(url, headers=self.headers)
+            response = self.request_with_retry(url, headers=self.headers)
             if response.status_code == 200:
                 data = response.json()
                 unique_contributors = {commit["author_name"] for commit in data}
                 return len(response.json()), len(unique_contributors)
-            elif response.status_code == 404:
-                print(f"Repository not found: {owner}/{repo}")
-                return None
             else:
-                print(f"Error fetching {owner}/{repo}: {response.status_code}")
+                self.logger.error(f"Error fetching {owner}/{repo}: {response.status_code}")
                 return None
         except Exception as e:
-            print(f"Exception fetching {owner}/{repo}: {e}")
+            self.logger.exception(f"Exception fetching {owner}/{repo}: {e}")
             return None
 
     def get_branches(self, id):
@@ -107,22 +102,19 @@ class Gitlab(BasePlatform):
 
         try:
             while True:
-                response = requests.get(url, headers=self.headers, params={"page": page, "per_page": 100})
+                response = self.request_with_retry(url, headers=self.headers, params={"page": page, "per_page": 100})
                 if response.status_code == 200:
                     branches = response.json()
                     total_branches += len(branches)
                     if len(branches) < 100:
                         break
                     page += 1
-                elif response.status_code == 404:
-                    print(f"Repository not found: {id}")
-                    return None
                 else:
-                    print(f"Error fetching {id}: {response.status_code}")
+                    self.logger.error(f"Error fetching {id}: {response.status_code}")
                     return None
             return total_branches
         except Exception as e:
-            print(f"Exception fetching {id}: {e}")
+            self.logger.exception(f"Exception fetching {id}: {e}")
             return None
 
     def get_issues(self, owner, repo):
@@ -133,14 +125,11 @@ class Gitlab(BasePlatform):
             response = requests.post(url, json=query, headers=self.headers)
             if response.status_code == 200:
                 return response.json()["data"]["project"]["issues"]["count"]
-            elif response.status_code == 404:
-                print(f"Repository not found: {owner}/{repo}")
-                return None
             else:
-                print(f"Error fetching {owner}/{repo}: {response.status_code}")
+                self.logger.error(f"Error fetching {owner}/{repo}: {response.status_code}")
                 return None
         except Exception as e:
-            print(f"Exception fetching {owner}/{repo}: {e}")
+            self.logger.exception(f"Exception fetching {owner}/{repo}: {e}")
             return None
 
     def get_pull_requests(self, owner, repo):
@@ -151,48 +140,39 @@ class Gitlab(BasePlatform):
             response = requests.post(url, json=query, headers=self.headers)
             if response.status_code == 200:
                 return response.json()["data"]["project"]["mergeRequests"]["count"]
-            elif response.status_code == 404:
-                print(f"Repository not found: {owner}/{repo}")
-                return None
             else:
-                print(f"Error fetching {owner}/{repo}: {response.status_code}")
+                self.logger.error(f"Error fetching {owner}/{repo}: {response.status_code}")
                 return None
         except Exception as e:
-            print(f"Exception fetching {owner}/{repo}: {e}")
+            self.logger.exception(f"Exception fetching {owner}/{repo}: {e}")
             return None
 
     def get_language(self, id):
         url = Endpoints.GITLAB_LANGUAGE(id)
         try:
-            response = requests.get(url, headers=self.headers)
+            response = self.request_with_retry(url, headers=self.headers)
             if response.status_code == 200:
                 languages = response.json()
                 if languages:
                     main_language = next(iter(languages))
                     return main_language
                 return None
-            elif response.status_code == 404:
-                print(f"Repository not found: {id}")
-                return None
             else:
-                print(f"Error fetching {id}: {response.status_code}")
+                self.logger.error(f"Error fetching {id}: {response.status_code}")
                 return None
         except Exception as e:
-            print(f"Exception fetching {id}: {e}")
+            self.logger.exception(f"Exception fetching {id}: {e}")
             return None
 
     def get_license(self, id):
         url = Endpoints.GITLAB_LICENSE(id)
         try:
-            response = requests.get(url, headers=self.headers)
+            response = self.request_with_retry(url, headers=self.headers)
             if response.status_code == 200:
                 return response.json()["license"]["key"] if response.json()["license"] else None
-            elif response.status_code == 404:
-                print(f"Repository not found: {id}")
-                return None
             else:
-                print(f"Error fetching {id}: {response.status_code}")
+                self.logger.error(f"Error fetching {id}: {response.status_code}")
                 return None
         except Exception as e:
-            print(f"Exception fetching {id}: {e}")
+            self.logger.exception(f"Exception fetching {id}: {e}")
             return None
