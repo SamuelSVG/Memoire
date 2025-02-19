@@ -1,10 +1,11 @@
 from enum import Enum
 
 class Metrics(Enum):
-    COMMITS = "#commits"
-    BRANCHES = "#branches"
-    CONTRIBUTORS = "#contributors"
-    ISSUES = "#issues"
-    PULL_REQUESTS = "#pull_requests"
+    COMMIT = "#commits"
+    BRANCH = "#branches"
+    CONTRIBUTOR = "#contributors"
+    ISSUE = "#issues"
+    PULL_REQUEST = "#pull_requests"
     LANGUAGE= "language"
     LICENSE= "license"
+    SIZE = "size"

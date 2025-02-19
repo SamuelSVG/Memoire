@@ -58,16 +58,16 @@ class Gitlab(BasePlatform):
         metric_counts = []
         for index, row in df.iterrows():
             match metric:
-                case Metrics.COMMITS, Metrics.CONTRIBUTORS:
+                case Metrics.COMMIT, Metrics.CONTRIBUTOR:
                     owner, repo, default_branch = row["owner"], row["repo"], row["default_branch"]
                     metric_counts.append(self.get_commits_contributors(owner,repo,default_branch))
-                case Metrics.BRANCHES:
+                case Metrics.BRANCH:
                     id = row["id"]
                     metric_counts.append(self.get_branches(id))
-                case Metrics.ISSUES:
+                case Metrics.ISSUE:
                     owner, repo = row["owner"], row["repo"]
                     metric_counts.append(self.get_issues(owner,repo))
-                case Metrics.PULL_REQUESTS:
+                case Metrics.PULL_REQUEST:
                     owner, repo = row["owner"], row["repo"]
                     metric_counts.append(self.get_pull_requests(owner,repo))
                 case Metrics.LANGUAGE:

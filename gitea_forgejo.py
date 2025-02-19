@@ -123,4 +123,4 @@ class GiteaForgejo(BasePlatform):
             contributor_counts.append(self.get_contributors(platform, owner, repo))
 
         # Add Results to DataFrame
-        df[Metrics.CONTRIBUTORS.value] = contributor_counts
+        df[Metrics.CONTRIBUTOR.value] = contributor_counts
