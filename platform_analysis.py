@@ -250,10 +250,6 @@ def propensity_score_matching(df_platform1, df_platform2, metric, max_difference
     df_matched_treated = df_treated.iloc[matched_indices[valid_matches]].reset_index(drop=True)
     df_matched_control = df_control[valid_matches].reset_index(drop=True)
 
-    # Compute Size Difference
-    df_matched_control["matched_size"] = df_matched_treated[metric.value].values
-    df_matched_control["size_difference"] = df_matched_treated[metric.value].values - df_matched_control[metric.value].values
-
     # Get Actual Sizes for Matched Pairs
     github_sizes = df_matched_treated[metric.value].values
     gitea_sizes = df_matched_control[metric.value].values
