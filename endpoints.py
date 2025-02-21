@@ -19,6 +19,7 @@ class Endpoints(Enum):
     def GITHUB_PULL_REQUEST(owner, repo):
         return f"https://api.github.com/repos/{owner}/{repo}/pulls?state=all&per_page=1"
 
+
     GITEA_SEARCH = "https://gitea.com/api/v1/repos/search"
     @staticmethod
     def GITEA_COMMIT(owner, repo):
@@ -35,6 +36,7 @@ class Endpoints(Enum):
     @staticmethod
     def GITEA_PULL_REQUEST(owner, repo):
         return f"https://gitea.com/api/v1/repos/{owner}/{repo}/pulls?limit=1"
+
 
     FORGEJO_SEARCH = "https://codeberg.org/api/v1/repos/search"
     @staticmethod
@@ -53,13 +55,14 @@ class Endpoints(Enum):
     def FORGEJO_PULL_REQUEST(owner, repo):
         return f"https://codeberg.org/api/v1/repos/{owner}/{repo}/pulls?limit=1"
 
+
     GITLAB_SEARCH = "https://gitlab.com/api/v4/projects"
     @staticmethod
-    def GITLAB_COMMIT(owner, repo, branch):
+    def GITLAB_CONTRIBUTOR(owner, repo, branch):
         return f"https://gitlab.com/{owner}/{repo}/-/graphs/{branch}?format=json&ref_type=heads"
     @staticmethod
-    def GITLAB_BRANCH(id):
-        return f"https://gitlab.com/api/v4/projects/{id}/repository/branches"
+    def GITLAB_COMMIT(owner, repo):
+        return f"https://gitlab.com/{owner}/{repo}"
     @staticmethod
     def GITLAB_GRAPHQL():
         return "https://gitlab.com/api/graphql"

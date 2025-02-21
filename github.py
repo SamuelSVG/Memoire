@@ -1,29 +1,42 @@
-# Headers for different platforms
 from base_platform import BasePlatform
-import time
 import requests
-import pandas as pd
 from endpoints import Endpoints
-from metrics import Metrics
+from request_types import RequestTypes
 
 class GitHub(BasePlatform):
+    """
+    This class defines the GitHub platform-specific matcher.
+    """
     def __init__(self, headers):
         self.headers = headers
 
+
     def fetch_page(self, page):
+        """
+        Function to fetch a page of repositories from the GitHub API.
+        :param page: The page number to fetch.
+        :return: JSON response from the API.
+        """
         params = {
-            "q": "stars:>-1",
+            "q": "stars:>-1", # Empty query to fetch all repositories
             "sort": "updated",
             "order": "desc",
-            "per_page": 100,
-            "page": page,
+            "per_page": 100, # Maximum allowed per page
+            "page": page, # Page number
         }
-        response = self.request_with_retry(Endpoints.GITHUB_SEARCH.value, headers=self.headers, params=params)
+        response = self.request_with_retry(Endpoints.GITHUB_SEARCH.value, RequestTypes.GET, headers=self.headers, params=params)
         return response.json()
 
+
     def fetch_repositories(self, page_num, platform=""):
+        """
+        Function to fetch a given number of pages of repositories from the GitHub API.
+        :param page_num: Number of pages to fetch.
+        :param platform: Platform to fetch repositories from.
+        :return: List of dictionaries containing repository data.
+        """
         repositories = []
-        for page in range(1, page_num):  # 10 pages × 100 repos per page = 1,000 repos
+        for page in range(1, page_num):  # 100 repos per page
             self.logger.info(f"Fetching page {page}...")
             try:
                 data = self.fetch_page(page)
@@ -32,6 +45,7 @@ class GitHub(BasePlatform):
                 self.logger.error(f"Error fetching page {page}: {e}")
                 break
 
+        # Extract relevant repository data
         if repositories:
             data = [
                 {
