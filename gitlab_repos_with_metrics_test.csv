@@ -1,0 +1,101 @@
+platform,owner,repo,id,created,updated,default_branch,language,license,size,#stars,#forks,#issues,#commits,#contributors,#pull_requests,#branches
+GitLab,TadiT7,android_platform_superproject,30337653,2021-10-10T22:44:12.473Z,2025-02-20T15:52:51.993Z,master,Makefile,,,2,0.0,0,186 260,,0,18 036
+GitLab,wpm,hexapawn,67288230,2025-02-19T17:59:22.917Z,2025-02-20T15:52:50.089Z,main,Python,mit,,0,0.0,0,37,2.0,3,2
+GitLab,irregularverbs,irregularverbsapiapp,67059122,2025-02-12T15:25:46.192Z,2025-02-20T15:52:48.362Z,main,,,,0,0.0,0,1,1.0,0,3
+GitLab,arise-biodiversity/biocloud/core,biocloud-core,43536894,2023-02-15T09:58:45.405Z,2025-02-20T15:52:37.244Z,main,Python,,,5,1.0,759,230,8.0,337,58
+GitLab,FreeBSD,freebsd-src,19317362,2020-06-11T08:25:33.975Z,2025-02-20T15:52:31.389Z,main,C,other,,12,14.0,0,297 789,389.0,1,345
+GitLab,elxr/tools,pasha,56630710,2024-04-08T16:57:19.204Z,2025-02-20T15:52:30.612Z,main,Python,other,,0,6.0,4,126,9.0,81,6
+GitLab,xiaoxiong-T,stardustexplorer,67283871,2025-02-19T15:37:32.555Z,2025-02-20T15:52:30.517Z,main,C#,,,0,0.0,0,171,4.0,0,1
+GitLab,marrrx,tienda,67321631,2025-02-20T15:52:27.060Z,2025-02-20T15:52:26.958Z,main,TypeScript,,,0,0.0,0,3,1.0,1,2
+GitLab,gitlab-org/security-products/analyzers,gemnasium,9450192,2018-11-17T07:37:16.449Z,2025-02-20T15:52:22.623Z,master,Python,other,,31,48.0,0,1 091,43.0,944,294
+GitLab,x86-glibc,glibc,11872271,2019-04-15T20:03:56.907Z,2025-02-20T15:52:19.900Z,master,C,lgpl-2.1,,0,1.0,23,42 148,312.0,241,634
+GitLab,openid,conformance-suite,4175605,2017-09-18T12:19:59.922Z,2025-02-20T15:52:16.476Z,master,Java,mit,,39,58.0,1404,6 785,45.0,1589,30
+GitLab,apollo-lhc/FW,SM_ZYNQ_FW,48037663,2023-07-26T17:08:12.859Z,2025-02-20T15:52:16.317Z,develop,Coq,,,0,1.0,9,1 015,15.0,28,18
+GitLab,zekylaf,loopback-component-rabbitmq,11483324,2019-03-25T06:30:06.931Z,2025-02-20T15:52:14.856Z,master,JavaScript,,,0,0.0,0,25,1.0,0,1
+GitLab,agh-courses/24/cp/cs_projects,torpedo-scheduling,64835154,2024-11-26T00:32:49.767Z,2025-02-20T15:52:14.529Z,main,,,,0,3.0,0,24,2.0,0,1
+GitLab,ladonyak,abz,67321614,2025-02-20T15:52:13.764Z,2025-02-20T15:52:13.681Z,main,,,,0,0.0,0,,1.0,0,
+GitLab,gitlab-org,duo-ui,62039593,2024-09-26T15:50:32.701Z,2025-02-20T15:52:12.168Z,main,JavaScript,mit,,1,3.0,39,18 267,305.0,63,15
+GitLab,edstub207,gitlab-development-kit,6572392,2018-06-02T16:50:00.297Z,2025-02-20T15:52:12.145Z,master,Ruby,mit,,0,0.0,0,4 432,374.0,0,3 411
+GitLab,hamza_mustafa,housing_map_frontend,67226504,2025-02-18T06:38:49.600Z,2025-02-20T15:52:11.665Z,main,,,,0,0.0,0,1,1.0,0,2
+GitLab,ska-telescope,ska-mid-integration,59319747,2024-06-26T13:11:47.632Z,2025-02-20T15:52:09.903Z,main,Python,bsd-3-clause,,1,1.0,0,303,11.0,14,6
+GitLab,sddz-hl,dawn,22920971,2020-12-06T00:59:08.962Z,2025-02-20T15:52:08.742Z,main,C++,bsd-3-clause,,1,0.0,0,20 415,109.0,0,2 625
+GitLab,duchenpaul,arduino-esp32,32372142,2021-12-25T05:07:57.318Z,2025-02-20T15:52:07.038Z,master,C++,lgpl-2.1,,0,1.0,0,3 154,758.0,0,299
+GitLab,benhorst,bmoria,1874789,2016-10-20T13:04:15.938Z,2025-02-20T15:52:04.036Z,,C,gpl-3.0,,6,,0,,,0,
+GitLab,saiwp,webrtc,20934604,2020-09-04T12:34:49.498Z,2025-02-20T15:52:03.157Z,master,C++,bsd-3-clause,,0,1.0,0,43 184,229.0,0,4
+GitLab,gitlab-community,gitlab-runner,41490860,2022-11-30T15:22:23.481Z,2025-02-20T15:52:02.252Z,main,Go,mit,,0,0.0,0,12 611,663.0,2,41
+GitLab,riskgratis,partner-contact,23196910,2020-12-19T00:06:25.832Z,2025-02-20T15:52:00.028Z,13.0,HTML,agpl-3.0,,0,0.0,0,1 479,213.0,0,152
+GitLab,openbsd98324,pibookworm-boot,67321603,2025-02-20T15:51:59.529Z,2025-02-20T15:51:58.760Z,main,,,,0,0.0,0,1,1.0,0,1
+GitLab,michaelsabo,ace,14788881,2019-10-12T20:53:00.919Z,2025-02-20T15:51:58.056Z,master,JavaScript,bsd-3-clause,,0,0.0,0,8 911,570.0,0,203
+GitLab,zulcss,pasha,65804905,2025-01-01T23:45:05.879Z,2025-02-20T15:51:57.784Z,main,Python,other,,0,0.0,0,125,9.0,0,17
+GitLab,lsl_gm,opencpi,25030070,2021-03-10T15:45:23.761Z,2025-02-20T15:51:49.364Z,develop,C++,lgpl-3.0,,0,1.0,0,3 501,49.0,11,730
+GitLab,chrony,libchrony,46472587,2023-05-31T13:49:44.597Z,2025-02-20T15:51:46.526Z,main,C,lgpl-2.1,,1,1.0,0,27,2.0,1,1
+GitLab,gitlab-community/content-sites,handbook,46059979,2023-05-16T10:15:29.377Z,2025-02-20T15:51:44.914Z,main,HTML,mit,,2,0.0,0,89 882,,0,8
+GitLab,training3230406,training-app,66776100,2025-02-03T21:05:17.600Z,2025-02-20T15:51:42.253Z,main,HCL,mit,,0,0.0,8,171,4.0,7,1
+GitLab,philip.robinson,txoo,56662454,2024-04-09T13:51:19.846Z,2025-02-20T15:51:39.966Z,main,Rust,apache-2.0,,0,0.0,0,190,8.0,0,5
+GitLab,eojons,gpaw,1281225,2016-06-10T07:13:33.339Z,2025-02-20T15:51:38.054Z,master,Python,gpl-3.0+,,0,0.0,0,34 324,67.0,0,1 535
+GitLab,umgeher,protobuf,686858,2015-12-18T12:15:01.059Z,2025-02-20T15:51:37.097Z,master,C++,other,,0,1.0,0,9 207,921.0,0,7 042
+GitLab,gnutools,glibc,27372055,2021-06-11T21:08:20.269Z,2025-02-20T15:51:37.070Z,master,C,lgpl-2.1,,1,4.0,0,42 148,312.0,1,410
+GitLab,thanat.chaisontharakul,ReactAndTailwind,67321582,2025-02-20T15:51:36.619Z,2025-02-20T15:51:36.514Z,main,,,,0,0.0,0,2,1.0,0,1
+GitLab,mllw,dawn,19905876,2020-07-12T08:47:45.418Z,2025-02-20T15:51:35.468Z,master,C++,apache-2.0,,0,0.0,0,2 385,67.0,0,2 626
+GitLab,dotnetfoundation,sdk,1887630,2016-10-23T03:00:35.589Z,2025-02-20T15:51:35.055Z,master,C#,mit,,0,4.0,0,30 585,126.0,0,26 474
+GitLab,redhat/red-hat-ci-tools/kernel/cki-internal-pipelines,cki-trusted-contributors,18194050,2020-04-17T11:11:01.959Z,2025-02-20T15:51:34.721Z,main,,,,0,0.0,0,60,,0,34
+GitLab,ska-telescope/src/maltopuft,ska-src-maltopuft-backend,55693678,2024-03-08T15:46:44.412Z,2025-02-20T15:51:34.169Z,main,Python,bsd-3-clause,,0,0.0,0,252,3.0,40,1
+GitLab,softwarequtech/netsquid-snippets,netsquid-vtw-mh-scheduler,55857120,2024-03-14T14:57:59.377Z,2025-02-20T15:51:32.487Z,main,,,,0,0.0,0,1,1.0,1,2
+GitLab,pri-nce,greenlife-portal,67104781,2025-02-13T17:41:13.677Z,2025-02-20T15:51:29.609Z,main,Java,,,0,0.0,0,32,4.0,2,3
+GitLab,1480c1,media-autobuild_suite,10845948,2019-02-14T16:27:56.696Z,2025-02-20T15:51:28.288Z,master,Shell,gpl-3.0+,,0,0.0,0,4 512,65.0,0,149
+GitLab,nawfeldahri,api,67321571,2025-02-20T15:51:28.362Z,2025-02-20T15:51:28.277Z,main,,,,0,0.0,0,7,2.0,0,1
+GitLab,webrtcmirrors,chromium_src_build,10976398,2019-02-22T10:57:12.567Z,2025-02-20T15:51:20.344Z,master,Python,,,0,0.0,0,21 292,520.0,0,2
+GitLab,movemate,movemate_frontend,62034325,2024-09-26T12:55:06.822Z,2025-02-20T15:51:19.104Z,main,TSX,,,0,0.0,0,58,3.0,0,2
+GitLab,eyeo/browser-extensions-and-premium/extensions,extensions,59518842,2024-07-03T07:34:31.882Z,2025-02-20T15:51:18.515Z,main,JavaScript,gpl-3.0+,,7,6.0,0,5 182,85.0,479,95
+GitLab,vitkovits-mate,rag-expert,67321554,2025-02-20T15:51:18.456Z,2025-02-20T15:51:18.354Z,main,,,,0,0.0,0,1,1.0,0,2
+GitLab,cesga-docs,cesga-docs.gitlab.io,32821463,2022-01-14T08:45:52.980Z,2025-02-20T15:51:15.783Z,master,Python,,,1,3.0,0,1 284,12.0,1,4
+GitLab,panoramax/server,api,34672569,2022-03-21T16:50:16.263Z,2025-02-20T15:51:14.589Z,develop,Python,mit,,34,14.0,234,923,28.0,382,8
+GitLab,GQLite,GQLite,48640118,2023-08-20T09:48:40.235Z,2025-02-20T15:51:13.669Z,stable,C++,mit,,1,0.0,19,188,1.0,0,8
+GitLab,ubiquitypress,rua,11653662,2019-04-03T09:23:03.262Z,2025-02-20T15:51:06.965Z,master,Python,gpl-2.0+,,2,1.0,0,3 008,,379,5
+GitLab,rinicom-ltd/public/watchman,meta-rinicom,65236908,2024-12-09T14:12:10.273Z,2025-02-20T15:51:06.504Z,,BitBake,,,0,,0,,,0,
+GitLab,pantacor,pantavisor,3356079,2017-05-22T18:31:24.151Z,2025-02-20T15:51:06.401Z,master,C,mit,,5,5.0,17,1 913,15.0,388,515
+GitLab,Hgphat-bot,homework-java-pantech,67092779,2025-02-13T12:07:18.044Z,2025-02-20T15:51:04.240Z,main,Java,,,0,0.0,0,7,2.0,0,1
+GitLab,qblox/packages/software,qblox_instruments,19026519,2020-05-27T09:11:52.063Z,2025-02-20T15:51:00.826Z,main,Python,bsd-4-clause,,10,3.0,108,1 958,51.0,331,64
+GitLab,unis.gnacadja,studely-core-design,62602966,2024-10-15T15:03:19.820Z,2025-02-20T15:50:59.958Z,main,Vue,,,0,0.0,0,42,4.0,27,18
+GitLab,CCP4,jsCoFE,6267748,2018-05-03T11:33:33.980Z,2025-02-20T15:50:59.212Z,develop,JavaScript,mit,,2,3.0,38,3 689,20.0,209,15
+GitLab,cyberjson/nodejs/es,echronos,31473793,2021-11-20T13:30:54.892Z,2025-02-20T15:50:58.419Z,dev,TypeScript,,,0,0.0,0,114,3.0,0,2
+GitLab,campus26/dwwm4/ghenai-abderrazek,protfolio-abderrazek-ghenai,52282213,2023-11-17T15:01:39.584Z,2025-02-20T15:50:54.269Z,main,CSS,,,0,0.0,0,83,2.0,0,1
+GitLab,nan.web,nano-format,61182998,2024-08-27T13:45:11.203Z,2025-02-20T15:50:49.664Z,main,JavaScript,0bsd,,0,0.0,0,91,1.0,0,1
+GitLab,gitlab-org,gitlab-pages,734943,2016-01-07T16:38:31.198Z,2025-02-20T15:50:44.920Z,master,Go,mit,,133,198.0,792,2 932,113.0,1117,246
+GitLab,redhat/services/products/image-builder/ci,osbuild,34793456,2022-03-25T06:46:01.743Z,2025-02-20T15:50:42.340Z,_empty,,,,0,0.0,0,2,2.0,0,886
+GitLab,BuildGrid/buildbox,buildbox,10154309,2018-12-31T19:34:13.135Z,2025-02-20T15:50:39.618Z,master,C++,apache-2.0,,5,20.0,185,3 702,67.0,832,63
+GitLab,chat-application5353802,01-chatapp-springboot,66069762,2025-01-12T08:43:30.475Z,2025-02-20T15:50:38.599Z,main,Java,mit,,0,0.0,0,11,1.0,0,3
+GitLab,xen-project/hardware,xen,48147749,2023-07-31T23:08:07.287Z,2025-02-20T15:50:29.742Z,staging,C,other,,1,1.0,0,48 102,150.0,5,12
+GitLab,kerel-fs,satnogs-db,3918429,2017-08-14T16:30:15.307Z,2025-02-20T15:50:29.130Z,master,Python,agpl-3.0,,0,0.0,0,1 250,28.0,5,15
+GitLab,irregularverbs,irregularverbsreact,67059624,2025-02-12T15:45:24.232Z,2025-02-20T15:50:27.474Z,main,,,,0,0.0,0,1,1.0,1,2
+GitLab,play-your-brand,flitcut-laravel,65449597,2024-12-16T17:14:29.580Z,2025-02-20T15:50:20.584Z,,PHP,other,,0,,0,,,0,
+GitLab,tnir,gitlab-foss,564563,2015-10-30T16:43:16.933Z,2025-02-20T15:50:20.027Z,master,Ruby,mit,,0,0.0,0,114 454,2.0,0,39 594
+GitLab,mengxin,gitlab-ce,10284493,2019-01-09T14:19:30.157Z,2025-02-20T15:50:19.552Z,master,Ruby,mit,,0,0.0,3,114 454,2.0,1,34 801
+GitLab,kakali,site,66654937,2025-01-30T10:14:45.226Z,2025-02-20T15:50:19.450Z,main,Common Lisp,,,0,0.0,0,48,1.0,0,2
+GitLab,revinet,revi.xyz,65742891,2024-12-28T22:00:50.989Z,2025-02-20T15:50:13.210Z,master,Markdown,apache-2.0,,0,0.0,0,700,5.0,0,24
+GitLab,cscs-ci/ci-testing/webhook-ci/mirrors/5125340235196978,2255149825504669,50553516,2023-09-20T09:20:26.135Z,2025-02-20T15:50:03.247Z,main,,,,0,0.0,0,1,1.0,0,328
+GitLab,bonn-624-dev/platform,civitas-core,59553622,2024-07-04T08:32:31.447Z,2025-02-20T15:49:58.901Z,staging,CSS,eupl-1.2,,0,0.0,0,1 034,,48,20
+GitLab,abou67,web-server-project,67201748,2025-02-17T13:26:23.419Z,2025-02-20T15:49:57.106Z,master,HCL,,,0,1.0,0,744,4.0,0,1
+GitLab,massai.leo,silex_ai-network,67295411,2025-02-19T22:49:07.612Z,2025-02-20T15:49:56.354Z,main,HTML,,,0,0.0,0,117,1.0,0,1
+GitLab,gitlab-jh/jh-team,gitlab,30472118,2021-10-15T08:48:56.633Z,2025-02-20T15:49:54.524Z,master,Ruby,mit,,6,2.0,9,445 479,803.0,4,8 765
+GitLab,linux2325621,tumbleweed-postinstall-plasma6,62085363,2024-09-28T00:53:41.315Z,2025-02-20T15:49:54.508Z,main,Shell,,,0,0.0,0,56,1.0,0,1
+GitLab,420-15d-fx,demos-js,55080109,2024-02-19T14:53:03.110Z,2025-02-20T15:49:53.639Z,main,JavaScript,,,0,0.0,0,8,2.0,0,1
+GitLab,Jacobus-afk,nixos-config,62430171,2024-10-09T20:25:15.147Z,2025-02-20T15:49:52.564Z,master,Nix,,,0,0.0,0,99,2.0,0,1
+GitLab,bipedaljoe,ripple_golang_minimal,66264193,2025-01-18T08:22:13.227Z,2025-02-20T15:49:52.100Z,main,Go,,,0,0.0,0,1 728,1.0,10,1
+GitLab,linux2325621,slowroll-postinstall-plasma6,64230910,2024-11-04T23:39:22.265Z,2025-02-20T15:49:50.720Z,main,Shell,,,0,0.0,0,37,1.0,0,1
+GitLab,dokos,construction,52361118,2023-11-20T20:00:35.194Z,2025-02-20T15:49:47.724Z,develop,JavaScript,agpl-3.0,,0,0.0,9,242,3.0,126,9
+GitLab,unibo-dtn,unibo-bp,31793416,2021-12-02T12:37:42.363Z,2025-02-20T15:49:42.129Z,main,C++,gpl-3.0+,,4,1.0,0,37,4.0,12,6
+GitLab,gitlab-org/cells,http-router,54957577,2024-02-15T01:18:47.667Z,2025-02-20T15:49:38.836Z,main,TypeScript,mit,,3,4.0,0,915,16.0,513,16
+GitLab,menikrief,jobsmanager,4135315,2017-09-12T21:43:36.467Z,2025-02-20T15:49:34.268Z,master,Python,,,0,0.0,1,8,2.0,0,5
+GitLab,freedesktop-sdk/mirrors/github/python,cpython,15484579,2019-11-22T15:44:10.695Z,2025-02-20T15:49:33.716Z,main,Python,0bsd,,0,9.0,0,125 596,777.0,0,390
+GitLab,omryco,surveyutils,20093010,2020-07-22T07:55:03.474Z,2025-02-20T15:49:30.289Z,master,Python,,,0,0.0,2,31,2.0,2,4
+GitLab,lenitech/apps,warpgate,55793563,2024-03-12T16:54:55.867Z,2025-02-20T15:49:27.930Z,main,Smarty,apache-2.0,,0,0.0,1,232,2.0,354,2
+GitLab,frite,gitlab-ce,3809312,2017-07-29T16:04:19.581Z,2025-02-20T15:49:23.551Z,master,Ruby,mit,,1,0.0,0,114 454,2.0,0,36 191
+GitLab,rust-lang,rust,1885018,2016-10-22T13:24:39.521Z,2025-02-20T15:49:22.834Z,master,Rust,apache-2.0,,27,4.0,0,281 892,536.0,0,215
+GitLab,sylva-projects/sylva-elements/helm-charts,sylva-library,56163211,2024-03-25T08:52:21.670Z,2025-02-20T15:49:21.721Z,main,Smarty,,,0,4.0,1,181,11.0,94,10
+GitLab,fahmigit,absenyok,50241722,2023-09-11T03:39:14.025Z,2025-02-20T15:49:21.347Z,main,HTML,,,0,0.0,0,33,,0,9
+GitLab,cymok,webrtc,23301772,2020-12-25T01:24:52.093Z,2025-02-20T15:49:19.858Z,master,C++,bsd-3-clause,,0,1.0,0,43 184,229.0,0,4
+GitLab,librespacefoundation/satnogs,satnogs-flowgraphs,16958574,2020-02-17T11:39:02.816Z,2025-02-20T15:49:19.400Z,master,CMake,gpl-3.0+,,8,19.0,55,60,10.0,48,1
+GitLab,AngleDeps,testing,6536289,2018-05-30T08:50:40.589Z,2025-02-20T15:49:19.234Z,master,Python,,,0,0.0,0,17 052,809.0,0,2
+GitLab,yadhukrishna017,e39-foodieweb-admin-frontend,67321454,2025-02-20T15:49:15.755Z,2025-02-20T15:49:15.680Z,main,,,,0,0.0,0,3,,0,1
+GitLab,taucher2003-group,gitlab,27362533,2021-06-11T13:51:02.444Z,2025-02-20T15:49:15.416Z,master,Ruby,mit,,1,2.0,1,445 479,803.0,7,19
