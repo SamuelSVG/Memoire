@@ -2,6 +2,7 @@ from base_platform import BasePlatform
 import requests
 from endpoints import Endpoints
 from request_types import RequestTypes
+from metrics import Metrics
 
 class GitHub(BasePlatform):
     """
@@ -57,7 +58,7 @@ class GitHub(BasePlatform):
                     "updated": repo["pushed_at"],
                     "language": repo["language"],
                     "license": repo["license"]["key"] if repo["license"] else None,
-                    "size": repo["size"],
+                    "default_branch": repo["default_branch"],
                     "#stars": repo["stargazers_count"],
                     "#forks": repo["forks_count"]
                 }
@@ -65,3 +66,43 @@ class GitHub(BasePlatform):
             ]
             return data
         return None
+
+    def get_size(self, owner, repo, branch):
+        """
+        Function to fetch the size of a GitHub repository.
+        :param owner: Owner of the repository.
+        :param repo: Repository name.
+        :param branch: Branch name.
+        :return: Size of the repository.
+        """
+        url = Endpoints.GITHUB_SIZE(owner, repo, branch)
+        try:
+            response = self.request_with_retry(url, RequestTypes.GET, headers=self.headers)
+            if not str(response.status_code).startswith('4') or str(response.status_code).startswith('5'):
+                data = response.json()
+                # Calculate total size of all blobs in the repository
+                if "tree" in data:
+                    total_size = sum(item.get("size", 0) for item in data["tree"] if item["type"] == "blob")
+                    return total_size
+                else:
+                    return None
+            else:
+                self.logger.error(f"Error fetching {owner}/{repo}: {response.status_code}")
+                return None
+        except Exception as e:
+            self.logger.exception(f"Exception fetching {owner}/{repo}: {e}")
+            return None
+
+    def add_size(self, df):
+        """
+        Function to add the size of a repository to a DataFrame of repositories.
+        :param df: DataFrame of repositories.
+        :return: DataFrame with the added size column.
+        """
+        size_counts = []
+        for index, row in df.iterrows():
+            owner, repo, branch = row["owner"], row["repo"], row["default_branch"]
+            self.logger.info(f"Fetching data for {owner}/{repo}...")
+            size_counts.append(self.get_size(owner, repo, branch))
+
+        df[Metrics.SIZE.value] = size_counts

@@ -218,26 +218,26 @@ def propensity_score_matching(df_platform1, df_platform2, metric, max_difference
 
     # Normalize Features
     scaler = StandardScaler()
-    X = scaler.fit_transform(df[features])
+    x = scaler.fit_transform(df[features])
     y = df["platform"]
 
     # Fit Logistic Regression for Propensity Scores
     logit = LogisticRegression()
-    logit.fit(X, y)
+    logit.fit(x, y)
 
-    df["propensity_score"] = logit.predict_proba(X)[:, 1]
+    df["propensity_score"] = logit.predict_proba(x)[:, 1]
 
     # Separate Groups
     df_treated = df[df["platform"] == 1].copy()
     df_control = df[df["platform"] == 0].copy()
 
     # Matching Using Nearest Neighbors
-    X_treated = df_treated["propensity_score"].values.reshape(-1, 1)
-    X_control = df_control["propensity_score"].values.reshape(-1, 1)
+    x_treated = df_treated["propensity_score"].values.reshape(-1, 1)
+    x_control = df_control["propensity_score"].values.reshape(-1, 1)
 
     nn = NearestNeighbors(n_neighbors=1)
-    nn.fit(X_treated)
-    distances, indices = nn.kneighbors(X_control, n_neighbors=1)
+    nn.fit(x_treated)
+    distances, indices = nn.kneighbors(x_control, n_neighbors=1)
 
     # Compute Propensity Score Differences
     matched_indices = indices.flatten()

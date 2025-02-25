@@ -18,6 +18,9 @@ class Endpoints(Enum):
     @staticmethod
     def GITHUB_PULL_REQUEST(owner, repo):
         return f"https://api.github.com/repos/{owner}/{repo}/pulls?state=all&per_page=1"
+    @staticmethod
+    def GITHUB_SIZE(owner, repo, branch):
+        return f"https://api.github.com/repos/{owner}/{repo}/git/trees/{branch}?recursive=1"
 
 
     GITEA_SEARCH = "https://gitea.com/api/v1/repos/search"
@@ -36,6 +39,9 @@ class Endpoints(Enum):
     @staticmethod
     def GITEA_PULL_REQUEST(owner, repo):
         return f"https://gitea.com/api/v1/repos/{owner}/{repo}/pulls?limit=1"
+    @staticmethod
+    def GITEA_SIZE(owner, repo, branch, page):
+        return f"https://gitea.com/api/v1/repos/{owner}/{repo}/git/trees/{branch}?recursive=1&page={page}"
 
 
     FORGEJO_SEARCH = "https://codeberg.org/api/v1/repos/search"
@@ -54,6 +60,9 @@ class Endpoints(Enum):
     @staticmethod
     def FORGEJO_PULL_REQUEST(owner, repo):
         return f"https://codeberg.org/api/v1/repos/{owner}/{repo}/pulls?limit=1"
+    @staticmethod
+    def FORGEJO_SIZE(owner, repo, branch, page):
+        return f"https://codeberg.org/api/v1/repos/{owner}/{repo}/git/trees/{branch}?recursive=1&page={page}"
 
 
     GITLAB_SEARCH = "https://gitlab.com/api/v4/projects"
