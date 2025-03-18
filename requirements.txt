@@ -1,5 +1,6 @@
-matplotlib==3.10.0
-numpy==2.2.3
+GitPython==3.1.44
+matplotlib==3.10.1
+numpy==2.2.4
 pandas==2.2.3
 plotly==6.0.0
 Requests==2.32.3
