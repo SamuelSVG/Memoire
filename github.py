@@ -19,7 +19,7 @@ class GitHub(BasePlatform):
         :return: JSON response from the API.
         """
         params = {
-            "q": "stars:>-1", # Empty query to fetch all repositories
+            "q": "forks=false", # Empty query to fetch all repositories
             "sort": "updated",
             "order": "desc",
             "per_page": 100, # Maximum allowed per page
@@ -56,8 +56,6 @@ class GitHub(BasePlatform):
                     "id": repo["id"],
                     "created": repo["created_at"],
                     "updated": repo["pushed_at"],
-                    "language": repo["language"],
-                    "license": repo["license"]["key"] if repo["license"] else None,
                     "default_branch": repo["default_branch"],
                     "#stars": repo["stargazers_count"],
                     "#forks": repo["forks_count"]
@@ -106,3 +104,76 @@ class GitHub(BasePlatform):
             size_counts.append(self.get_size(owner, repo, branch))
 
         df[Metrics.SIZE.value] = size_counts
+
+    def get_issues(self, owner, repo):
+        """
+        Function to fetch the number of issues for a given repository from the GitLab API.
+        :param owner: Owner of the repository.
+        :param repo: Repository name.
+        :return: Number of issues for the given repository.
+        """
+        url = Endpoints.GITHUB_GRAPHQL.value
+        query = {
+            "query": "{ repository(owner: \"" + f"{owner}" + "\", name: \"" + f"{repo}" + "\") { issues { totalCount } } }"
+        }
+
+        try:
+            response = self.request_with_retry(url, RequestTypes.POST, params=query, headers=self.headers)
+            if not str(response.status_code).startswith('4'):
+                return response.json()["data"]["repository"]["issues"]["totalCount"]
+            else:
+                self.logger.error(f"Error fetching {owner}/{repo}: {response.status_code}")
+                return None
+        except Exception as e:
+            self.logger.exception(f"Exception fetching {owner}/{repo}: {e}")
+            return None
+
+
+    def get_pull_requests(self, owner, repo):
+        """
+        Function to fetch the number of pull requests for a given repository from the GitLab API.
+        :param owner: Owner of the repository.
+        :param repo: Repository name.
+        :return: Number of pull requests for the given repository.
+        """
+        url = Endpoints.GITHUB_GRAPHQL.value
+        query = {
+            "query": "{ repository(owner: \"" + f"{owner}" + "\", name: \"" + f"{repo}" + "\") { pullRequests { totalCount } } }"
+        }
+
+        try:
+            response = self.request_with_retry(url, RequestTypes.POST, params=query, headers=self.headers)
+            if not str(response.status_code).startswith('4'):
+                return response.json()["data"]["repository"]["pullRequests"]["totalCount"]
+            else:
+                self.logger.error(f"Error fetching {owner}/{repo}: {response.status_code}")
+                return None
+        except Exception as e:
+            self.logger.exception(f"Exception fetching {owner}/{repo}: {e}")
+            return None
+
+    def add_metric(self, df, metric):
+        """
+        Function to add a given metric to a DataFrame of repositories.
+        :param df: DataFrame of repositories.
+        :param metric: Metric to fetch.
+        :param platform: Platform to fetch the metric from.
+        :return: DataFrame with the added metric column.
+        """
+        metric_counts = []
+        for index, row in df.iterrows():
+            self.logger.info(f"Fetching data for {row["owner"]}/{row["repo"]}...")
+
+            # Gitlab requires to use multiple different endpoints to fetch different metrics so we need to use a switch case
+            match metric:
+                case Metrics.SIZE:
+                    owner, repo, branch = row["owner"], row["repo"], row["default_branch"]
+                    metric_counts.append(self.get_size(owner,repo,branch))
+                case Metrics.ISSUE:
+                    owner, repo = row["owner"], row["repo"]
+                    metric_counts.append(self.get_issues(owner, repo))
+                case Metrics.PULL_REQUEST:
+                    owner, repo = row["owner"], row["repo"]
+                    metric_counts.append(self.get_pull_requests(owner, repo))
+
+        df[metric.value] = metric_counts

@@ -71,9 +71,6 @@ class Gitlab(BasePlatform):
                     "created": repo["created_at"],
                     "updated": repo["last_activity_at"],
                     "default_branch": repo.get("default_branch", None),
-                    "language": None,
-                    "license": None,
-                    "size": None,
                     "#stars": repo.get("star_count", None),
                     "#forks": repo.get("forks_count", None),
                 }
@@ -189,11 +186,11 @@ class Gitlab(BasePlatform):
         :param repo: Repository name.
         :return: Number of issues for the given repository.
         """
-        url = Endpoints.GITLAB_GRAPHQL()
+        url = Endpoints.GITLAB_GRAPHQL.value
         query = {"query": "{ project(fullPath: \"" + f"{owner}/{repo}" + "\") { issues { count } } }"}
 
         try:
-            response = self.request_with_retry(url, RequestTypes.POST, json=query, headers=self.headers)
+            response = self.request_with_retry(url, RequestTypes.POST, params=query, headers=self.headers)
             if not str(response.status_code).startswith('4'):
                 return response.json()["data"]["project"]["issues"]["count"]
             else:
@@ -211,11 +208,11 @@ class Gitlab(BasePlatform):
         :param repo: Repository name.
         :return: Number of pull requests for the given repository.
         """
-        url = Endpoints.GITLAB_GRAPHQL()
+        url = Endpoints.GITLAB_GRAPHQL.value
         query = {"query": "{ project(fullPath: \"" + f"{owner}/{repo}" + "\") { mergeRequests { count } } }"}
 
         try:
-            response = self.request_with_retry(url, RequestTypes.POST, json=query, headers=self.headers)
+            response = self.request_with_retry(url, RequestTypes.POST, params=query, headers=self.headers)
             if not str(response.status_code).startswith('4'):
                 return response.json()["data"]["project"]["mergeRequests"]["count"]
             else:

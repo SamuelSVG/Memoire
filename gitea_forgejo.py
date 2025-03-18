@@ -22,6 +22,7 @@ class GiteaForgejo(BasePlatform):
         """
         params = {
             "q": "",  # Empty query to fetch all repositories
+            "mode": "source",  # Fetch only source repositories
             "sort": "updated",  # Sort by most recently updated
             "order": "desc",
             "limit": 50,  # Maximum allowed per page
@@ -62,8 +63,6 @@ class GiteaForgejo(BasePlatform):
                     "id": repo["id"],
                     "created": repo["created_at"],
                     "updated": repo["updated_at"],
-                    "language": repo.get("language", None),
-                    "license": repo.get("licenses", [None])[0] if repo.get("licenses") else None,
                     "default_branch": repo["default_branch"],
                     "#stars": repo["stars_count"],
                     "#forks": repo["forks_count"]

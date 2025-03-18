@@ -56,11 +56,14 @@ class BasePlatform(ABC):
         if response.status_code == 500:
             self.logger.error(f"Error fetching {url}: internal server error (500)")
             return response
+        if (isinstance(response.json(), dict) and isinstance(response.json().get("data",{}), dict)
+                and response.json().get("data",{}).get("key","") == "INSUFFICIENT_RIGHTS"):
+            self.logger.error(f"Error fetching {url}: insufficient rights")
         response.raise_for_status()
         return response
 
 
-    def get_metric(self,platform,metric,owner,repo):
+    def get_metric(self,metric,owner,repo,platform):
         """
         Function to fetch a given metric from a platform-specific API.
         :param platform: Platform to fetch the metric from.
@@ -73,7 +76,7 @@ class BasePlatform(ABC):
         url = getattr(Endpoints, temp)(owner, repo)
 
         try:
-            response = self.request_with_retry(url, headers=self.headers)
+            response = self.request_with_retry(url, RequestTypes.GET, headers=self.headers)
             if not str(response.status_code).startswith('4'):
                 link_header = response.headers.get("Link", "")
                 if 'rel="last"' in link_header:
@@ -102,6 +105,6 @@ class BasePlatform(ABC):
         for index, row in df.iterrows():
             owner, repo = row["owner"], row["repo"]
             self.logger.info(f"Fetching data for {owner}/{repo}...")
-            metric_counts.append(self.get_metric(platform,metric,owner,repo))
+            metric_counts.append(self.get_metric(metric,owner,repo,platform))
 
         df[metric.value] = metric_counts
