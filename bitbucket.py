@@ -42,8 +42,9 @@ class Bitbucket(BasePlatform):
         """
         repositories = []
         next_page = ""
-        for page in range(1, page_num):  # 100 repos per page
-            self.logger.info(f"Fetching page {page}...")
+        total_fetched = 0
+        while total_fetched < page_num*100:  # 100 repos per page
+            self.logger.info(f"Total of repositories fetched: {total_fetched}/{page_num*100}...")
             try:
                 if next_page == "":
                     data = self.fetch_page()
@@ -51,9 +52,12 @@ class Bitbucket(BasePlatform):
                 else:
                     data = self.fetch_page(url=next_page)
                     next_page = data["next"]
-                repositories.extend(data['values'])
+                # Filter and add only the values where the field "parent" is "null"
+                repositories_without_forks = [repo for repo in data['values'] if repo.get("parent") is None]
+                repositories.extend(repositories_without_forks)
+                total_fetched += len(repositories_without_forks)
             except requests.exceptions.RequestException as e:
-                self.logger.error(f"Error fetching page {page}: {e}")
+                self.logger.error(f"Error while fetching repositories : {e}")
                 break
 
         # Extract relevant repository data
@@ -68,7 +72,7 @@ class Bitbucket(BasePlatform):
                     "updated": repo["updated_on"],
                     "default_branch": repo["mainbranch"]["name"]
                 }
-                for repo in repositories
+                for repo in repositories[:page_num*100]
             ]
             return data
         return None

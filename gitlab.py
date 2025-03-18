@@ -51,11 +51,17 @@ class Gitlab(BasePlatform):
         :return: List of dictionaries containing repository data.
         """
         repositories = []
-        for page in range(1, page_num):  # 100 repos per page
+        total_fetched = 0
+        page = 1
+        while total_fetched < page_num*100:  # 100 repos per page
             self.logger.info(f"Fetching page {page}...")
             try:
                 data = self.fetch_page(page)
-                repositories.extend(data)
+                page += 1
+                # Filter and add only the values where the field "parent" is "null"
+                repositories_without_forks = [repo for repo in data if "forked_from_project" not in repo]
+                repositories.extend(repositories_without_forks)
+                total_fetched += len(repositories_without_forks)
             except requests.exceptions.RequestException as e:
                 self.logger.error(f"Error fetching page {page}: {e}")
                 break
@@ -74,7 +80,7 @@ class Gitlab(BasePlatform):
                     "#stars": repo.get("star_count", None),
                     "#forks": repo.get("forks_count", None),
                 }
-                for repo in repositories
+                for repo in repositories[:page_num*100]
             ]
             return data
         return None
