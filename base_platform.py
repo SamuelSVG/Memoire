@@ -14,7 +14,6 @@ class BasePlatform(ABC):
     This file defines the abstract base class for platform-specific matchers.
     """
     # Set up logging
-    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
     logger = logging.getLogger(__name__)
 
 

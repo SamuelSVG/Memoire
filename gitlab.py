@@ -149,7 +149,7 @@ class Gitlab(BasePlatform):
                 ec.presence_of_all_elements_located((By.CLASS_NAME, "project-stat-value"))
             )
         except Exception as e:
-            print(f"Error: {e}")
+            self.logger.error(f"Error: {e}")
             driver.quit()
             return []
 

@@ -1,10 +1,21 @@
+import logging
 import shutil
 import git
 import os
 import subprocess
 import json
 from endpoints import Endpoints
+import git_tools
+import sys
 
+# Set up logging
+logging.basicConfig(level=logging.INFO, stream=sys.stdout)
+
+def setup_tools_containers():
+    """Set up Docker containers with GitHub-Linguist and Licensee installed."""
+    git_tools.check_docker()
+    git_tools.build_licensee_image()
+    git_tools.build_linguist_image()
 
 def clone_repository(owner, repo, platform):
     """
@@ -17,12 +28,14 @@ def clone_repository(owner, repo, platform):
     url = getattr(Endpoints, temp)(owner, repo)
     try:
         target_path = os.path.join(os.getcwd(), "temp")
-        print(f"Cloning {url} into {target_path}...")
+        if os.path.exists(target_path):
+            shutil.rmtree(target_path)
+        logging.info(f"Cloning {url} into {target_path}...")
         git.Repo.clone_from(url, target_path)
-        print("Clone successful!")
+        logging.info("Clone successful!")
 
     except Exception as e:
-        print(f"Error cloning repository: {e}")
+        logging.error(f"Error cloning repository: {e}")
 
 def get_repo_size(repo_path):
     """
@@ -36,7 +49,6 @@ def get_repo_size(repo_path):
             fp = os.path.join(dirpath, f)
             if os.path.isfile(fp):  # Avoid broken symlinks
                 total_size += os.path.getsize(fp)
-    print(total_size)
     return total_size  # Returns size in bytes
 
 
@@ -47,26 +59,11 @@ def get_repo_license(repo_path):
     :return: License of the repository.
     """
     try:
-        # Try to locate 'licensee' in the system's PATH
-        licensee_path = shutil.which("licensee")
-        if not licensee_path:
-            print("Not found")
-            raise FileNotFoundError("The 'licensee' tool is not installed or not in the system's PATH.")
-
-        result = subprocess.run(
-            [licensee_path, "detect", repo_path, "--json"],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-
-        data = json.loads(result.stdout)
+        data = git_tools.analyze_directory("licensee",repo_path)
         license_name = data.get("licenses", [])[0].get("spdx_id", "No license detected")
         return license_name
-    except FileNotFoundError as e:
-        print(f"Error: {e}")
-        return None
     except subprocess.CalledProcessError as e:
+        logging.error(f"Error detecting license: {e}")
         return None
 
 def get_language_distribution(repo_path):
@@ -76,31 +73,16 @@ def get_language_distribution(repo_path):
     :return: Language distribution of the repository.
     """
     try:
-        linguist_path = shutil.which("github-linguist")
-        if not linguist_path:
-            raise FileNotFoundError("The 'licensee' tool is not installed or not in the system's PATH.")
-
-        result = subprocess.run(
-            [linguist_path, repo_path, "--json"],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-
-        output = result.stdout.strip()
-        if output == "{}":
-            print("No language distribution detected.")
+        data = git_tools.analyze_directory("linguist",repo_path)
+        if data == {}:
+            logging.info("No language distribution detected.")
             return None, None
         else:
-            data = json.loads(output)
             main_language = max(data, key=lambda k: float(data[k]["percentage"]))
             return main_language, json.dumps(data)
 
-    except FileNotFoundError:
-        print("Error: GitHub Linguist command not found. Ensure it's installed.")
-        return "Linguist not found"
     except subprocess.CalledProcessError as e:
-        print(f"No language distribution detected: {e}")
+        logging.error(f"Error when analyzing language distribution: {e}")
         return None, None
 
 def get_commit_count(repo_path):
@@ -119,7 +101,7 @@ def get_commit_count(repo_path):
         return commit_count
 
     except subprocess.CalledProcessError as e:
-        print(f"Error getting commit count: {e}")
+        logging.error(f"Error getting commit count: {e}")
         return None
 
 def get_branch_count(repo_path):
@@ -143,8 +125,8 @@ def get_branch_count(repo_path):
         return branch_count
 
     except subprocess.CalledProcessError as e:
-        print(f"Error getting branch count: {e}")
-        return "Error getting branch count"
+        logging.error(f"Error getting branch count: {e}")
+        return None
 
 def get_contributor_count(repo_path):
     """Get the number of contributors in a Git repository using git shortlog."""
@@ -165,22 +147,25 @@ def get_contributor_count(repo_path):
         return contributor_count
 
     except subprocess.CalledProcessError as e:
-        print(f"Error getting contributor count: {e}")
-        return "Error getting contributor count"
+        logging.error(f"Error getting contributor count: {e}")
+        return None
 
 def delete_directory(repo_path):
     try:
         if not os.path.exists(repo_path):
-            print(f"Directory '{repo_path}' does not exist.")
+            logging.info(f"Directory '{repo_path}' does not exist.")
             return False
         else:
             shutil.rmtree(repo_path)
-            print(f"Directory '{repo_path}' deleted.")
+            logging.info(f"Directory '{repo_path}' deleted.")
     except Exception as e:
-        print(f"Error deleting directory contents: {e}")
+        logging.error(f"Error deleting directory contents: {e}")
         return False
 
 def add_git_metrics(df, platform):
+    # Set up the Docker containers for the tools
+    setup_tools_containers()
+
     # Ensure the necessary columns exist in the DataFrame
     columns = ["size", "license", "main_language", "language_distribution", "#commits", "#branches", "#contributors"]
     for column in columns:
@@ -200,4 +185,4 @@ def add_git_metrics(df, platform):
             df.at[index, "#contributors"] = get_contributor_count(repo_path)
             delete_directory(repo_path)
         except Exception as e:
-            print(f"Error processing repository '{owner}/{repo}': {e}")
+            logging.error(f"Error processing repository '{owner}/{repo}': {e}")
