@@ -7,6 +7,8 @@ import json
 from endpoints import Endpoints
 import git_tools
 import sys
+import platform as plat
+import stat
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
@@ -131,24 +133,40 @@ def get_branch_count(repo_path):
 def get_contributor_count(repo_path):
     """Get the number of contributors in a Git repository using git shortlog."""
     try:
-        # Run 'git shortlog -s -n --all | sort | uniq | wc -l' to get the count of unique contributors
-        result = subprocess.run(
-            "git shortlog -s -n --all | sort | uniq | wc -l",
-            cwd=repo_path,  # Run the command inside the repo
-            capture_output=True,
-            text=True,
-            shell=True,  # Enable shell to use pipes and multiple commands
-            check=True
-        )
+        if plat.system() == "Windows":
+            # PowerShell command for Windows
+            git_command = "(git shortlog -s -n --all | Sort-Object | Get-Unique | Measure-Object -Line).Lines"
+            result = subprocess.run(
+                ["powershell", "-Command", git_command],  # Run the command in PowerShell
+                cwd=repo_path,
+                capture_output=True,
+                text=True,
+                check=True
+            )
+        else:
+            # Command for macOS/Linux
+            git_command = "git shortlog -s -n --all | sort | uniq | wc -l"
+            result = subprocess.run(
+                git_command,
+                cwd=repo_path,
+                capture_output=True,
+                text=True,
+                shell=True,
+                check=True
+            )
 
-        # The result will be a single number output by wc -l
+        # Extract just the number
         contributor_count = int(result.stdout.strip())
-
         return contributor_count
 
     except subprocess.CalledProcessError as e:
         logging.error(f"Error getting contributor count: {e}")
         return None
+
+def force_remove_readonly(func, path, _):
+    """Clear the read-only flag and retry deletion."""
+    os.chmod(path, stat.S_IWRITE)  # Make file writable
+    func(path)  # Retry deletion
 
 def delete_directory(repo_path):
     try:
@@ -156,7 +174,7 @@ def delete_directory(repo_path):
             logging.info(f"Directory '{repo_path}' does not exist.")
             return False
         else:
-            shutil.rmtree(repo_path)
+            shutil.rmtree(repo_path, onerror=force_remove_readonly)
             logging.info(f"Directory '{repo_path}' deleted.")
     except Exception as e:
         logging.error(f"Error deleting directory contents: {e}")
@@ -176,6 +194,10 @@ def add_git_metrics(df, platform):
         owner, repo = row["owner"], row["repo"]
         try:
             repo_path = os.path.join(os.getcwd(), "temp")
+            # Convert Windows path to Docker-compatible format
+            if plat.system() == "Windows":
+                repo_path = repo_path.replace("\\", "/")
+
             clone_repository(owner, repo, platform)
             df.at[index, "size"] = get_repo_size(repo_path)
             df.at[index, "license"] = get_repo_license(repo_path)

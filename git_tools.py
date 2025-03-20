@@ -3,6 +3,7 @@ import os.path
 import subprocess
 import sys
 import logging
+import platform as plat
 
 DOCKER_IMAGE_LINGUIST = "linguist"
 DOCKER_IMAGE_LICENSEE = "licensee"
@@ -56,12 +57,16 @@ def build_licensee_image():
 
 def analyze_directory(tool, path):
     """Analyze a directory using the specified GitHub tool inside the Docker container."""
+    if plat.system() == "Windows":
+        docker_path = path[2:]
+    else:
+        docker_path = path
     if tool == "linguist":
         result = subprocess.run([
-            "docker", "run", "--rm", "-v", f"{path}:{path}:Z", "-w", path, "-t", DOCKER_IMAGE_LINGUIST, "github-linguist", "--json"
+            "docker", "run", "--rm", "-v", f"{path}:{docker_path}:Z", "-w", docker_path, "-t", DOCKER_IMAGE_LINGUIST, "github-linguist", "--json"
         ], check=True,capture_output=True,text=True)
     else:
         result = subprocess.run([
-            "docker", "run", "--rm", "-v", f"{path}:{path}", DOCKER_IMAGE_LICENSEE, "detect", path, "--json"
+            "docker", "run", "--rm", "-v", f"{path}:{docker_path}", DOCKER_IMAGE_LICENSEE, "detect", docker_path, "--json"
         ], check=True,capture_output=True,text=True)
     return json.loads(result.stdout)
