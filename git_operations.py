@@ -35,9 +35,11 @@ def clone_repository(owner, repo, platform):
         logging.info(f"Cloning {url} into {target_path}...")
         git.Repo.clone_from(url, target_path)
         logging.info("Clone successful!")
+        return True
 
     except Exception as e:
         logging.error(f"Error cloning repository: {e}")
+        return False
 
 def get_repo_size(repo_path):
     """
@@ -198,13 +200,13 @@ def add_git_metrics(df, platform):
             if plat.system() == "Windows":
                 repo_path = repo_path.replace("\\", "/")
 
-            clone_repository(owner, repo, platform)
-            df.at[index, "size"] = get_repo_size(repo_path)
-            df.at[index, "license"] = get_repo_license(repo_path)
-            df.at[index, "main_language"], df.at[index, "language_distribution"] = get_language_distribution(repo_path)
-            df.at[index, "#commits"] = get_commit_count(repo_path)
-            df.at[index, "#branches"] = get_branch_count(repo_path)
-            df.at[index, "#contributors"] = get_contributor_count(repo_path)
+            if clone_repository(owner, repo, platform):
+                df.at[index, "size"] = get_repo_size(repo_path)
+                df.at[index, "license"] = get_repo_license(repo_path)
+                df.at[index, "main_language"], df.at[index, "language_distribution"] = get_language_distribution(repo_path)
+                df.at[index, "#commits"] = get_commit_count(repo_path)
+                df.at[index, "#branches"] = get_branch_count(repo_path)
+                df.at[index, "#contributors"] = get_contributor_count(repo_path)
             delete_directory(repo_path)
         except Exception as e:
             logging.error(f"Error processing repository '{owner}/{repo}': {e}")
