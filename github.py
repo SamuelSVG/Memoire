@@ -19,7 +19,8 @@ class GitHub(BasePlatform):
         :return: JSON response from the API.
         """
         params = {
-            "q": "forks=false", # Empty query to fetch all repositories
+            "q": "size:>0", # Empty query to fetch all repositories
+            "fork": "false",
             "sort": "updated",
             "order": "desc",
             "per_page": 100, # Maximum allowed per page

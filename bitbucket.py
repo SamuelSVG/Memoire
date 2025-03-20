@@ -21,9 +21,9 @@ class Bitbucket(BasePlatform):
         :param url: The URL to fetch.
         :return: JSON response from the API.
         """
-        yesterday = (datetime.now() - timedelta(1)).strftime('%Y-%m-%d')
+        date = (datetime.now() - timedelta(2)).strftime('%Y-%m-%d')
         params = {
-            "after": yesterday,
+            "after": date,
             "pagelen": 100, # Maximum allowed per page
         }
         if url is None:
