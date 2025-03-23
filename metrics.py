@@ -11,3 +11,4 @@ class Metrics(Enum):
     LANGUAGE= "language"
     LICENSE= "license"
     SIZE = "size"
+    UPDATED= "updated"

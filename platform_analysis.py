@@ -10,18 +10,31 @@ from metrics import Metrics
 
 # Define bins and labels for different metrics
 metric_bins = {
-    "commit": [1, 10, 100, 1000, 10000, 100000, 1000000],
-    "size": [1, 10**3, 10**4, 10**5, 10**6, 10**7],
-    "branch": [0, 1, 5, 20, 100, 500]
+    "commit": [1, 10, 10**2, 10**3, 10**4, 10**5, np.inf],
+    "size": [1, 10**5, 10**6, 10**7, 10**8, 10**9, np.inf],
+    "branch": [0, 1, 5, 20, 100, np.inf],
+    "contributor": [0, 1, 5, 10, 20, np.inf],
+    "issue": [-np.inf, 0, 5, 10, 100, np.inf],
+    "pull_request": [-np.inf, 0, 5, 10, 100, np.inf],
+    "updated": [0, 1, 7, 30, 180, 360, np.inf],
 }
 
 metric_labels = {
-    "commit": ["1-10", "11-100", "101-1K", "1K-10K", "10K-100K", "100K-1M"],
-    "size": ["1KB-1MB", "1MB-10MB", "10MB-100MB", "100MB-1GB", "1GB-10GB"],
-    "branch": ["1", "2-5", "6-20", "21-100", "101-500"]
+    "commit": ["1-10", "11-100", "101-1K", "1K-10K", "10K-100K", ">100K"],
+    "size": ["1B-100KB","100KB-1MB", "1MB-10MB", "10MB-100MB", "100MB-1GB", ">1GB"],
+    "branch": ["1", "2-5", "6-20", "21-100", ">100"],
+    "contributor": ["1", "2-5", "6-10", "11-20", ">20"],
+    "issue": ["0", "1-5", "6-10", "11-100", ">100"],
+    "pull_request": ["0", "1-5", "6-10", "11-100", ">100"],
+    "updated": ["<1 day", "1-7 days", "8-30 days", "31-180 days", "181-360 days", ">360 days"],
 }
 
-def plot_language_distribution(df_github, df_gitea):
+matching_features = {
+    "git": ["#commits", "#branches", "#contributors", "size"],
+    "platform": ["#stars", "#forks", "#issues", "#pull_requests"],
+}
+
+def plot_language_distribution(df_github, df_gitlab, df_bitbucket, df_gitea, df_forgejo):
     """
     Plot the distribution of programming languages across different platforms repositories.
     :param df_github: DataFrame containing GitHub repositories.
@@ -29,28 +42,40 @@ def plot_language_distribution(df_github, df_gitea):
     :return: A plot showing the distribution of programming languages.
     """
     # Remove missing values
-    df_github = df_github.dropna(subset=['language'])
-    df_gitea = df_gitea.dropna(subset=['language'])
+    df_github = df_github.dropna(subset=['main_language'])
+    df_gitlab = df_gitlab.dropna(subset=['main_language'])
+    df_bitbucket = df_bitbucket.dropna(subset=['main_language'])
+    df_gitea = df_gitea.dropna(subset=['main_language'])
+    df_forgejo = df_forgejo.dropna(subset=['main_language'])
 
     # Count repositories per language
-    github_counts = df_github['language'].value_counts()
-    gitea_counts = df_gitea['language'].value_counts()
+    github_counts = df_github['main_language'].value_counts()
+    gitlab_counts = df_gitlab['main_language'].value_counts()
+    bitbucket_counts = df_bitbucket['main_language'].value_counts()
+    gitea_counts = df_gitea['main_language'].value_counts()
+    forgejo_counts = df_forgejo['main_language'].value_counts()
 
     # Calculate the percentage of repositories for each language
     github_percentages = (github_counts / github_counts.sum()) * 100
+    gitlab_percentages = (gitlab_counts / gitlab_counts.sum()) * 100
+    bitbucket_percentages = (bitbucket_counts / bitbucket_counts.sum()) * 100
     gitea_percentages = (gitea_counts / gitea_counts.sum()) * 100
+    forgejo_percentages = (forgejo_counts / forgejo_counts.sum()) * 100
 
     # Identify top 10 languages across both platforms
-    top_languages = set(github_percentages.head(10).index) | set(gitea_percentages.head(10).index)
+    top_languages = set(github_percentages.head(10).index) | set(gitlab_percentages.head(10).index) | set(bitbucket_percentages.head(10).index) | set(gitea_percentages.head(10).index) | set(forgejo_percentages.head(10).index)
 
     # Filter data to include only the top languages
     github_percentages = github_percentages[github_percentages.index.isin(top_languages)]
+    gitlab_percentages = gitlab_percentages[gitlab_percentages.index.isin(top_languages)]
+    bitbucket_percentages = bitbucket_percentages[bitbucket_percentages.index.isin(top_languages)]
     gitea_percentages = gitea_percentages[gitea_percentages.index.isin(top_languages)]
+    forgejo_percentages = forgejo_percentages[forgejo_percentages.index.isin(top_languages)]
 
     # Merge the data to ensure all top languages appear
-    top_languages_df = pd.concat([github_percentages, gitea_percentages], axis=1, keys=['GitHub', 'Gitea']).fillna(0)
+    top_languages_df = pd.concat([github_percentages, gitlab_percentages, bitbucket_percentages, gitea_percentages, forgejo_percentages], axis=1, keys=['GitHub', 'Gitlab', 'Bitbucket', 'Gitea', 'Forgejo']).fillna(0)
     top_languages_df = top_languages_df.reset_index()
-    top_languages_df.columns = ['language', 'GitHub', 'Gitea']
+    top_languages_df.columns = ['language', 'GitHub', 'Gitlab', 'Bitbucket', 'Gitea', 'Forgejo']
 
     # Melt the data for plotting
     top_languages_df = top_languages_df.melt(id_vars='language', var_name='platform', value_name='percentage')
@@ -58,12 +83,66 @@ def plot_language_distribution(df_github, df_gitea):
     # Plot the bar chart
     plt.figure(figsize=(12, 8))
     sns.barplot(x='language', y='percentage', hue='platform', data=top_languages_df, palette='tab10')
-    plt.title("Language Distribution on GitHub and Gitea")
+    plt.title("Language Distribution on the main platforms")
     plt.xlabel("Programming Language")
     plt.ylabel("Percentage of Repositories (%)")
     plt.xticks(rotation=45)
     plt.grid(axis='x', linestyle='--', alpha=0.7)
     plt.show()
+
+def plot_license_distribution(df_github, df_gitlab, df_bitbucket, df_gitea, df_forgejo):
+    """
+    Plot the distribution of licenses across different platforms repositories.
+    :param df_github: DataFrame containing GitHub repositories.
+    :param df_gitea: DataFrame containing Gitea repositories.
+    :return: A plot showing the distribution of licenses.
+    """
+    # Remove missing values
+    df_github_clean = df_github.dropna(subset=['license'])
+    df_gitlab_clean = df_gitlab.dropna(subset=['license'])
+    df_bitbucket_clean = df_bitbucket.dropna(subset=['license'])
+    df_gitea_clean = df_gitea.dropna(subset=['license'])
+    df_forgejo_clean = df_forgejo.dropna(subset=['license'])
+
+    # Count repositories per license
+    github_counts = df_github_clean['license'].value_counts()
+    gitlab_counts = df_gitlab_clean['license'].value_counts()
+    bitbucket_counts = df_bitbucket_clean['license'].value_counts()
+    gitea_counts = df_gitea_clean['license'].value_counts()
+    forgejo_counts = df_forgejo_clean['license'].value_counts()
+
+    # Calculate the percentage of repositories for each license
+    github_percentages = (github_counts / len(df_github)) * 100
+    gitlab_percentages = (gitlab_counts / len(df_gitlab)) * 100
+    bitbucket_percentages = (bitbucket_counts / len(df_bitbucket)) * 100
+    gitea_percentages = (gitea_counts / len(df_gitea)) * 100
+    forgejo_percentages = (forgejo_counts / len(df_forgejo)) * 100
+
+    # Merge the data to ensure all top languages appear
+    license_df = pd.concat([github_percentages, gitlab_percentages, bitbucket_percentages, gitea_percentages, forgejo_percentages], axis=1, keys=['GitHub', 'Gitlab', 'Bitbucket', 'Gitea', 'Forgejo']).fillna(0)
+    license_df = license_df.reset_index()
+    license_df.columns = ['license', 'GitHub', 'Gitlab', 'Bitbucket', 'Gitea', 'Forgejo']
+
+    # Melt the data for plotting
+    license_df = license_df.melt(id_vars='license', var_name='platform', value_name='percentage')
+
+    # Plot the bar chart
+    plt.figure(figsize=(12, 8))
+    sns.barplot(x='license', y='percentage', hue='platform', data=license_df, palette='tab10')
+    plt.title("License Distribution on the main platforms")
+    plt.xlabel("License")
+    plt.ylabel("Percentage of Repositories (%)")
+    plt.xticks(rotation=45)
+    plt.grid(axis='x', linestyle='--', alpha=0.7)
+    plt.show()
+
+    # Print max, mean, and median values for each DataFrame
+    print(f"GitHub repositories that have a license: {(len(df_github_clean) / len(df_github)) * 100:.2f}%")
+    print(f"Gitlab repositories that have a license: {(len(df_gitlab_clean) / len(df_gitlab)) * 100:.2f}%")
+    print(f"Bitbucket repositories that have a license: {(len(df_bitbucket_clean) / len(df_bitbucket)) * 100:.2f}%")
+    print(f"Gitea repositories that have a license: {(len(df_gitea_clean) / len(df_gitea)) * 100:.2f}%")
+    print(f"Forgejo repositories that have a license: {(len(df_forgejo_clean) / len(df_forgejo)) * 100:.2f}%")
+
 
 # TODO - Add the plot_language_distribution_sankey function
 def plot_language_distribution_sankey(df_github, df_gitea):
@@ -149,6 +228,16 @@ def bin_data(df, platform, metric):
     metric_column = metric.value
 
     df = df.dropna(subset=[metric_column]).copy()
+
+    # Check if the metric column is a date
+    if metric == Metrics.UPDATED:
+        df[metric_column] = pd.to_datetime(df[metric_column], errors='coerce')
+        df["created"] = pd.to_datetime(df["created"], errors='coerce')
+        # Calculate the time elapsed in days
+        df["updated"] = (df[metric_column] - df["created"]).dt.total_seconds() / (60 * 60 * 24)  # Convert to days
+        # Use the time_elapsed column for binning
+        df[metric_column] = df["updated"]
+
     df.loc[:, metric_column] = pd.to_numeric(df[metric_column], errors='coerce')
 
     # Define bins based on the metric
@@ -168,7 +257,7 @@ def bin_data(df, platform, metric):
     return pd.DataFrame({'platform': platform, f'{metric_name}_range': labels, 'percentage': metric_percentages.values})
 
 
-def plot_distribution(df_github, df_gitea, metric):
+def plot_distribution(df_github, df_gitlab, df_bitbucket, df_gitea, df_forgejo, metric):
     """
     Plot the distribution of a given metric across different platforms.
     :param df_github: DataFrame containing GitHub repositories.
@@ -180,8 +269,16 @@ def plot_distribution(df_github, df_gitea, metric):
     metric_name = str(metric.name.lower())
 
     df_github_bins = bin_data(df_github, "GitHub", metric)
+    df_gitlab_bins = bin_data(df_gitlab, "Gitlab", metric)
+    if metric != Metrics.ISSUE:
+        df_bitbucket_bins = bin_data(df_bitbucket, "Bitbucket", metric)
     df_gitea_bins = bin_data(df_gitea, "Gitea", metric)
-    df_bins = pd.concat([df_github_bins, df_gitea_bins])
+    df_forgejo_bins = bin_data(df_forgejo, "Forgejo", metric)
+    if metric != Metrics.ISSUE:
+        df_bins = pd.concat([df_github_bins, df_gitlab_bins, df_bitbucket_bins, df_gitea_bins, df_forgejo_bins])
+    else:
+        df_bins = pd.concat([df_github_bins, df_gitlab_bins, df_gitea_bins, df_forgejo_bins])
+
 
     # Create the figure
     plt.figure(figsize=(12, 6))
@@ -195,8 +292,29 @@ def plot_distribution(df_github, df_gitea, metric):
 
     plt.show()
 
+    if metric == Metrics.UPDATED:
+        # Convert date columns to Unix timestamps
+        df_github[metric.value] = (pd.to_datetime(df_github[metric.value], errors='coerce').astype(int) / 10 ** 9 -
+                                   pd.to_datetime(df_github["created"], errors='coerce').astype(int) / 10 ** 9) / (60 * 60 * 24)
+        df_gitlab[metric.value] = (pd.to_datetime(df_gitlab[metric.value], errors='coerce').astype(int) / 10 ** 9 -
+                                   pd.to_datetime(df_gitlab["created"], errors='coerce').astype(int) / 10 ** 9) / (60 * 60 * 24)
+        df_bitbucket[metric.value] = (pd.to_datetime(df_bitbucket[metric.value], errors='coerce').astype(int) / 10 ** 9 -
+                                   pd.to_datetime(df_bitbucket["created"], errors='coerce').astype(int) / 10 ** 9) / (60 * 60 * 24)
+        df_gitea[metric.value] = (pd.to_datetime(df_gitea[metric.value], errors='coerce').astype(int) / 10 ** 9 -
+                                   pd.to_datetime(df_gitea["created"], errors='coerce').astype(int) / 10 ** 9) / (60 * 60 * 24)
+        df_forgejo[metric.value] = (pd.to_datetime(df_forgejo[metric.value], errors='coerce').astype(int) / 10 ** 9 -
+                                   pd.to_datetime(df_forgejo["created"], errors='coerce').astype(int) / 10 ** 9) / (60 * 60 * 24)
 
-def propensity_score_matching(df_platform1, df_platform2, metric, max_difference=0.2):
+    # Print max, mean, and median values for each DataFrame
+    print(f"GitHub - Max {metric_name}: {int(df_github[metric.value].max())}, Mean {metric_name}: {int(df_github[metric.value].mean())}, Median {metric_name}: {int(df_github[metric.value].median())}")
+    print(f"GitLab - Max {metric_name}: {int(df_gitlab[metric.value].max())}, Mean {metric_name}: {int(df_gitlab[metric.value].mean())}, Median {metric_name}: {int(df_gitlab[metric.value].median())}")
+    if metric != Metrics.ISSUE:
+        print(f"Bitbucket - Max {metric_name}: {int(df_bitbucket[metric.value].max())}, Mean {metric_name}: {int(df_bitbucket[metric.value].mean())}, Median {metric_name}: {int(df_bitbucket[metric.value].median())}")
+    print(f"Gitea - Max {metric_name}: {int(df_gitea[metric.value].max())}, Mean {metric_name}: {int(df_gitea[metric.value].mean())}, Median {metric_name}: {int(df_gitea[metric.value].median())}")
+    print(f"Forgejo - Max {metric_name}: {int(df_forgejo[metric.value].max())}, Mean {metric_name}: {int(df_forgejo[metric.value].mean())}, Median {metric_name}: {int(df_forgejo[metric.value].median())}")
+
+
+def propensity_score_matching(df_platform1, df_platform2, metric, scale="linear", max_difference=0.2):
     """
     Perform propensity score matching based on a given metric and plot the matched repository sizes.
     :param df_platform1: DataFrame containing repositories from platform 1.
@@ -210,10 +328,13 @@ def propensity_score_matching(df_platform1, df_platform2, metric, max_difference
     df = pd.concat([df_platform1, df_platform2])
 
     # Use common metrics for matching but exclude the metric we want to compare
-    features = []
-    for feature in Metrics:
-        if feature != metric and feature != Metrics.LANGUAGE and feature != Metrics.LICENSE:
-            features.append(feature.value)
+    if metric.value in matching_features["git"]:
+        features = matching_features["git"].copy()
+        features.remove(metric.value)
+    else:
+        features = matching_features["platform"].copy()
+        features.remove(metric.value)
+    print(features)
     df = df.dropna(subset=features)
 
     # Normalize Features
@@ -275,8 +396,10 @@ def propensity_score_matching(df_platform1, df_platform2, metric, max_difference
     plt.plot([min_size, max_size], [min_size, max_size], color="red", linestyle="--", label="Perfect Match (y = x)")
     plt.xlabel(f"GitHub {metric.value}")
     plt.ylabel(f"Gitea {metric.value}")
-    plt.xscale("log")
-    plt.yscale("log")
+    plt.xscale(scale)
+    plt.xticks(rotation=90)
+    plt.yscale(scale)
+    plt.yticks(rotation=90)
     plt.xlim(min_size, max_size)
     plt.ylim(min_size, max_size)
     plt.title(f"Matched Repository Sizes: GitHub vs Gitea (Max Difference ≤ {max_difference})")
