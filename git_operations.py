@@ -19,7 +19,7 @@ def setup_tools_containers():
     git_tools.build_licensee_image()
     git_tools.build_linguist_image()
 
-def clone_repository(owner, repo, platform):
+def clone_repository(owner, repo, platform, shallow=False, metadata=False):
     """
     Function to clone a repository from a platform-specific API.
     :param owner: Owner of the repository.
@@ -33,7 +33,12 @@ def clone_repository(owner, repo, platform):
         if os.path.exists(target_path):
             shutil.rmtree(target_path)
         logging.info(f"Cloning {url} into {target_path}...")
-        git.Repo.clone_from(url, target_path)
+        if shallow:
+            git.Repo.clone_from(url, target_path, depth=1)
+        elif metadata:
+            git.Repo.clone_from(url, target_path, filter="blob:none", no_checkout=True)
+        else:
+            git.Repo.clone_from(url, target_path)
         logging.info("Clone successful!")
         return True
 
@@ -194,19 +199,21 @@ def add_git_metrics(df, platform):
 
     for index, row in df.iterrows():
         owner, repo = row["owner"], row["repo"]
+        logging.info(f"Processing repository {index + 1} out of {len(df)}")
         try:
             repo_path = os.path.join(os.getcwd(), "temp")
             # Convert Windows path to Docker-compatible format
             if plat.system() == "Windows":
                 repo_path = repo_path.replace("\\", "/")
 
-            if clone_repository(owner, repo, platform):
-                df.at[index, "size"] = get_repo_size(repo_path)
-                df.at[index, "license"] = get_repo_license(repo_path)
-                df.at[index, "main_language"], df.at[index, "language_distribution"] = get_language_distribution(repo_path)
+            if clone_repository(owner, repo, platform, metadata=True):
                 df.at[index, "#commits"] = get_commit_count(repo_path)
                 df.at[index, "#branches"] = get_branch_count(repo_path)
                 df.at[index, "#contributors"] = get_contributor_count(repo_path)
+            if clone_repository(owner, repo, platform, shallow=True):
+                df.at[index, "size"] = get_repo_size(repo_path)
+                df.at[index, "license"] = get_repo_license(repo_path)
+                df.at[index, "main_language"], df.at[index, "language_distribution"] = get_language_distribution(repo_path)
             delete_directory(repo_path)
         except Exception as e:
             logging.error(f"Error processing repository '{owner}/{repo}': {e}")
