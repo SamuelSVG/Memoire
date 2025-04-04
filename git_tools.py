@@ -1,5 +1,6 @@
 import json
 import os.path
+import shutil
 import subprocess
 import sys
 import logging
@@ -30,28 +31,30 @@ def check_docker():
 def build_linguist_image():
     """Build the Docker image for GitHub-Linguist."""
     logging.info("Cloning Github-Linguist and building docker image")
-    if not os.path.isdir("linguist"):
-        subprocess.run(["git", "clone", "https://github.com/github-linguist/linguist"], check=True)
     # Check if the Docker image already exists
     result = subprocess.run(["docker", "images", "-q", DOCKER_IMAGE_LINGUIST], capture_output=True, text=True)
     if result.stdout.strip():
         logging.info("Github-Linguist image already exists.")
     else:
+        if not os.path.isdir("linguist"):
+            subprocess.run(["git", "clone", "https://github.com/github-linguist/linguist"], check=True)
         subprocess.run(["docker", "build", "-t", DOCKER_IMAGE_LINGUIST, "linguist"], check=True)
+        shutil.rmtree("linguist")
         logging.info("Github-Linguist image built successfully.")
 
 
 def build_licensee_image():
     """Clone and build the Docker image for GitHub-Licensee."""
     logging.info("Cloning Github-Licensee and building docker image")
-    if not os.path.isdir("licensee"):
-        subprocess.run(["git", "clone", "https://github.com/licensee/licensee"], check=True)
     # Check if the Docker image already exists
     result = subprocess.run(["docker", "images", "-q", DOCKER_IMAGE_LICENSEE], capture_output=True, text=True)
     if result.stdout.strip():
         logging.info("Licensee image already exists.")
     else:
+        if not os.path.isdir("licensee"):
+            subprocess.run(["git", "clone", "https://github.com/licensee/licensee"], check=True)
         subprocess.run(["docker", "build", "-t", DOCKER_IMAGE_LICENSEE, "licensee"], check=True)
+        shutil.rmtree("licensee")
         logging.info("Licensee image built successfully.")
 
 
