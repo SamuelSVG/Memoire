@@ -9,6 +9,7 @@ import git_tools
 import sys
 import platform as plat
 import stat
+import time
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
@@ -214,6 +215,39 @@ def add_git_metrics(df, platform):
                 df.at[index, "size"] = get_repo_size(repo_path)
                 df.at[index, "license"] = get_repo_license(repo_path)
                 df.at[index, "main_language"], df.at[index, "language_distribution"] = get_language_distribution(repo_path)
+            delete_directory(repo_path)
+        except Exception as e:
+            logging.error(f"Error processing repository '{owner}/{repo}': {e}")
+
+# TODO: Test this function
+def compare_git_clone_speed(df, platform):
+    # Ensure the necessary columns exist in the DataFrame
+    columns = ["shallow_clone_time", "full_clone_time"]
+    for column in columns:
+        if column not in df.columns:
+            df[column] = None
+
+    for index, row in df.iterrows():
+        owner, repo = row["owner"], row["repo"]
+        logging.info(f"Processing repository {index + 1} out of {len(df)}")
+        try:
+            repo_path = os.path.join(os.getcwd(), "temp")
+            # Convert Windows path to Docker-compatible format
+            if plat.system() == "Windows":
+                repo_path = repo_path.replace("\\", "/")
+
+            # Shallow clone
+            start_time = time.time()
+            clone_repository(owner, repo, platform, shallow=True)
+            shallow_clone_time = time.time() - start_time
+            df.at[index, "shallow_clone_time"] = shallow_clone_time
+
+            # Full clone
+            start_time = time.time()
+            clone_repository(owner, repo, platform)
+            full_clone_time = time.time() - start_time
+            df.at[index, "full_clone_time"] = full_clone_time
+
             delete_directory(repo_path)
         except Exception as e:
             logging.error(f"Error processing repository '{owner}/{repo}': {e}")

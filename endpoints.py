@@ -5,6 +5,9 @@ class Endpoints(Enum):
     GITHUB_SEARCH = "https://api.github.com/search/repositories"
     GITHUB_GRAPHQL = "https://api.github.com/graphql"
     @staticmethod
+    def GITHUB_REPO(owner, repo):
+        return f"https://api.github.com/repos/{owner}/{repo}"
+    @staticmethod
     def GITHUB_CLONE(owner, repo):
         return f"https://github.com/{owner}/{repo}.git"
     @staticmethod
@@ -29,6 +32,9 @@ class Endpoints(Enum):
 
     GITEA_SEARCH = "https://gitea.com/api/v1/repos/search"
     @staticmethod
+    def GITEA_REPO(owner, repo):
+        return f"https://gitea.com/api/v1/repos/{owner}/{repo}"
+    @staticmethod
     def GITEA_CLONE(owner, repo):
         return f"https://gitea.com/{owner}/{repo}.git"
     @staticmethod
@@ -52,6 +58,9 @@ class Endpoints(Enum):
 
 
     FORGEJO_SEARCH = "https://codeberg.org/api/v1/repos/search"
+    @staticmethod
+    def FORGEJO_REPO(owner, repo):
+        return f"https://codeberg.org/api/v1/repos/{owner}/{repo}"
     @staticmethod
     def FORGEJO_CLONE(owner, repo):
         return f"https://codeberg.org/{owner}/{repo}.git"
@@ -78,6 +87,9 @@ class Endpoints(Enum):
     GITLAB_SEARCH = "https://gitlab.com/api/v4/projects"
     GITLAB_GRAPHQL = "https://gitlab.com/api/graphql"
     @staticmethod
+    def GITLAB_REPO(id):
+        return f"https://gitlab.com/api/v4/projects/{id}"
+    @staticmethod
     def GITLAB_CLONE(owner, repo):
         return f"https://gitlab.com/{owner}/{repo}.git"
     @staticmethod
@@ -97,6 +109,9 @@ class Endpoints(Enum):
         return f"https://gitlab.com/api/v4/projects/{id}?license=true"
 
     BITBUCKET_SEARCH = "https://api.bitbucket.org/2.0/repositories"
+    @staticmethod
+    def BITBUCKET_REPO(owner, repo):
+        return f"https://api.bitbucket.org/2.0/repositories/{owner}/{repo}"
     @staticmethod
     def BITBUCKET_CLONE(owner, repo):
         return f"https://bitbucket.org/{owner}/{repo}.git"

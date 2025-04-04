@@ -9,6 +9,7 @@ class Metrics(Enum):
     ISSUE = "#issues"
     PULL_REQUEST = "#pull_requests"
     MAIN_LANGUAGE= "main_language"
+    LANGUAGE_DISTRIBUTION = "language_distribution"
     LICENSE= "license"
     SIZE = "size"
     UPDATED= "updated"

@@ -1,12 +1,13 @@
 from abc import ABC, abstractmethod
 import requests
 from endpoints import Endpoints
-import sys
+import pandas as pd
 import logging
 from tenacity import retry, stop_after_attempt, retry_if_exception_type, wait_fixed, before_log,after_log
 from requests.exceptions import HTTPError, Timeout
 from metrics import Metrics
 from request_types import RequestTypes
+from platforms import Platforms
 
 
 class BasePlatform(ABC):
@@ -61,6 +62,42 @@ class BasePlatform(ABC):
         response.raise_for_status()
         return response
 
+    def select_clonable_repositories(self, df, platform, n_repositories=10):
+        """
+        Function to select repositories that can be cloned based on platform-specific criteria.
+        :param df: DataFrame of repositories.
+        :param platform: Platform to fetch the metric from.
+        :return: DataFrame with clonable repositories.
+        """
+        clonable_repositories = pd.DataFrame({col: pd.Series(dtype=df[col].dtype) for col in df.columns})
+        temp_df = df.copy()
+        while len(clonable_repositories) < n_repositories:
+            self.logger.info(f"Fetching repository {len(clonable_repositories)+1} out of {n_repositories}")
+            if len(temp_df)+len(clonable_repositories) < n_repositories :
+                self.logger.info(f"Not enough repositories to select {n_repositories} clonable repositories.")
+                break
+            # Randomly select a row from the DataFrame
+            random_row = temp_df.sample(n=1, random_state=None)
+            temp_df = temp_df.drop(random_row.index)
+            owner, repo = random_row["owner"].values[0], random_row["repo"].values[0]
+            if "hack" in repo.lower() or "crack" in repo.lower():
+                # Skip repositories that are linked to illicit activities
+                continue
+            # Check if the repository is clonable
+            try:
+                temp = platform.name + "_REPO"
+                if platform == Platforms.GITLAB:
+                    url = getattr(Endpoints, temp)(random_row["id"].values[0])
+                else:
+                    url = getattr(Endpoints, temp)(owner, repo)
+                response = self.request_with_retry(url, RequestTypes.GET, headers=self.headers)
+                if str(response.status_code).startswith('2') :
+                    clonable_repositories = pd.concat([clonable_repositories, random_row], ignore_index=True)
+            except Exception as e:
+                self.logger.error(f"Error fetching {owner}/{repo}: {e}")
+                continue
+
+        return clonable_repositories
 
     def get_metric(self,metric,owner,repo,platform):
         """
