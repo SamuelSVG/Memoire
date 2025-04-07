@@ -21,7 +21,7 @@ class Bitbucket(BasePlatform):
         :param url: The URL to fetch.
         :return: JSON response from the API.
         """
-        date = (datetime.now() - timedelta(2)).strftime('%Y-%m-%d')
+        date = (datetime.now() - timedelta(30)).strftime('%Y-%m-%d')
         params = {
             "after": date,
             "pagelen": 100, # Maximum allowed per page
@@ -70,7 +70,7 @@ class Bitbucket(BasePlatform):
                     "id": repo["uuid"],
                     "created": repo["created_on"],
                     "updated": repo["updated_on"],
-                    "default_branch": repo["mainbranch"]["name"]
+                    "default_branch": repo["mainbranch"]["name"] if repo.get("mainbranch") else None
                 }
                 for repo in repositories[:page_num*100]
             ]

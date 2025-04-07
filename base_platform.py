@@ -56,10 +56,10 @@ class BasePlatform(ABC):
         if response.status_code == 500:
             self.logger.error(f"Error fetching {url}: internal server error (500)")
             return response
+        response.raise_for_status()
         if (isinstance(response.json(), dict) and isinstance(response.json().get("data",{}), dict)
                 and response.json().get("data",{}).get("key","") == "INSUFFICIENT_RIGHTS"):
             self.logger.error(f"Error fetching {url}: insufficient rights")
-        response.raise_for_status()
         return response
 
     def select_clonable_repositories(self, df, platform, n_repositories=10):
@@ -80,7 +80,7 @@ class BasePlatform(ABC):
             random_row = temp_df.sample(n=1, random_state=None)
             temp_df = temp_df.drop(random_row.index)
             owner, repo = random_row["owner"].values[0], random_row["repo"].values[0]
-            if "hack" in repo.lower() or "crack" in repo.lower():
+            if "hack" in repo.lower() or "crack" in repo.lower() or "repo4nsw" in owner.lower() or "3z" in owner.lower():
                 # Skip repositories that are linked to illicit activities
                 continue
             # Check if the repository is clonable

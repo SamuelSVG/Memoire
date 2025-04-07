@@ -20,7 +20,7 @@ def setup_tools_containers():
     git_tools.build_licensee_image()
     git_tools.build_linguist_image()
 
-def clone_repository(owner, repo, platform, shallow=False, metadata=False):
+def clone_repository(owner, repo, platform, repo_path, shallow=False, metadata=False):
     """
     Function to clone a repository from a platform-specific API.
     :param owner: Owner of the repository.
@@ -30,16 +30,15 @@ def clone_repository(owner, repo, platform, shallow=False, metadata=False):
     temp = platform.name + "_CLONE"
     url = getattr(Endpoints, temp)(owner, repo)
     try:
-        target_path = os.path.join(os.getcwd(), "temp")
-        if os.path.exists(target_path):
-            shutil.rmtree(target_path)
-        logging.info(f"Cloning {url} into {target_path}...")
+        if os.path.exists(repo_path):
+            shutil.rmtree(repo_path)
+        logging.info(f"Cloning {url} into {repo_path}...")
         if shallow:
-            git.Repo.clone_from(url, target_path, depth=1)
+            git.Repo.clone_from(url, repo_path, depth=1)
         elif metadata:
-            git.Repo.clone_from(url, target_path, filter="blob:none", no_checkout=True)
+            git.Repo.clone_from(url, repo_path, filter="blob:none", no_checkout=True)
         else:
-            git.Repo.clone_from(url, target_path)
+            git.Repo.clone_from(url, repo_path)
         logging.info("Clone successful!")
         return True
 
@@ -107,7 +106,7 @@ def get_commit_count(repo_path):
             check=True
         )
 
-        commit_count = result.stdout.strip()  # Remove extra whitespace
+        commit_count = int(result.stdout.strip())  # Remove extra whitespace
         return commit_count
 
     except subprocess.CalledProcessError as e:
@@ -188,7 +187,7 @@ def delete_directory(repo_path):
         logging.error(f"Error deleting directory contents: {e}")
         return False
 
-def add_git_metrics(df, platform):
+def add_git_metrics(df, platform, path, delete_repositories=True):
     # Set up the Docker containers for the tools
     setup_tools_containers()
 
@@ -202,20 +201,21 @@ def add_git_metrics(df, platform):
         owner, repo = row["owner"], row["repo"]
         logging.info(f"Processing repository {index + 1} out of {len(df)}")
         try:
-            repo_path = os.path.join(os.getcwd(), "temp")
+            repo_path = os.path.join(path, platform.name, f"{owner}-{repo}")
             # Convert Windows path to Docker-compatible format
             if plat.system() == "Windows":
                 repo_path = repo_path.replace("\\", "/")
 
-            if clone_repository(owner, repo, platform, metadata=True):
+            if clone_repository(owner, repo, platform, repo_path, metadata=True):
                 df.at[index, "#commits"] = get_commit_count(repo_path)
                 df.at[index, "#branches"] = get_branch_count(repo_path)
                 df.at[index, "#contributors"] = get_contributor_count(repo_path)
-            if clone_repository(owner, repo, platform, shallow=True):
+            if clone_repository(owner, repo, platform, repo_path, shallow=True):
                 df.at[index, "size"] = get_repo_size(repo_path)
                 df.at[index, "license"] = get_repo_license(repo_path)
                 df.at[index, "main_language"], df.at[index, "language_distribution"] = get_language_distribution(repo_path)
-            delete_directory(repo_path)
+            if delete_repositories:
+                delete_directory(repo_path)
         except Exception as e:
             logging.error(f"Error processing repository '{owner}/{repo}': {e}")
 
