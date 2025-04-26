@@ -1,0 +1,501 @@
+platform,owner,repo,id,created,updated,default_branch,#stars,#forks,size,license,main_language,language_distribution,#commits,#branches,#contributors,#issues,#pull_requests
+Gitea,bong05,mrpcServ,96267,2025-04-10T07:10:23Z,2025-04-10T07:19:10Z,main,0,0,329247.0,,Go,"{""Dockerfile"": {""size"": 479, ""percentage"": ""2.91""}, ""Makefile"": {""size"": 4294, ""percentage"": ""26.08""}, ""Go"": {""size"": 11694, ""percentage"": ""71.01""}}",3.0,1.0,1.0,0.0,0.0
+Gitea,sergeybezlepkin,vpn-wireguard-webui,87635,2025-01-23T22:18:40Z,2025-04-01T23:28:59Z,main,1,0,3775704.0,MIT,Shell,"{""Shell"": {""size"": 173, ""percentage"": ""100.00""}}",24.0,1.0,1.0,0.0,0.0
+Gitea,sreemanthena,argocd-repo,63080,2024-08-01T12:07:13Z,2024-08-01T12:07:13Z,main,0,0,24114.0,,,,,0.0,0.0,0.0,
+Gitea,wangyue-coder,rja-eva-admin,61975,2024-07-22T03:24:15Z,2024-07-22T04:00:46Z,main,0,0,1435328.0,,JavaScript,"{""JavaScript"": {""size"": 186939, ""percentage"": ""49.41""}, ""HTML"": {""size"": 3490, ""percentage"": ""0.92""}, ""Vue"": {""size"": 179439, ""percentage"": ""47.42""}, ""Less"": {""size"": 8500, ""percentage"": ""2.25""}}",3.0,2.0,2.0,0.0,0.0
+Gitea,near2die,dz1,82559,2024-12-25T18:59:32Z,2024-12-25T19:02:37Z,main,0,0,30464.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,poriansh,freelancer,87982,2025-01-27T09:55:39Z,2025-01-27T09:55:40Z,main,0,0,35641.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,REvil,Something,89194,2025-02-12T18:27:15Z,2025-02-12T18:27:15Z,main,0,0,24105.0,,,,,0.0,0.0,0.0,
+Gitea,28rodrigo,TestCICD,91100,2025-03-05T19:41:38Z,2025-03-05T20:45:14Z,main,0,0,27742.0,,,,7.0,1.0,2.0,0.0,0.0
+Gitea,kisel,sandbox-public,59715,2024-06-20T13:37:04Z,2024-06-20T13:37:04Z,main,0,0,,,,,,,,,
+Gitea,jcorrales24,piscine-go,67329,2024-09-09T12:25:22Z,2024-09-09T12:25:22Z,main,0,0,24112.0,,,,,0.0,0.0,0.0,
+Gitea,Naman-creator-coder,my_project,64414,2024-08-08T17:46:37Z,2024-08-08T17:46:38Z,main,0,0,26582.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,hasanalperen,devops,95220,2025-03-27T17:27:50Z,2025-03-27T17:27:50Z,main,0,0,24109.0,,,,,0.0,0.0,0.0,
+Gitea,cnic2024,NAAS,60233,2024-06-28T07:21:39Z,2024-06-28T07:26:47Z,main,0,0,26428.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,JPJEFWTL,test,62082,2024-07-23T08:34:23Z,2024-07-23T08:34:23Z,main,0,0,24103.0,,,,,0.0,0.0,0.0,
+Gitea,Gemoy28,Sompret,72827,2024-11-15T23:20:25Z,2024-11-19T12:27:54Z,main,0,0,,,,,,,,,
+Gitea,franklxw,WebStack-Hugo,68768,2024-10-01T02:42:15Z,2024-10-01T06:10:45Z,dev,0,0,85797743.0,MIT,Go,"{""HTML"": {""size"": 415956, ""percentage"": ""16.99""}, ""CSS"": {""size"": 492282, ""percentage"": ""20.10""}, ""Go"": {""size"": 663134, ""percentage"": ""27.08""}, ""Less"": {""size"": 417696, ""percentage"": ""17.06""}, ""SCSS"": {""size"": 459622, ""percentage"": ""18.77""}}",153.0,3.0,5.0,0.0,0.0
+Gitea,Honami,vendor_gms,85182,2025-01-08T18:11:52Z,2025-01-25T13:01:46Z,fifteen,0,0,3947610843.0,,Makefile,"{""Makefile"": {""size"": 41487, ""percentage"": ""76.63""}, ""Java"": {""size"": 5159, ""percentage"": ""9.53""}, ""AIDL"": {""size"": 520, ""percentage"": ""0.96""}, ""PureBasic"": {""size"": 36, ""percentage"": ""0.07""}, ""Shell"": {""size"": 6936, ""percentage"": ""12.81""}}",14.0,1.0,9.0,0.0,0.0
+Gitea,Evelin,testtest,71952,2024-11-12T09:30:41Z,2024-11-12T09:49:49Z,main,0,0,26838.0,,HTML,"{""HTML"": {""size"": 241, ""percentage"": ""100.00""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,wsr2025,sprint1,89757,2025-02-18T19:04:11Z,2025-02-18T19:21:52Z,main,0,0,263057.0,,Kotlin,"{""Kotlin"": {""size"": 4889, ""percentage"": ""100.00""}}",2.0,2.0,1.0,0.0,0.0
+Gitea,f-ogoog,lab4,80214,2024-12-15T13:53:45Z,2024-12-15T16:37:45Z,master,0,0,267742890.0,,C,"{""C++"": {""size"": 2270, ""percentage"": ""31.08""}, ""C"": {""size"": 5034, ""percentage"": ""68.92""}}",9.0,1.0,4.0,0.0,0.0
+Gitea,juls0730,reboot-poc,70344,2024-10-22T13:31:19Z,2024-10-22T13:31:23Z,main,0,0,75574.0,MIT,JavaScript,"{""Go"": {""size"": 235, ""percentage"": ""3.54""}, ""JavaScript"": {""size"": 4218, ""percentage"": ""63.47""}, ""HTML"": {""size"": 2193, ""percentage"": ""33.00""}}",3.0,1.0,1.0,0.0,0.0
+Gitea,bobby-sahani,Python,80396,2024-12-16T07:08:08Z,2024-12-16T07:08:08Z,,0,0,24115.0,,,,,0.0,0.0,0.0,
+Gitea,kazuo_miki1,test,61820,2024-07-19T05:28:25Z,2024-07-19T06:07:29Z,master,0,0,26488.0,,,,2.0,1.0,1.0,6.0,0.0
+Gitea,dp,goadder,72692,2024-11-15T08:50:50Z,2024-11-15T09:12:25Z,master,0,0,26980.0,,Go,"{""Go"": {""size"": 58, ""percentage"": ""100.00""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,celaldemirbas,test,95788,2025-04-04T05:55:54Z,2025-04-04T05:55:54Z,main,0,0,24108.0,,,,,0.0,0.0,0.0,
+Gitea,randsumquadyuvg113,Kava_Wallet_Trading_Bot,92195,2025-03-09T14:12:54Z,2025-03-09T14:14:03Z,main,0,0,,,,,,,,,
+Gitea,EVIECANTSLEEP,rust-kernel,67295,2024-09-09T02:45:21Z,2024-09-09T21:14:11Z,main,1,0,541937930.0,,Makefile,"{""Rust"": {""size"": 16213, ""percentage"": ""1.88""}, ""Makefile"": {""size"": 848409, ""percentage"": ""98.12""}}",11.0,2.0,2.0,4.0,4.0
+Gitea,nights,bot,95545,2025-04-01T08:27:16Z,2025-04-03T07:17:07Z,main,1,1,336812.0,MIT,TypeScript,"{""TypeScript"": {""size"": 5551, ""percentage"": ""88.45""}, ""HTML"": {""size"": 725, ""percentage"": ""11.55""}}",1.0,2.0,2.0,0.0,0.0
+Gitea,jamersones,markonah,93974,2025-03-10T20:02:27Z,2025-03-10T20:02:28Z,main,0,0,24109.0,,,,,0.0,0.0,0.0,
+Gitea,u-zorig,test,95977,2025-04-07T08:58:38Z,2025-04-07T08:58:39Z,main,0,0,26444.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,yocan,yocan,67544,2024-09-12T07:58:54Z,2024-09-12T08:00:21Z,main,0,0,,,,,,,,,
+Gitea,byStrange,umarket,65015,2024-08-14T17:48:30Z,2024-08-14T17:48:30Z,main,0,0,31304.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,revWhiteShadow,rdp,81302,2024-12-19T16:34:24Z,2024-12-19T16:35:00Z,main,0,0,29435.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,Eldon12Tdf,GeMingDaoShiLun,68647,2024-09-29T09:06:20Z,2024-12-12T05:30:06Z,main,0,0,992059026.0,GPL-3.0,,,20.0,1.0,1.0,0.0,0.0
+Gitea,Akiakizero,borsa-libro,95368,2025-03-29T15:01:35Z,2025-03-29T15:25:39Z,main,0,0,7446452.0,,Jupyter Notebook,"{""Jupyter Notebook"": {""size"": 4565351, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,sarah1,story-blog,88847,2025-02-08T10:01:35Z,2025-02-10T21:20:00Z,master,0,0,31135.0,,,,8.0,2.0,3.0,2.0,2.0
+Gitea,lonely_dog,10007_auto,81526,2024-12-20T16:13:54Z,2024-12-20T16:14:08Z,master,0,0,6580925.0,GPL-3.0,Shell,"{""HTML"": {""size"": 23784, ""percentage"": ""45.56""}, ""Shell"": {""size"": 28424, ""percentage"": ""54.44""}}",17.0,5.0,1.0,0.0,0.0
+Gitea,ali_rasouli,kasbiyar_backend,74623,2024-12-04T08:56:21Z,2024-12-04T08:56:23Z,dev,0,0,24115.0,,,,,0.0,0.0,0.0,
+Gitea,ritesh,hypr,89368,2025-02-14T06:30:58Z,2025-02-14T06:33:41Z,main,0,0,8006124.0,,CSS,"{""CSS"": {""size"": 3157, ""percentage"": ""100.00""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,Abdessamad_elqemary,ROOT,81500,2024-12-20T13:57:04Z,2024-12-26T15:34:43Z,master,0,0,,,,,,,,,
+Gitea,klunix,SonoProject,68019,2024-09-20T17:14:25Z,2024-10-22T12:04:23Z,main,0,0,6815840.0,CC-BY-SA-4.0,JavaScript,"{""Python"": {""size"": 38625, ""percentage"": ""5.88""}, ""HTML"": {""size"": 31941, ""percentage"": ""4.87""}, ""Nix"": {""size"": 200, ""percentage"": ""0.03""}, ""CSS"": {""size"": 267657, ""percentage"": ""40.78""}, ""JavaScript"": {""size"": 317951, ""percentage"": ""48.44""}}",3.0,1.0,2.0,0.0,0.0
+Gitea,Takhmina,piscinego11,73678,2024-11-25T15:11:29Z,2024-11-25T17:16:34Z,main,0,0,24110.0,,,,,0.0,0.0,0.0,
+Gitea,Ubuntuxxd,AngularUdemy,39078,2023-07-25T05:02:02Z,2024-10-15T06:33:43Z,master,0,0,53534649.0,,JavaScript,"{""HTML"": {""size"": 906836, ""percentage"": ""7.59""}, ""TypeScript"": {""size"": 2761, ""percentage"": ""0.02""}, ""JavaScript"": {""size"": 9809088, ""percentage"": ""82.09""}, ""CSS"": {""size"": 835750, ""percentage"": ""6.99""}, ""SCSS"": {""size"": 99546, ""percentage"": ""0.83""}, ""Shell"": {""size"": 6284, ""percentage"": ""0.05""}, ""CoffeeScript"": {""size"": 207864, ""percentage"": ""1.74""}, ""Makefile"": {""size"": 285, ""percentage"": ""0.00""}, ""Less"": {""size"": 76185, ""percentage"": ""0.64""}, ""PHP"": {""size"": 4719, ""percentage"": ""0.04""}}",11.0,1.0,2.0,0.0,0.0
+Gitea,jdeakx,skdnbhjs33,91208,2025-03-07T09:52:01Z,2025-03-09T08:34:43Z,main,0,0,27422.0,,,,2.0,1.0,1.0,0.0,0.0
+Gitea,xiufeng.zhang,maven-settings-action,94588,2025-03-19T08:42:28Z,2025-03-19T08:42:34Z,master,0,0,326208.0,MIT,JavaScript,"{""JavaScript"": {""size"": 53380, ""percentage"": ""99.55""}, ""Shell"": {""size"": 242, ""percentage"": ""0.45""}}",428.0,4.0,20.0,0.0,0.0
+Gitea,Hirokixd,manifest,67895,2024-09-18T19:31:42Z,2024-09-18T19:31:42Z,14,0,0,24101.0,,,,,0.0,0.0,0.0,
+Gitea,slash,schplaf-gentoo-overlay,38667,2023-07-12T12:57:17Z,2025-03-25T14:41:13Z,main,1,1,209437.0,,Shell,"{""Shell"": {""size"": 57345, ""percentage"": ""100.00""}}",224.0,1.0,2.0,0.0,0.0
+Gitea,des86532,test,96075,2025-04-08T04:41:51Z,2025-04-08T04:41:51Z,main,0,0,24103.0,,,,,0.0,0.0,0.0,
+Gitea,Mota,sprint,67318,2024-09-09T10:31:27Z,2024-09-09T11:41:32Z,main,0,0,27058.0,,Go,"{""Go"": {""size"": 135, ""percentage"": ""100.00""}}",3.0,1.0,1.0,0.0,0.0
+Gitea,ihsan29,ihsan-sarah-1,88891,2025-02-09T08:53:57Z,2025-02-09T11:03:51Z,main,0,0,26737.0,,,,3.0,2.0,2.0,0.0,0.0
+Gitea,moemiku,ComfyUI-Solution-Nodes,69552,2024-10-12T01:09:14Z,2024-10-12T01:56:35Z,master,0,0,30078.0,,Python,"{""Python"": {""size"": 2048, ""percentage"": ""100.00""}}",4.0,1.0,1.0,0.0,0.0
+Gitea,bullamalla,vvv,66621,2024-09-02T06:17:53Z,2024-09-02T06:19:36Z,main,0,0,27260.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,M11312020,AndroidStudio,95108,2025-03-26T03:39:15Z,2025-04-11T04:56:06Z,master,0,0,3235473.0,,Python,"{""Java"": {""size"": 3963, ""percentage"": ""42.46""}, ""Python"": {""size"": 5371, ""percentage"": ""57.54""}}",4.0,1.0,1.0,0.0,0.0
+Gitea,portellam4,VAC-Audio-Repeater-Manager,96050,2025-04-07T17:24:07Z,2025-04-08T17:54:07Z,master,1,0,31033995.0,GPL-3.0,C#,"{""C#"": {""size"": 1869527, ""percentage"": ""100.00""}}",1478.0,16.0,4.0,0.0,0.0
+Gitea,oarix,min1214,96562,2025-04-14T06:32:56Z,2025-04-14T06:38:27Z,main,0,0,327206153.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,kapilkamble,myfirstrepo,60318,2024-06-30T12:45:41Z,2024-06-30T12:45:41Z,main,0,0,24113.0,,,,,0.0,0.0,0.0,
+Gitea,shansw,CSharpVideoDemo-FFmpeg,64217,2024-08-08T02:44:24Z,2024-08-09T03:17:43Z,main,0,0,270716034.0,,C,"{""C"": {""size"": 2088258, ""percentage"": ""96.68""}, ""C#"": {""size"": 71809, ""percentage"": ""3.32""}}",3.0,1.0,1.0,0.0,0.0
+Gitea,oWuGI7s6,oWuGI7s6,61858,2024-07-20T00:58:11Z,2024-07-20T00:59:51Z,main,0,0,26496.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,portellam1,deploy-VFIO,96069,2025-04-08T02:38:09Z,2025-04-08T02:49:00Z,master,1,0,468859.0,GPL-3.0,Shell,"{""Shell"": {""size"": 8293, ""percentage"": ""100.00""}}",367.0,5.0,2.0,0.0,0.0
+Gitea,qokalyty,DVDFabExtendedLicense,71040,2024-10-31T06:13:01Z,2024-10-31T06:13:07Z,main,0,0,908909.0,MIT,Python,"{""Python"": {""size"": 30115, ""percentage"": ""100.00""}}",23.0,1.0,1.0,0.0,0.0
+Gitea,kirillsoftware,ws_server,51082,2024-02-15T06:48:34Z,2025-03-12T00:32:33Z,master,0,0,3497131.0,,C++,"{""Vim Script"": {""size"": 409, ""percentage"": ""0.34""}, ""CMake"": {""size"": 4566, ""percentage"": ""3.80""}, ""C++"": {""size"": 111976, ""percentage"": ""93.13""}, ""C"": {""size"": 3283, ""percentage"": ""2.73""}}",58.0,2.0,1.0,0.0,0.0
+Gitea,betkanyon,Cratosslot,65124,2024-08-16T13:55:50Z,2024-08-16T13:56:42Z,main,0,0,27833.0,,,,2.0,1.0,1.0,0.0,0.0
+Gitea,WithLithum,LibIridum,59711,2024-06-20T11:57:52Z,2024-06-30T07:45:11Z,trunk,0,0,795035.0,GPL-3.0,C#,"{""PowerShell"": {""size"": 2887, ""percentage"": ""2.01""}, ""C#"": {""size"": 140951, ""percentage"": ""97.99""}}",41.0,2.0,1.0,6.0,0.0
+Gitea,pruebatest,testHugo,85559,2025-01-10T23:35:21Z,2025-01-10T23:35:21Z,,0,0,24115.0,,,,,0.0,0.0,0.0,
+Gitea,roshan.kumar2,roshan_OnebillCore2_Modules,94684,2025-03-20T03:54:44Z,2025-03-20T03:54:45Z,main,0,0,412810.0,NOASSERTION,Makefile,"{""Dockerfile"": {""size"": 379, ""percentage"": ""6.57""}, ""Makefile"": {""size"": 4630, ""percentage"": ""80.24""}, ""Go"": {""size"": 761, ""percentage"": ""13.19""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,no1assignmenthelp,No1AssignmentHelp.Com,95721,2025-04-03T10:59:37Z,2025-04-03T10:59:37Z,main,0,0,,,,,,,,,
+Gitea,xdarnix,BOTNET,59028,2024-06-11T03:20:23Z,2024-06-15T16:58:57Z,main,0,0,,,,,,,,,
+Gitea,fatteneddessert,fatdeshud,69521,2024-10-11T12:58:15Z,2024-10-11T12:58:15Z,main,0,0,24115.0,,,,,0.0,0.0,0.0,
+Gitea,zxcvbnm,tg,71928,2024-11-12T00:37:44Z,2024-11-28T05:48:44Z,main,0,0,,,,,,,,,
+Gitea,mannueru,GEC_Website,60583,2024-07-04T15:50:29Z,2024-07-04T15:50:29Z,main,0,0,24110.0,,,,,0.0,0.0,0.0,
+Gitea,evsqualinhibk74,Tradier_Brokerage_Free_Access,91745,2025-03-09T11:00:22Z,2025-03-09T11:00:51Z,main,0,0,,,,,,,,,
+Gitea,satishn,AwsECSTest,87992,2025-01-27T11:39:29Z,2025-01-28T10:27:36Z,master,0,0,52394.0,,C#,"{""C#"": {""size"": 1765, ""percentage"": ""87.46""}, ""Dockerfile"": {""size"": 253, ""percentage"": ""12.54""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,wheresalice,everystop,72964,2024-11-17T12:07:19Z,2024-11-17T12:08:29Z,main,0,0,42213.0,,Python,"{""Python"": {""size"": 5322, ""percentage"": ""100.00""}}",19.0,1.0,3.0,0.0,0.0
+Gitea,sjcommon,Hello.python,69017,2024-10-03T11:26:26Z,2024-10-03T11:35:18Z,master,0,0,26996.0,,Python,"{""Python"": {""size"": 197, ""percentage"": ""100.00""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,Dunky13,gitea-helm-chart-old,17987,2021-02-26T14:14:34Z,2024-12-28T17:40:22Z,master,0,0,91516.0,MIT,Mustache,"{""Mustache"": {""size"": 3962, ""percentage"": ""100.00""}}",95.0,1.0,47.0,0.0,0.0
+Gitea,philosopher033427615,system-instructions-prompt-llm-chatgpt-ai,72149,2024-11-13T13:14:08Z,2024-11-13T13:14:10Z,main,1,0,33494.0,MIT,,,3.0,1.0,1.0,0.0,0.0
+Gitea,weigmannk,Images,88236,2025-01-30T15:13:32Z,2025-01-30T15:22:37Z,main,0,0,26372.0,,,,2.0,1.0,1.0,0.0,0.0
+Gitea,morvicool,alexkalashyan.ru,86545,2025-01-15T20:22:09Z,2025-03-13T11:40:57Z,main,0,0,541009.0,NOASSERTION,TypeScript,"{""JavaScript"": {""size"": 546, ""percentage"": ""1.96""}, ""TypeScript"": {""size"": 25268, ""percentage"": ""90.69""}, ""HTML"": {""size"": 444, ""percentage"": ""1.59""}, ""CSS"": {""size"": 1604, ""percentage"": ""5.76""}}",14.0,1.0,1.0,0.0,0.0
+Gitea,neironk,test,69279,2024-10-07T17:12:50Z,2024-10-07T17:12:51Z,main,0,0,24102.0,,,,,0.0,0.0,0.0,
+Gitea,dorirri,cyberease,71482,2024-11-06T01:52:56Z,2024-11-15T06:24:50Z,main,0,0,23736852.0,MIT,HTML,"{""Go"": {""size"": 22363, ""percentage"": ""6.82""}, ""HTML"": {""size"": 180730, ""percentage"": ""55.12""}, ""CSS"": {""size"": 73018, ""percentage"": ""22.27""}, ""JavaScript"": {""size"": 51802, ""percentage"": ""15.80""}}",11.0,2.0,4.0,0.0,0.0
+Gitea,its-library,ebp-librigo,87544,2025-01-23T08:49:57Z,2025-03-18T06:40:47Z,main,0,0,57383296.0,,PHP,"{""PHP"": {""size"": 172110, ""percentage"": ""52.30""}, ""JavaScript"": {""size"": 153610, ""percentage"": ""46.68""}, ""CSS"": {""size"": 2602, ""percentage"": ""0.79""}, ""Blade"": {""size"": 746, ""percentage"": ""0.23""}}",50.0,6.0,2.0,17.0,17.0
+Gitea,adrianogtl,polyglot-code,94832,2025-03-22T01:36:32Z,2025-03-22T01:36:33Z,main,0,0,28493.0,MIT,,,1.0,1.0,1.0,0.0,0.0
+Gitea,Dynamic,B.A.C.,91009,2025-03-04T15:30:41Z,2025-03-14T18:25:02Z,main,0,0,28403.0,MIT,,,3.0,1.0,1.0,0.0,0.0
+Gitea,tanisha-samant,SentinalAI,90207,2025-02-24T15:27:19Z,2025-02-24T15:27:19Z,main,0,0,24115.0,,,,,0.0,0.0,0.0,
+Gitea,daasharold,Hotel_In_Kanyakumari,59707,2024-06-20T09:16:43Z,2024-06-20T09:16:43Z,main,0,0,,,,,,,,,
+Gitea,Seatwoom,kursova4,74410,2024-12-02T21:42:20Z,2024-12-02T22:04:16Z,master,0,0,65158.0,,C,"{""C++"": {""size"": 2270, ""percentage"": ""31.02""}, ""C"": {""size"": 5047, ""percentage"": ""68.98""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,mohakobi7,KOBY-S,87131,2025-01-19T23:14:15Z,2025-01-19T23:25:26Z,master,0,0,69288058.0,NOASSERTION,JavaScript,"{""JavaScript"": {""size"": 338375, ""percentage"": ""73.03""}, ""Python"": {""size"": 65277, ""percentage"": ""14.09""}, ""HTML"": {""size"": 48991, ""percentage"": ""10.57""}, ""CSS"": {""size"": 3179, ""percentage"": ""0.69""}, ""Shell"": {""size"": 4247, ""percentage"": ""0.92""}, ""Batchfile"": {""size"": 2638, ""percentage"": ""0.57""}, ""NSIS"": {""size"": 611, ""percentage"": ""0.13""}}",4767.0,1.0,53.0,0.0,0.0
+Gitea,conor.h.johnston,test-runner,60061,2024-06-25T19:25:23Z,2024-06-25T19:40:28Z,main,0,0,27081.0,,,,5.0,1.0,1.0,0.0,0.0
+Gitea,ZeyFox,test,70699,2024-10-26T13:02:43Z,2024-10-26T13:02:59Z,main,0,0,10624399.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,SkyEye_FAST,lab,89461,2025-02-15T11:20:16Z,2025-02-15T11:22:07Z,main,0,0,273363006.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,bcreighton,Test,61799,2024-07-18T21:28:38Z,2024-07-18T21:28:38Z,main,0,0,24105.0,,,,,0.0,0.0,0.0,
+Gitea,Yasir00,best-budget-goose-call,70049,2024-10-19T16:54:00Z,2024-10-19T16:54:01Z,master,0,0,258652.0,,HTML,"{""HTML"": {""size"": 254, ""percentage"": ""80.63""}, ""JavaScript"": {""size"": 30, ""percentage"": ""9.52""}, ""SCSS"": {""size"": 31, ""percentage"": ""9.84""}}",1.0,1.0,1.0,3.0,0.0
+Gitea,ChristopherHX,garm-k8s-example,95828,2025-04-04T15:24:49Z,2025-04-05T20:19:00Z,main,0,0,189428.0,,,,5.0,1.0,2.0,0.0,0.0
+Gitea,devdot4,test,65090,2024-08-16T01:08:08Z,2024-08-16T01:08:08Z,main,0,0,24102.0,,,,,0.0,0.0,0.0,
+Gitea,leehaiyan,test123,82222,2024-12-24T06:25:27Z,2024-12-24T06:25:28Z,master,0,0,26490.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,95277,95277,89791,2025-02-19T06:59:49Z,2025-02-19T10:24:24Z,main,0,0,,,,,,,,,
+Gitea,rifkiy330,spectre,84872,2025-01-07T09:49:33Z,2025-01-07T09:50:17Z,main,0,0,,,,,,,,,
+Gitea,Doh9,123,73241,2024-11-21T09:22:55Z,2024-11-21T09:22:55Z,main,0,0,,,,,,,,,
+Gitea,deyes64470,1,71188,2024-11-02T06:47:20Z,2024-11-27T02:55:55Z,main,0,0,,,,,,,,,
+Gitea,farfind,SABox_PL,61777,2024-07-18T06:09:22Z,2024-07-18T11:53:02Z,main,0,0,62750.0,NOASSERTION,C++,"{""Python"": {""size"": 385, ""percentage"": ""1.62""}, ""C++"": {""size"": 23392, ""percentage"": ""98.38""}}",5.0,1.0,1.0,0.0,0.0
+Gitea,bdmacl1,Floccus,66819,2024-09-04T16:07:25Z,2024-09-04T16:20:48Z,main,0,0,216674.0,,,,2.0,1.0,1.0,0.0,0.0
+Gitea,madhanraj_official,canister_repo,69632,2024-10-13T16:46:48Z,2024-10-13T16:46:48Z,master,0,0,26610.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,xxq250,force-test,39406,2023-08-04T07:27:11Z,2024-12-10T08:45:04Z,main,0,0,28068.0,,,,2.0,2.0,1.0,0.0,0.0
+Gitea,jiaxinyang1,test-lfs,69652,2024-10-14T02:32:04Z,2024-10-14T02:32:08Z,master,0,0,27755.0,,,,4.0,1.0,1.0,0.0,0.0
+Gitea,qorri-di,Pentesting-Tools,65261,2024-08-19T14:08:52Z,2024-08-19T14:08:52Z,main,0,0,24115.0,,,,,0.0,0.0,0.0,
+Gitea,Utkarsh-Arora,Example,70808,2024-10-28T04:58:53Z,2024-10-28T04:58:53Z,main,0,0,24111.0,,,,,0.0,0.0,0.0,
+Gitea,Caravel,caravel-sdk-python-core,73692,2024-11-25T20:00:21Z,2024-11-25T20:00:21Z,main,0,0,24121.0,,,,,0.0,0.0,0.0,
+Gitea,KirillBlohin1998,Eeeeee,69379,2024-10-09T12:50:35Z,2024-10-09T12:52:02Z,main,0,0,44512.0,,Swift,"{""Swift"": {""size"": 9259, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,siquan001,hello,89034,2025-02-11T03:37:42Z,2025-02-11T03:37:42Z,main,0,0,24105.0,,,,,0.0,0.0,0.0,
+Gitea,gyjune,ouge,59704,2024-06-20T08:59:10Z,2024-06-21T02:13:13Z,main,0,0,,,,,,,,,
+Gitea,nabhan,cek2024,65833,2024-08-25T18:14:23Z,2024-08-25T18:19:23Z,main,0,0,,,,,,,,,
+Gitea,daibangsamac,gitDemo,90155,2025-02-24T01:01:24Z,2025-03-03T02:21:09Z,main,0,0,82740.0,,C++,"{""C++"": {""size"": 139, ""percentage"": ""100.00""}}",7.0,2.0,3.0,0.0,0.0
+Gitea,3bvz,vault,84587,2025-01-05T15:53:57Z,2025-01-05T16:42:43Z,main,0,0,34415.0,,Lua,"{""Lua"": {""size"": 6061, ""percentage"": ""100.00""}}",8.0,1.0,1.0,0.0,0.0
+Gitea,mcw77pro,mcw77-pro,59203,2024-06-14T06:00:34Z,2024-06-14T06:00:34Z,main,0,0,,,,,,,,,
+Gitea,TinyWin,Tiny11,87850,2025-01-24T21:22:52Z,2025-01-24T21:22:52Z,main,0,0,24104.0,,,,,0.0,0.0,0.0,
+Gitea,JSchneider_04,PythonCodeLF5,71884,2024-11-11T09:44:47Z,2024-11-11T09:44:50Z,main,0,0,29550.0,MIT,Python,"{""Python"": {""size"": 501, ""percentage"": ""100.00""}}",4.0,1.0,2.0,0.0,0.0
+Gitea,sorianfr,solar-system,90695,2025-02-28T11:31:04Z,2025-03-13T10:50:22Z,main,0,0,239181.0,MIT,JavaScript,"{""Dockerfile"": {""size"": 243, ""percentage"": ""1.56""}, ""JavaScript"": {""size"": 10402, ""percentage"": ""66.70""}, ""HTML"": {""size"": 4950, ""percentage"": ""31.74""}}",16.0,2.0,3.0,0.0,0.0
+Gitea,Tata-Gav,conditionals_loops,67813,2024-09-17T07:30:41Z,2024-09-17T07:30:41Z,main,0,0,24117.0,,,,,0.0,0.0,0.0,
+Gitea,Titou,us_atrocities.md,66758,2024-09-03T17:41:03Z,2024-09-03T17:41:07Z,main,0,0,1983149.0,GPL-3.0,SCSS,"{""SCSS"": {""size"": 1096, ""percentage"": ""100.00""}}",670.0,1.0,27.0,0.0,0.0
+Gitea,ihsanulrahman,x6853-dump,88957,2025-02-10T09:27:09Z,2025-02-24T16:31:18Z,dump,0,0,15668788006.0,,Shell,"{""Shell"": {""size"": 35865, ""percentage"": ""55.91""}, ""PureBasic"": {""size"": 2920, ""percentage"": ""4.55""}, ""Roff"": {""size"": 7538, ""percentage"": ""11.75""}, ""C"": {""size"": 17822, ""percentage"": ""27.78""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,rey2424,reygames,71014,2024-10-30T16:19:21Z,2024-10-30T16:19:21Z,main,0,0,24106.0,,,,,0.0,0.0,0.0,
+Gitea,erikluo,json,73740,2024-11-26T11:39:37Z,2025-04-08T23:54:06Z,develop,0,0,22288946.0,MIT,C++,"{""Jinja"": {""size"": 3114, ""percentage"": ""0.07""}, ""Starlark"": {""size"": 2645, ""percentage"": ""0.06""}, ""CMake"": {""size"": 88610, ""percentage"": ""1.93""}, ""Makefile"": {""size"": 14649, ""percentage"": ""0.32""}, ""Swift"": {""size"": 554, ""percentage"": ""0.01""}, ""C++"": {""size"": 4447171, ""percentage"": ""96.94""}, ""Meson"": {""size"": 629, ""percentage"": ""0.01""}, ""Cuda"": {""size"": 560, ""percentage"": ""0.01""}, ""HTML"": {""size"": 887, ""percentage"": ""0.02""}, ""Python"": {""size"": 28843, ""percentage"": ""0.63""}}",4602.0,12.0,319.0,0.0,0.0
+Gitea,guot54,yg,68313,2024-09-26T04:46:35Z,2024-09-26T04:46:55Z,main,0,0,,,,,,,,,
+Gitea,liuxiaolin667788,roop_colab,70325,2024-10-22T09:54:37Z,2024-10-22T09:54:42Z,main,0,0,31583778.0,,Jupyter Notebook,"{""Jupyter Notebook"": {""size"": 15670, ""percentage"": ""100.00""}}",48.0,1.0,3.0,0.0,0.0
+Gitea,m1dnight,beansite-xp,67871,2024-09-18T11:11:57Z,2025-01-15T00:14:56Z,main,0,0,1368826977.0,,HTML,"{""Batchfile"": {""size"": 286, ""percentage"": ""0.00""}, ""JavaScript"": {""size"": 130428, ""percentage"": ""0.07""}, ""HTML"": {""size"": 196854270, ""percentage"": ""99.85""}, ""CSS"": {""size"": 84288, ""percentage"": ""0.04""}, ""Sass"": {""size"": 77600, ""percentage"": ""0.04""}}",112.0,1.0,1.0,0.0,0.0
+Gitea,sasha876,file-storage,68230,2024-09-24T13:43:03Z,2024-09-24T13:47:32Z,master,0,0,9112828.0,MIT,HTML,"{""C#"": {""size"": 12783, ""percentage"": ""34.06""}, ""HTML"": {""size"": 22490, ""percentage"": ""59.92""}, ""CSS"": {""size"": 2036, ""percentage"": ""5.42""}, ""JavaScript"": {""size"": 227, ""percentage"": ""0.60""}}",2.0,2.0,2.0,0.0,0.0
+Gitea,codesterlalit,deployment-changes,89556,2025-02-17T04:14:28Z,2025-02-17T05:43:29Z,main,0,0,29855.0,,,,2.0,1.0,1.0,0.0,0.0
+Gitea,cxc3,3,86395,2025-01-15T04:54:10Z,2025-02-01T17:21:53Z,main,0,0,,,,,,,,,
+Gitea,tbd,core,67244,2024-09-07T22:46:51Z,2024-09-09T00:18:10Z,master,0,0,,,,,,,,0.0,0.0
+Gitea,LiZhongrui,Baoxianqianwen,72416,2024-11-14T08:23:10Z,2024-11-21T03:12:26Z,main,1,0,24115.0,,,,,0.0,0.0,0.0,
+Gitea,QYG2297248353,appstore-dpanel,74605,2024-12-04T03:23:24Z,2025-04-14T04:15:13Z,master,0,0,16284454.0,MIT,Shell,"{""Shell"": {""size"": 163167, ""percentage"": ""96.01""}, ""JavaScript"": {""size"": 6775, ""percentage"": ""3.99""}}",382.0,2.0,3.0,0.0,0.0
+Gitea,AndyChu,WpfProject1,71312,2024-11-04T00:46:15Z,2024-11-08T02:37:53Z,master,0,0,231121.0,,C#,"{""C#"": {""size"": 98030, ""percentage"": ""100.00""}}",15.0,1.0,1.0,0.0,0.0
+Gitea,DenysMb,ChatQT-Plasmoid,88473,2025-02-03T12:18:45Z,2025-02-03T12:18:49Z,main,0,0,100462.0,LGPL-2.1,QML,"{""QML"": {""size"": 15960, ""percentage"": ""100.00""}}",29.0,2.0,2.0,0.0,0.0
+Gitea,unmei,vendor_xiaomi_sm8250-common,67740,2024-09-16T01:06:13Z,2024-10-26T16:06:23Z,14-qpr3,0,0,418185920.0,,Makefile,"{""Makefile"": {""size"": 111634, ""percentage"": ""100.00""}}",28.0,3.0,9.0,0.0,0.0
+Gitea,logicamp,lc,66604,2024-09-01T15:01:14Z,2025-03-27T06:36:22Z,main,0,0,132195.0,,Go,"{""Makefile"": {""size"": 48, ""percentage"": ""0.08""}, ""Go"": {""size"": 57806, ""percentage"": ""99.92""}}",374.0,3.0,7.0,136.0,135.0
+Gitea,deepali-suhag,gitcapstoneShoppingrepo,77953,2024-12-11T15:17:16Z,2024-12-11T15:36:00Z,main,0,0,27410.0,,,,2.0,1.0,1.0,0.0,0.0
+Gitea,BladeMight,MahouCaretDisplayServer,74151,2024-12-02T14:42:43Z,2024-12-05T14:03:32Z,master,0,0,60987.0,GPL-2.0,Python,"{""Python"": {""size"": 4449, ""percentage"": ""100.00""}}",6.0,1.0,1.0,0.0,0.0
+Gitea,osm1019,vendor_goog_shiba,90879,2025-03-03T04:48:48Z,2025-03-03T04:53:41Z,vic,0,0,2368230014.0,,Makefile,"{""Makefile"": {""size"": 376414, ""percentage"": ""87.47""}, ""PureBasic"": {""size"": 53762, ""percentage"": ""12.49""}, ""Shell"": {""size"": 173, ""percentage"": ""0.04""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,rozhuk.im,ssdpd,22492,2022-05-31T05:30:45Z,2025-02-16T22:41:12Z,master,0,0,213455.0,BSD-2-Clause,PHP,"{""CMake"": {""size"": 10428, ""percentage"": ""19.60""}, ""Shell"": {""size"": 1438, ""percentage"": ""2.70""}, ""C"": {""size"": 14643, ""percentage"": ""27.53""}, ""PHP"": {""size"": 26644, ""percentage"": ""50.09""}, ""HTML"": {""size"": 40, ""percentage"": ""0.08""}}",79.0,1.0,2.0,0.0,0.0
+Gitea,SteelTrueDrum,first_repo,82488,2024-12-25T11:45:07Z,2024-12-25T11:50:56Z,main,0,0,33369.0,,Java,"{""Java"": {""size"": 1726, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,aurora-testorg1,issue-repo,60450,2024-07-02T07:48:51Z,2024-07-02T07:49:06Z,main,0,0,26497.0,,,,1.0,1.0,1.0,3.0,0.0
+Gitea,INFAL129,infal-129-app-bf-core,68105,2024-09-22T17:25:58Z,2024-09-22T17:25:58Z,trunk,0,0,40647.0,Apache-2.0,,,1.0,1.0,1.0,0.0,0.0
+Gitea,osm1019,caiman_vendor,73395,2024-11-24T01:12:15Z,2024-11-24T01:32:47Z,main,0,0,2748725531.0,,Makefile,"{""Makefile"": {""size"": 613060, ""percentage"": ""92.14""}, ""PureBasic"": {""size"": 52282, ""percentage"": ""7.86""}}",5.0,1.0,1.0,0.0,0.0
+Gitea,ahmadatallah,systematically-degraded-vim,86119,2025-01-13T17:15:49Z,2025-04-12T11:17:41Z,main,0,0,118863.0,,Vim Script,"{""Lua"": {""size"": 15447, ""percentage"": ""25.98""}, ""Vim Script"": {""size"": 44008, ""percentage"": ""74.02""}}",2.0,2.0,1.0,0.0,0.0
+Gitea,Guldan,LaPrizmo_ClientMod,94812,2025-03-21T17:09:02Z,2025-03-21T17:09:03Z,main,0,0,1123106.0,,Java,"{""Java"": {""size"": 690472, ""percentage"": ""100.00""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,Golden007,club.ask4funs,61188,2024-07-13T17:37:53Z,2024-07-14T09:16:40Z,main,0,0,826198486.0,,PHP,"{""PHP"": {""size"": 16455779, ""percentage"": ""68.04""}, ""HTML"": {""size"": 42094, ""percentage"": ""0.17""}, ""CSS"": {""size"": 1904040, ""percentage"": ""7.87""}, ""Java"": {""size"": 27151, ""percentage"": ""0.11""}, ""Hack"": {""size"": 1024818, ""percentage"": ""4.24""}, ""JavaScript"": {""size"": 3118029, ""percentage"": ""12.89""}, ""Less"": {""size"": 142226, ""percentage"": ""0.59""}, ""SCSS"": {""size"": 79489, ""percentage"": ""0.33""}, ""Python"": {""size"": 1364371, ""percentage"": ""5.64""}, ""Cython"": {""size"": 26076, ""percentage"": ""0.11""}}",3.0,2.0,1.0,0.0,0.0
+Gitea,NovaWoW,NovaWoW,90122,2025-02-23T15:09:53Z,2025-02-27T15:47:40Z,NovaWoW,0,0,51783160.0,MIT,JavaScript,"{""PHP"": {""size"": 426706, ""percentage"": ""16.95""}, ""JavaScript"": {""size"": 1699484, ""percentage"": ""67.50""}, ""CSS"": {""size"": 261093, ""percentage"": ""10.37""}, ""Vue"": {""size"": 125447, ""percentage"": ""4.98""}, ""Blade"": {""size"": 4851, ""percentage"": ""0.19""}}",27.0,1.0,1.0,0.0,0.0
+Gitea,eliasbidram,tvandroid,68457,2024-09-27T21:20:01Z,2024-09-27T21:20:02Z,main,0,0,26492.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,Vaishnav-Sabari-Girish,gitea_proof,94281,2025-03-15T02:24:30Z,2025-03-15T02:24:44Z,main,0,0,24124.0,,,,,0.0,0.0,0.0,
+Gitea,alx,labo_foule_vehiculo-longo,84029,2025-01-01T18:38:32Z,2025-01-01T19:31:43Z,main,0,0,41189.0,NOASSERTION,Python,"{""Python"": {""size"": 6838, ""percentage"": ""100.00""}}",5.0,1.0,1.0,0.0,0.0
+Gitea,wadan,archiwum,96194,2025-04-09T11:08:05Z,2025-04-09T11:08:05Z,main,0,0,,,,,,,,0.0,
+Gitea,xrr42,xrr42,83490,2024-12-29T08:12:57Z,2024-12-29T08:13:32Z,main,0,0,21001143.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,yerim-Amy,piscine-go,67322,2024-09-09T11:03:53Z,2024-09-09T11:03:53Z,main,0,0,24110.0,,,,,0.0,0.0,0.0,
+Gitea,ahouduss,pico-ordi,68147,2024-09-23T09:21:23Z,2024-09-23T17:50:09Z,master,0,0,11600287.0,,,,2.0,1.0,1.0,0.0,0.0
+Gitea,2656942,NitinPreIncubator,59877,2024-06-23T06:08:09Z,2024-06-23T06:08:09Z,main,0,0,24115.0,,,,,0.0,0.0,0.0,
+Gitea,alyoumaltalibackup,mAPI,68752,2024-09-30T19:12:04Z,2024-09-30T19:17:26Z,main,0,0,26500.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,iwanse1212,unixwinbsd,94997,2025-03-24T18:22:06Z,2025-03-24T18:24:29Z,main,0,0,24111.0,,,,,0.0,0.0,0.0,
+Gitea,cx66,6,82912,2024-12-26T04:12:30Z,2025-01-15T17:27:18Z,main,0,0,,,,,,,,,
+Gitea,tolecilik,nhx,59374,2024-06-16T12:21:55Z,2024-06-16T12:40:50Z,main,0,0,,,,,,,,,
+Gitea,mcourses,courses,64937,2024-08-14T02:00:51Z,2024-08-14T02:00:51Z,,0,0,24112.0,,,,,0.0,0.0,0.0,
+Gitea,worryme99,runner,84043,2025-01-02T00:50:59Z,2025-01-31T10:43:40Z,main,0,0,37073860.0,,Shell,"{""Shell"": {""size"": 932, ""percentage"": ""100.00""}}",20.0,1.0,1.0,0.0,0.0
+Gitea,annie2925,Scripts,58272,2024-05-30T03:55:40Z,2024-11-16T00:20:11Z,Master,0,0,139621.0,GPL-3.0,Assembly,"{""C"": {""size"": 504, ""percentage"": ""0.92""}, ""C++"": {""size"": 5031, ""percentage"": ""9.15""}, ""Assembly"": {""size"": 41094, ""percentage"": ""74.73""}, ""Shell"": {""size"": 4952, ""percentage"": ""9.00""}, ""PowerShell"": {""size"": 3412, ""percentage"": ""6.20""}}",7.0,1.0,2.0,0.0,0.0
+Gitea,oeswd,R-Skripte,44312,2023-10-12T12:20:43Z,2025-02-13T16:00:22Z,master,0,0,148192.0,,R,"{""R"": {""size"": 69706, ""percentage"": ""100.00""}}",112.0,1.0,5.0,0.0,0.0
+Gitea,1fantasyy,SP4,84212,2025-01-02T21:11:28Z,2025-01-02T22:19:15Z,master,0,0,792507833.0,,C,"{""C++"": {""size"": 2270, ""percentage"": ""31.97""}, ""C"": {""size"": 4831, ""percentage"": ""68.03""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,k1r1ll1sa,MinGif,60633,2024-07-05T17:20:24Z,2024-07-09T15:23:26Z,master,0,0,310022.0,,Python,"{""Python"": {""size"": 4047, ""percentage"": ""100.00""}}",3.0,1.0,1.0,0.0,0.0
+Gitea,Gerguraki555,CubeKnight,89529,2025-02-16T18:03:21Z,2025-02-16T18:04:14Z,master,0,0,415346.0,,C#,"{""C#"": {""size"": 1710, ""percentage"": ""100.00""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,EnderIce2,Fennix,91108,2025-03-06T03:25:43Z,2025-04-14T01:21:22Z,master,0,0,6754038.0,GPL-3.0,C++,"{""Dockerfile"": {""size"": 3561, ""percentage"": ""0.09""}, ""Shell"": {""size"": 3639, ""percentage"": ""0.09""}, ""Makefile"": {""size"": 52492, ""percentage"": ""1.26""}, ""C"": {""size"": 1634370, ""percentage"": ""39.12""}, ""Assembly"": {""size"": 32958, ""percentage"": ""0.79""}, ""Linker Script"": {""size"": 14545, ""percentage"": ""0.35""}, ""C++"": {""size"": 2303041, ""percentage"": ""55.13""}, ""GDB"": {""size"": 5110, ""percentage"": ""0.12""}, ""CMake"": {""size"": 17761, ""percentage"": ""0.43""}, ""CSS"": {""size"": 78091, ""percentage"": ""1.87""}, ""HTML"": {""size"": 7489, ""percentage"": ""0.18""}, ""JavaScript"": {""size"": 24773, ""percentage"": ""0.59""}}",1918.0,6.0,2.0,,
+Gitea,matt,aur-pkgbuilds,48604,2024-01-03T14:24:33Z,2025-04-07T21:12:15Z,main,0,0,466374.0,Unlicense,Shell,"{""Shell"": {""size"": 125663, ""percentage"": ""98.75""}, ""HTML"": {""size"": 450, ""percentage"": ""0.35""}, ""Go"": {""size"": 1138, ""percentage"": ""0.89""}}",960.0,1.0,39.0,0.0,0.0
+Gitea,jie520520,TVBox-zyjk,62191,2024-07-24T10:19:45Z,2024-07-24T10:19:57Z,main,0,0,,,,,,,,,
+Gitea,HudsonHock,test,59032,2024-06-11T05:08:03Z,2024-06-14T05:16:30Z,main,0,0,26658.0,,,,4.0,1.0,1.0,0.0,0.0
+Gitea,JohnTM,wordpressphpcourse,70493,2024-10-23T13:03:33Z,2024-10-23T13:04:42Z,main,0,0,26545.0,,PHP,"{""PHP"": {""size"": 28, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,GOS-Staging,vendor_gms,70779,2024-10-27T14:39:39Z,2024-10-27T14:47:31Z,utopia-3.0,0,0,482576036.0,,Makefile,"{""Makefile"": {""size"": 40078, ""percentage"": ""76.01""}, ""Java"": {""size"": 5159, ""percentage"": ""9.78""}, ""AIDL"": {""size"": 520, ""percentage"": ""0.99""}, ""PureBasic"": {""size"": 36, ""percentage"": ""0.07""}, ""Shell"": {""size"": 6936, ""percentage"": ""13.15""}}",22.0,1.0,10.0,0.0,0.0
+Gitea,Prathamk07,vendor_xiaomi_veux,83463,2024-12-29T03:44:37Z,2024-12-29T03:51:41Z,vic,0,0,1215015195.0,,Makefile,"{""Makefile"": {""size"": 178585, ""percentage"": ""100.00""}}",19.0,1.0,10.0,0.0,0.0
+Gitea,josval,web-translator,67539,2024-09-12T06:46:55Z,2024-09-12T06:47:08Z,main,0,0,,,,,,,,,
+Gitea,engageub,InternetIncome,62423,2024-07-27T06:50:01Z,2024-07-27T08:42:21Z,main,0,0,,,,,,,,,
+Gitea,leonmin,test,65225,2024-08-19T04:31:51Z,2024-08-19T04:31:51Z,main,0,0,24102.0,,,,,0.0,0.0,0.0,
+Gitea,lizhuangxuan,linux-extras,95116,2025-03-26T09:07:11Z,2025-03-26T09:17:27Z,master,0,0,999529661.0,NOASSERTION,C,"{""Makefile"": {""size"": 1876994, ""percentage"": ""0.25""}, ""Roff"": {""size"": 129491, ""percentage"": ""0.02""}, ""Linker Script"": {""size"": 12972, ""percentage"": ""0.00""}, ""C"": {""size"": 723060483, ""percentage"": ""97.95""}, ""Assembly"": {""size"": 9932554, ""percentage"": ""1.35""}, ""Shell"": {""size"": 976920, ""percentage"": ""0.13""}, ""Perl"": {""size"": 929021, ""percentage"": ""0.13""}, ""C++"": {""size"": 236438, ""percentage"": ""0.03""}, ""Awk"": {""size"": 48986, ""percentage"": ""0.01""}, ""Python"": {""size"": 683391, ""percentage"": ""0.09""}, ""sed"": {""size"": 379, ""percentage"": ""0.00""}, ""Yacc"": {""size"": 120657, ""percentage"": ""0.02""}, ""Lex"": {""size"": 60867, ""percentage"": ""0.01""}, ""UnrealScript"": {""size"": 17793, ""percentage"": ""0.00""}, ""SmPL"": {""size"": 121973, ""percentage"": ""0.02""}, ""Gherkin"": {""size"": 7896, ""percentage"": ""0.00""}, ""XS"": {""size"": 1239, ""percentage"": ""0.00""}, ""Clojure"": {""size"": 1439, ""percentage"": ""0.00""}, ""M4"": {""size"": 3325, ""percentage"": ""0.00""}}",791588.0,2.0,0.0,0.0,0.0
+Gitea,ilua21639,sausage_store,73920,2024-11-30T06:54:48Z,2024-11-30T06:54:48Z,main,0,0,24113.0,,,,,0.0,0.0,0.0,
+Gitea,dasher-org-jm,solar-system-gitea,94751,2025-03-20T18:50:53Z,2025-04-02T11:08:56Z,main,0,1,239887.0,MIT,JavaScript,"{""Dockerfile"": {""size"": 243, ""percentage"": ""1.56""}, ""JavaScript"": {""size"": 10402, ""percentage"": ""66.70""}, ""HTML"": {""size"": 4950, ""percentage"": ""31.74""}}",16.0,2.0,2.0,0.0,0.0
+Gitea,mibal-ua,it-infr-lab4,95703,2025-04-03T07:00:53Z,2025-04-04T09:32:02Z,main,0,0,4214406.0,GPL-3.0,Java,"{""Dockerfile"": {""size"": 271, ""percentage"": ""0.16""}, ""Java"": {""size"": 162859, ""percentage"": ""97.35""}, ""LOLCODE"": {""size"": 4166, ""percentage"": ""2.49""}}",111.0,1.0,5.0,0.0,0.0
+Gitea,vinoth-kumar,Sample,95890,2025-04-06T02:05:37Z,2025-04-06T02:05:38Z,main,0,0,26479.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,eli32-vlc,Discord-Search,61629,2024-07-17T02:04:39Z,2024-07-17T02:04:39Z,main,0,0,24114.0,,,,,0.0,0.0,0.0,
+Gitea,xvbnm48,dotnet-todo,70523,2024-10-24T03:54:46Z,2024-10-24T03:58:58Z,master,0,0,67709.0,,C#,"{""C#"": {""size"": 1128, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,Russie,cours,87911,2025-01-26T08:10:51Z,2025-04-03T06:23:16Z,main,0,0,2085595706.0,,,,102.0,1.0,2.0,13.0,0.0
+Gitea,tmaffia,cli-test,67802,2024-09-17T04:48:58Z,2024-09-17T04:48:58Z,main,0,0,31946.0,MIT,,,1.0,1.0,1.0,0.0,0.0
+Gitea,BitdancerX,etc,69599,2024-10-13T02:19:48Z,2025-02-27T03:28:12Z,main,0,0,3509213.0,,Lua,"{""Lua"": {""size"": 3192664, ""percentage"": ""100.00""}}",26.0,1.0,1.0,0.0,0.0
+Gitea,BitdancerX,Sisyphus,89215,2025-02-13T03:36:18Z,2025-02-22T06:48:05Z,main,1,0,535147.0,,Lua,"{""Lua"": {""size"": 329478, ""percentage"": ""100.00""}}",13.0,1.0,1.0,0.0,0.0
+Gitea,yizivi,sy,44700,2023-10-24T07:09:05Z,2024-12-23T09:03:52Z,main,0,0,27456.0,,,,6.0,1.0,1.0,0.0,0.0
+Gitea,storage,core,94473,2025-03-18T02:10:58Z,2025-03-18T02:29:11Z,master,0,0,155875.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,SanmerApps,Authenticator,96352,2025-04-11T05:39:08Z,2025-04-13T20:39:16Z,main,0,0,1289006.0,Apache-2.0,Kotlin,"{""Kotlin"": {""size"": 237770, ""percentage"": ""100.00""}}",232.0,2.0,4.0,0.0,0.0
+Gitea,uteamin0c,VB,62303,2024-07-25T19:29:40Z,2024-07-25T19:32:47Z,main,0,0,30784.0,,PowerShell,"{""PowerShell"": {""size"": 571, ""percentage"": ""100.00""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,Bybaleshgitea,testword,87660,2025-01-24T05:50:02Z,2025-01-24T05:51:20Z,main,0,0,28517.0,MIT,Dockerfile,"{""Dockerfile"": {""size"": 151, ""percentage"": ""68.33""}, ""C"": {""size"": 70, ""percentage"": ""31.67""}}",2.0,2.0,1.0,0.0,0.0
+Gitea,setthi-pheap11,lurkkorbsop-admin,76813,2024-12-09T06:06:23Z,2024-12-09T06:06:23Z,main,0,0,24122.0,,,,,0.0,0.0,0.0,
+Gitea,autismbehaviorservices,autismbehaviorservices,59817,2024-06-22T05:45:39Z,2024-06-22T05:45:39Z,main,0,0,,,,,,,,,
+Gitea,TKK111T,test,69608,2024-10-13T08:07:16Z,2024-10-13T08:22:23Z,main,0,0,87358770.0,,C++,"{""C"": {""size"": 4386, ""percentage"": ""32.76""}, ""C++"": {""size"": 9002, ""percentage"": ""67.24""}}",6.0,1.0,1.0,0.0,0.0
+Gitea,Gerguraki555,MentoBetoltoProgram,76574,2024-12-08T14:19:22Z,2024-12-08T15:04:11Z,master,0,0,44716.0,,C#,"{""C#"": {""size"": 2267, ""percentage"": ""100.00""}}",6.0,1.0,1.0,0.0,0.0
+Gitea,subribd,t,69134,2024-10-05T06:10:16Z,2024-10-05T06:10:16Z,main,0,0,24099.0,,,,,0.0,0.0,0.0,
+Gitea,efculitsuzt,Trading_Platform_X_Free_Access,93829,2025-03-10T09:04:16Z,2025-03-10T09:06:40Z,main,0,0,,,,,,,,,
+Gitea,poonamsabale98,pooooonam,69247,2024-10-07T07:26:41Z,2024-10-07T08:55:18Z,main,0,0,27175.0,,,,2.0,1.0,1.0,0.0,0.0
+Gitea,Muneeb_Ahmed,Flutter_Portfolio,68218,2024-09-24T09:14:16Z,2024-09-24T09:14:16Z,main,0,0,24120.0,,,,,0.0,0.0,0.0,
+Gitea,richmanprivatexcgc,GDevelop,58884,2024-06-08T11:27:33Z,2024-06-08T11:28:54Z,master,0,0,,,,,,,,0.0,0.0
+Gitea,joaozinho_313,Taskapp,73041,2024-11-18T13:58:44Z,2024-11-18T13:58:44Z,main,0,0,24111.0,,,,,0.0,0.0,0.0,
+Gitea,Chenga,hair-saloon,64209,2024-08-07T22:07:26Z,2024-08-07T22:09:46Z,main,0,0,3111903.0,,TypeScript,"{""TypeScript"": {""size"": 3019195, ""percentage"": ""99.11""}, ""JavaScript"": {""size"": 27000, ""percentage"": ""0.89""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,sleepyheadXD,comet,96008,2025-04-07T12:46:17Z,2025-04-07T16:01:30Z,main,0,0,202447.0,GPL-3.0,Shell,"{""Shell"": {""size"": 4338, ""percentage"": ""100.00""}}",2.0,2.0,1.0,0.0,0.0
+Gitea,sanbei101,fuck,83465,2024-12-29T04:31:23Z,2024-12-29T04:31:23Z,main,0,0,29208.0,MIT,,,1.0,1.0,1.0,0.0,0.0
+Gitea,SotsIvan,SP_Lab4,74872,2024-12-05T16:13:39Z,2024-12-05T18:40:12Z,master,0,0,401081430.0,,C++,"{""C++"": {""size"": 6573, ""percentage"": ""88.78""}, ""C"": {""size"": 831, ""percentage"": ""11.22""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,DoNotDDOSMe,Euchronia,94047,2025-03-11T21:09:25Z,2025-03-29T18:25:22Z,main,0,0,381190.0,,Lua,"{""Lua"": {""size"": 304497, ""percentage"": ""100.00""}}",23.0,1.0,2.0,0.0,0.0
+Gitea,kapilkamble,myfirstseveRepos,60473,2024-07-02T16:39:48Z,2024-07-02T16:39:48Z,main,0,0,24118.0,,,,,0.0,0.0,0.0,
+Gitea,SanmerApps,GitHubArtifacts,96351,2025-04-11T05:38:39Z,2025-04-11T14:40:25Z,main,0,0,508027.0,Apache-2.0,Kotlin,"{""Kotlin"": {""size"": 191198, ""percentage"": ""100.00""}}",160.0,1.0,3.0,,
+Gitea,mld_repos,LD-first.repo,58988,2024-06-10T13:42:49Z,2024-06-10T13:42:49Z,main,0,0,,,,,,,,,
+Gitea,Syphdias,test,86686,2025-01-16T22:57:48Z,2025-01-16T22:58:04Z,main,0,0,26440.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,nlchitnis,my-badges,61322,2024-07-14T16:11:33Z,2024-07-14T16:11:33Z,main,0,0,28330.0,MIT,,,1.0,1.0,1.0,0.0,0.0
+Gitea,ongan1988,ongan1988,66640,2024-09-02T09:09:22Z,2024-09-02T09:09:22Z,main,0,0,24109.0,,,,,0.0,0.0,0.0,
+Gitea,tokamakz,test,66063,2024-08-26T17:59:28Z,2024-08-26T17:59:28Z,main,0,0,24103.0,,,,,0.0,0.0,0.0,
+Gitea,sourcecontrol,AWX,64002,2024-08-06T17:54:24Z,2024-08-06T18:17:36Z,main,0,0,27124.0,,,,3.0,1.0,1.0,0.0,0.0
+Gitea,VladisGOOD2025,BZ_nisha,90843,2025-03-02T22:06:51Z,2025-03-02T22:10:35Z,main,0,0,47150.0,,HTML,"{""HTML"": {""size"": 16472, ""percentage"": ""100.00""}}",1.0,2.0,1.0,0.0,0.0
+Gitea,abdo.rozelle,test,63195,2024-08-03T08:50:16Z,2024-08-03T08:53:21Z,main,0,0,26640.0,,,,2.0,1.0,1.0,0.0,0.0
+Gitea,erlandi2,shell-bot,59065,2024-06-11T21:22:58Z,2024-06-17T09:56:34Z,main,0,0,,,,,,,,,
+Gitea,conedera7p912,Kraken_Free_Access,92118,2025-03-09T13:53:55Z,2025-03-09T13:54:30Z,main,0,0,,,,,,,,,
+Gitea,blancaoplengi784,Exodux_Trading_Bot,91462,2025-03-09T09:19:13Z,2025-03-09T09:19:46Z,main,0,0,,,,,,,,,
+Gitea,8999099900,master,64516,2024-08-09T17:01:25Z,2024-08-09T17:02:35Z,main,0,0,83037945.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,kanondev,moesite,65161,2024-08-17T18:06:50Z,2024-09-03T03:13:38Z,devel,0,0,14032871.0,MIT,CSS,"{""Makefile"": {""size"": 48, ""percentage"": ""0.13""}, ""HTML"": {""size"": 8319, ""percentage"": ""21.98""}, ""Nix"": {""size"": 163, ""percentage"": ""0.43""}, ""CSS"": {""size"": 28793, ""percentage"": ""76.06""}, ""JavaScript"": {""size"": 531, ""percentage"": ""1.40""}}",5.0,1.0,1.0,0.0,0.0
+Gitea,kingdumbledore,leonstockton,59140,2024-06-12T17:30:31Z,2024-06-12T17:45:28Z,main,0,0,,,,,,,,,
+Gitea,deiprocevrenk0,Guarda_Wallet_Trading_Bot,91702,2025-03-09T10:47:04Z,2025-03-09T10:47:32Z,main,0,0,,,,,,,,,
+Gitea,robinsh,Robin,88468,2025-02-03T10:56:16Z,2025-02-03T10:56:16Z,main,0,0,24103.0,,,,,0.0,0.0,6.0,
+Gitea,jason3398,jason,59870,2024-06-23T02:49:03Z,2024-06-23T02:56:33Z,main,0,0,,,,,,,,,
+Gitea,Sirsomand,Sirsomand,91062,2025-03-05T07:52:54Z,2025-03-05T07:52:54Z,main,0,0,24109.0,,,,,0.0,0.0,0.0,
+Gitea,kovalchukkateruna,laboratorna4,83428,2024-12-28T18:37:04Z,2024-12-28T18:46:40Z,main,0,0,63602.0,,C,"{""C++"": {""size"": 2270, ""percentage"": ""31.08""}, ""C"": {""size"": 5034, ""percentage"": ""68.92""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,jeevan-mishra,Pics,93947,2025-03-10T14:21:56Z,2025-03-10T14:24:07Z,main,0,0,41415791.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,CaTimcute,C_sharp,70635,2024-10-25T15:05:14Z,2024-10-25T15:13:08Z,main,0,0,121559418.0,,,,3.0,1.0,1.0,0.0,0.0
+Gitea,mcxgit,jdck,84538,2025-01-05T12:36:43Z,2025-01-06T18:40:36Z,main,0,0,92379.0,,,,5.0,1.0,1.0,0.0,0.0
+Gitea,MiaStevenson,importanttochoosetherighttopic,73799,2024-11-27T12:55:33Z,2024-11-27T12:55:33Z,main,0,0,,,,,,,,,
+Gitea,advafzal,afzalsite,84782,2025-01-06T19:39:49Z,2025-01-06T19:39:52Z,main,0,0,,,,,,,,,
+Gitea,ItzSelenux,gxcapindicator,67365,2024-09-10T04:14:44Z,2024-09-10T04:14:49Z,main,0,0,58277.0,,C,"{""Makefile"": {""size"": 1486, ""percentage"": ""10.43""}, ""C"": {""size"": 12758, ""percentage"": ""89.57""}}",4.0,1.0,1.0,0.0,0.0
+Gitea,halawnss,Open-Source-Everythinggg,69690,2024-10-14T13:12:19Z,2025-01-20T20:23:59Z,main,0,0,153515.0,GPL-3.0,,,34.0,1.0,1.0,0.0,0.0
+Gitea,RedDx,1.12-U1-builds,93994,2025-03-11T01:30:19Z,2025-03-11T01:30:28Z,main,0,1,173891784.0,,HTML,"{""HTML"": {""size"": 56111685, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,snowingandclear,catchPillusration,86431,2025-01-15T08:58:21Z,2025-02-21T11:37:52Z,main,0,0,1732091.0,,HTML,"{""Python"": {""size"": 71749, ""percentage"": ""14.67""}, ""HTML"": {""size"": 415224, ""percentage"": ""84.89""}, ""JavaScript"": {""size"": 2156, ""percentage"": ""0.44""}}",6.0,1.0,1.0,0.0,0.0
+Gitea,waynr,shadrun,66913,2024-09-05T04:08:49Z,2024-09-05T04:09:18Z,main,0,0,246860.0,,Rust,"{""Just"": {""size"": 1047, ""percentage"": ""1.58""}, ""Rust"": {""size"": 57153, ""percentage"": ""86.11""}, ""GLSL"": {""size"": 8171, ""percentage"": ""12.31""}}",77.0,1.0,1.0,0.0,0.0
+Gitea,vanduc2514,test,69194,2024-10-06T18:16:21Z,2024-10-06T18:16:22Z,main,0,0,24105.0,,,,,0.0,0.0,0.0,
+Gitea,crvt4722,test,68703,2024-09-30T08:26:26Z,2024-10-08T10:05:05Z,main,0,0,26838.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,hellorootshell,hello,52598,2024-03-15T07:21:38Z,2024-09-22T02:28:04Z,main,0,0,357757.0,,,,3.0,1.0,1.0,0.0,0.0
+Gitea,EOF-D,verte,73338,2024-11-23T00:58:20Z,2024-11-23T00:58:33Z,master,0,0,366669.0,MIT,C++,"{""Shell"": {""size"": 32, ""percentage"": ""0.03""}, ""CMake"": {""size"": 2324, ""percentage"": ""1.91""}, ""Nix"": {""size"": 2104, ""percentage"": ""1.73""}, ""C++"": {""size"": 117427, ""percentage"": ""96.34""}}",48.0,1.0,2.0,0.0,0.0
+Gitea,gamemakers264,Test,96467,2025-04-12T21:31:48Z,2025-04-12T21:31:49Z,main,1,0,24108.0,,,,,0.0,0.0,0.0,
+Gitea,SkyHighSundae,SkyHighSundaeNotes,71680,2024-11-07T20:57:15Z,2024-11-07T20:57:18Z,main,0,0,68235.0,ISC,JavaScript,"{""JavaScript"": {""size"": 8170, ""percentage"": ""52.69""}, ""CSS"": {""size"": 2237, ""percentage"": ""14.43""}, ""EJS"": {""size"": 5100, ""percentage"": ""32.89""}}",4.0,1.0,1.0,0.0,0.0
+Gitea,templ-icons,templ-octicons,48912,2024-01-07T05:10:00Z,2024-12-22T07:44:15Z,main,0,0,3068017.0,,templ,"{""Go"": {""size"": 6603, ""percentage"": ""1.34""}, ""templ"": {""size"": 487796, ""percentage"": ""98.66""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,Felitendo,Test,63415,2024-08-04T21:24:38Z,2024-08-04T21:24:49Z,main,0,0,26454.0,,,,1.0,1.0,1.0,2.0,0.0
+Gitea,Diddy,Dotfiles,70044,2024-10-19T10:46:31Z,2024-11-24T09:47:20Z,main,0,0,4929535.0,,Shell,"{""Shell"": {""size"": 341, ""percentage"": ""100.00""}}",22.0,1.0,1.0,0.0,0.0
+Gitea,ifox777,Zzzzz,55375,2024-04-17T11:10:26Z,2025-03-26T15:38:11Z,main,0,0,33651.0,,Python,"{""Python"": {""size"": 1668, ""percentage"": ""100.00""}}",5.0,11.0,1.0,6.0,4.0
+Gitea,jhfdjhfdhfd,22e98z8qm5v3pd,60479,2024-07-02T23:15:40Z,2024-07-02T23:15:53Z,main,0,0,,,,,,,,,
+Gitea,eyouhi,demo,68308,2024-09-26T01:23:19Z,2024-09-26T01:23:19Z,main,0,0,24101.0,,,,,0.0,0.0,0.0,
+Gitea,kanondev,moevents,64562,2024-08-10T19:43:50Z,2024-09-07T07:09:37Z,devel,0,0,35284.0,MIT,Haxe,"{""Haxe"": {""size"": 1607, ""percentage"": ""100.00""}}",3.0,1.0,1.0,0.0,0.0
+Gitea,HaomingJu,test,81470,2024-12-20T07:55:36Z,2024-12-20T07:55:36Z,master,0,0,24110.0,,,,,0.0,0.0,0.0,
+Gitea,Ember,X11-fuzzyfinder-drag,65664,2024-08-22T22:44:48Z,2024-09-03T20:40:47Z,main,0,0,32432.0,WTFPL,C,"{""C"": {""size"": 2407, ""percentage"": ""100.00""}}",10.0,1.0,1.0,0.0,0.0
+Gitea,OGME,portfolio,62711,2024-07-29T15:58:26Z,2024-07-29T15:58:26Z,main,0,0,24104.0,,,,,0.0,0.0,0.0,
+Gitea,Pankajp1997,Galactic_airlines,87178,2025-01-20T06:38:55Z,2025-01-20T06:46:34Z,master,0,0,53578.0,,Python,"{""Dockerfile"": {""size"": 642, ""percentage"": ""9.74""}, ""HTML"": {""size"": 2317, ""percentage"": ""35.14""}, ""Python"": {""size"": 3634, ""percentage"": ""55.12""}}",4.0,1.0,2.0,0.0,0.0
+Gitea,1tbfree1,heckercoin,73270,2024-11-21T17:59:19Z,2024-11-24T21:45:28Z,main,2,0,29204.0,WTFPL,Python,"{""Python"": {""size"": 764, ""percentage"": ""92.27""}, ""Shell"": {""size"": 64, ""percentage"": ""7.73""}}",21.0,1.0,1.0,0.0,0.0
+Gitea,ltlpwl,ltlpwl,68754,2024-09-30T19:29:21Z,2024-09-30T19:29:21Z,master,0,0,24109.0,,,,,0.0,0.0,0.0,
+Gitea,casanovalx,serenity-shell,95923,2025-04-06T15:35:33Z,2025-04-06T16:59:44Z,main,0,0,74974.0,GPL-3.0,,,4.0,1.0,1.0,0.0,0.0
+Gitea,sevan10,beautifulSoup,61451,2024-07-15T08:03:13Z,2024-07-15T08:08:58Z,main,0,0,132575.0,,Jupyter Notebook,"{""Jupyter Notebook"": {""size"": 82627, ""percentage"": ""100.00""}}",2.0,1.0,2.0,0.0,0.0
+Gitea,sphdsnr02,Homeopathy-Clinics-in-Hyderabad,73132,2024-11-19T13:06:44Z,2024-11-19T13:06:44Z,,0,0,,,,,,,,,
+Gitea,plicitlisbitd,NinjaTrader_Historical_Data_Free_Access,92385,2025-03-09T14:57:03Z,2025-03-09T14:57:38Z,main,0,0,,,,,,,,,
+Gitea,frazier31e,Best-Weight-loss-Supplements,87457,2025-01-22T18:17:03Z,2025-01-22T18:40:25Z,main,0,0,,,,,,,,,
+Gitea,ks2515,dops,49416,2024-01-16T12:55:46Z,2024-06-09T11:46:05Z,main,0,0,56776.0,MIT,Go,"{""Dockerfile"": {""size"": 254, ""percentage"": ""2.74""}, ""Go"": {""size"": 9026, ""percentage"": ""97.26""}}",30.0,1.0,2.0,0.0,0.0
+Gitea,realbxnnie,Flick,91102,2025-03-05T20:20:09Z,2025-03-06T10:41:01Z,main,0,0,72274.0,AGPL-3.0,,,3.0,1.0,1.0,0.0,0.0
+Gitea,shouz,plus,70466,2024-10-23T06:58:09Z,2024-12-18T06:08:00Z,main,0,0,1296099.0,,C++,"{""C++"": {""size"": 762036, ""percentage"": ""99.71""}, ""C"": {""size"": 2226, ""percentage"": ""0.29""}}",385.0,1.0,1.0,0.0,0.0
+Gitea,Austin,mozilla-social-elk,74417,2024-12-03T03:13:15Z,2024-12-03T03:13:45Z,main,0,0,10100792.0,MIT,Vue,"{""Dockerfile"": {""size"": 1326, ""percentage"": ""0.18""}, ""Vue"": {""size"": 413966, ""percentage"": ""55.95""}, ""TypeScript"": {""size"": 309960, ""percentage"": ""41.89""}, ""JavaScript"": {""size"": 7366, ""percentage"": ""1.00""}, ""CSS"": {""size"": 7296, ""percentage"": ""0.99""}}",2406.0,7.0,202.0,0.0,0.0
+Gitea,rebovas,graphics,95191,2025-03-27T10:35:42Z,2025-04-12T13:49:54Z,master,0,0,895104063.0,,Python,"{""Python"": {""size"": 50740833, ""percentage"": ""92.03""}, ""PowerShell"": {""size"": 9033, ""percentage"": ""0.02""}, ""Shell"": {""size"": 3147, ""percentage"": ""0.01""}, ""C"": {""size"": 723717, ""percentage"": ""1.31""}, ""HTML"": {""size"": 2960031, ""percentage"": ""5.37""}, ""CSS"": {""size"": 41215, ""percentage"": ""0.07""}, ""JavaScript"": {""size"": 401149, ""percentage"": ""0.73""}, ""Lua"": {""size"": 139, ""percentage"": ""0.00""}, ""Cython"": {""size"": 117754, ""percentage"": ""0.21""}, ""C++"": {""size"": 85980, ""percentage"": ""0.16""}, ""Meson"": {""size"": 4589, ""percentage"": ""0.01""}, ""Fortran"": {""size"": 39272, ""percentage"": ""0.07""}, ""Roff"": {""size"": 5377, ""percentage"": ""0.01""}}",4.0,1.0,1.0,0.0,0.0
+Gitea,TerZoro,PAssignment01,87985,2025-01-27T10:29:46Z,2025-01-27T10:29:46Z,main,0,0,24111.0,,,,,0.0,0.0,0.0,
+Gitea,nalsds,ab,80985,2024-12-18T14:02:06Z,2025-02-10T11:50:51Z,main,0,0,,,,,,,,,
+Gitea,Andreayoo,myself,70501,2024-10-23T15:42:09Z,2025-01-31T10:29:25Z,main,0,0,,,,,,,,,
+Gitea,pavliktt,finfo,70051,2024-10-19T17:44:16Z,2025-03-02T15:19:16Z,main,0,0,136129.0,,C++,"{""C++"": {""size"": 84927, ""percentage"": ""98.67""}, ""Makefile"": {""size"": 564, ""percentage"": ""0.66""}, ""C"": {""size"": 578, ""percentage"": ""0.67""}}",47.0,2.0,4.0,3.0,0.0
+Gitea,chandu078,proprietary_vendor_oneplus_salami,84539,2025-01-05T12:41:34Z,2025-01-05T12:52:59Z,fifteen,0,0,550298260.0,,Makefile,"{""Makefile"": {""size"": 39745, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,shoemacher,upload-artifact,89443,2025-02-15T04:30:24Z,2025-02-15T04:30:28Z,main,0,0,12929187.0,MIT,TypeScript,"{""TypeScript"": {""size"": 41720, ""percentage"": ""99.33""}, ""JavaScript"": {""size"": 281, ""percentage"": ""0.67""}}",260.0,22.0,43.0,0.0,0.0
+Gitea,katelug,exercise_6,60536,2024-07-03T20:18:57Z,2024-07-03T20:21:49Z,master,0,0,35843.0,,JavaScript,"{""JavaScript"": {""size"": 5598, ""percentage"": ""100.00""}}",13.0,1.0,1.0,0.0,0.0
+Gitea,gugudas01,l,95808,2025-04-04T11:51:52Z,2025-04-04T11:51:53Z,main,0,0,26434.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,RANDOM-NEURAL-MONK,Projectsujithborewellrescue,80057,2024-12-14T14:34:44Z,2024-12-14T14:36:20Z,main,0,0,2677113.0,Apache-2.0,,,2.0,1.0,1.0,0.0,0.0
+Gitea,RuCu6,Loon,70096,2024-10-20T17:58:08Z,2024-10-20T17:58:08Z,main,0,0,24100.0,,,,,0.0,0.0,0.0,
+Gitea,RANDOM-NEURAL-MONK,siddha-cad,96442,2025-04-12T12:38:14Z,2025-04-12T14:37:47Z,main,0,0,7467155.0,Apache-2.0,,,6.0,1.0,1.0,0.0,0.0
+Gitea,sumo_boy,SpaceInvaderProject,68240,2024-09-24T16:22:32Z,2024-09-24T16:22:32Z,main,0,0,28636.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,r_3750914,Wtf,86023,2025-01-13T00:46:46Z,2025-01-13T00:47:54Z,main,0,0,26496.0,,Lua,"{""Lua"": {""size"": 22, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,subcdisaebama975,Webull_Free_Access,92403,2025-03-09T15:00:38Z,2025-03-09T15:01:10Z,main,0,0,,,,,,,,,
+Gitea,Kelly_Doyle,hello-world,60191,2024-06-27T06:03:33Z,2024-06-27T06:03:33Z,main,0,0,24113.0,,,,,0.0,0.0,0.0,
+Gitea,antoinegentil,picow-weather,67228,2024-09-07T16:50:52Z,2024-09-07T16:51:49Z,master,0,0,288177.0,,Python,"{""Python"": {""size"": 22393, ""percentage"": ""100.00""}}",4.0,1.0,2.0,0.0,0.0
+Gitea,levie,belaundry-app,73147,2024-11-19T23:48:51Z,2024-11-20T00:15:58Z,master,0,0,441572.0,,TypeScript,"{""Vue"": {""size"": 87, ""percentage"": ""35.66""}, ""TypeScript"": {""size"": 157, ""percentage"": ""64.34""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,ayflying,p2p,71816,2024-11-10T10:29:47Z,2024-11-16T07:56:23Z,master,0,0,155651.0,,Go,"{""Go"": {""size"": 81355, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,wower,hestiacp,88876,2025-02-09T03:44:17Z,2025-02-09T03:44:17Z,main,0,0,41020.0,Apache-2.0,,,1.0,1.0,1.0,0.0,0.0
+Gitea,JustZapeR,Lab4SP,73595,2024-11-25T13:35:25Z,2024-11-25T14:12:51Z,master,0,0,64983.0,,C,"{""C++"": {""size"": 2270, ""percentage"": ""31.02""}, ""C"": {""size"": 5047, ""percentage"": ""68.98""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,RisingTechOSS-surya,hardware_xiaomi,71318,2024-11-04T01:43:00Z,2024-11-04T02:11:32Z,fifteen,0,0,701537.0,,C++,"{""Kotlin"": {""size"": 79222, ""percentage"": ""28.27""}, ""AIDL"": {""size"": 517, ""percentage"": ""0.18""}, ""C++"": {""size"": 185091, ""percentage"": ""66.05""}, ""C"": {""size"": 14941, ""percentage"": ""5.33""}, ""Shell"": {""size"": 234, ""percentage"": ""0.08""}, ""Java"": {""size"": 237, ""percentage"": ""0.08""}}",240.0,1.0,60.0,0.0,0.0
+Gitea,yess_yess_skidd9996nonexe,Blade-ball,72901,2024-11-16T05:14:26Z,2024-11-16T05:14:26Z,main,0,0,,,,,,,,,
+Gitea,CasperVector,re-view,2350,2019-11-06T21:59:18Z,2024-08-28T09:00:16Z,master,0,0,625504.0,,JavaScript,"{""JavaScript"": {""size"": 26298, ""percentage"": ""95.78""}, ""HTML"": {""size"": 1158, ""percentage"": ""4.22""}}",45.0,1.0,1.0,0.0,0.0
+Gitea,upal,WhatsApp-Gateway,71724,2024-11-08T17:02:23Z,2024-11-08T17:02:23Z,main,0,0,72829.0,GPL-3.0,,,1.0,1.0,1.0,0.0,0.0
+Gitea,Alexander2025,mbrtools,85578,2025-01-11T05:53:30Z,2025-01-11T05:53:32Z,main,0,0,824015.0,AGPL-3.0,Pascal,"{""Pascal"": {""size"": 31373, ""percentage"": ""68.00""}, ""Assembly"": {""size"": 14762, ""percentage"": ""32.00""}}",4.0,1.0,1.0,0.0,0.0
+Gitea,KarenCollin,KarenCollin,72943,2024-11-16T20:14:28Z,2024-11-16T20:14:28Z,main,0,0,,,,,,,,,
+Gitea,IwantPizz0,UnityMy,67495,2024-09-11T12:27:55Z,2024-09-11T15:33:42Z,main,0,0,322483.0,,C#,"{""C#"": {""size"": 1847, ""percentage"": ""100.00""}}",5.0,1.0,2.0,0.0,0.0
+Gitea,TTDNS,---------,96062,2025-04-08T01:14:00Z,2025-04-08T01:14:00Z,main,0,0,24105.0,,,,,0.0,0.0,0.0,
+Gitea,dontbetoxicjk,justathing,71264,2024-11-03T14:38:04Z,2024-11-03T14:45:38Z,main,0,0,32059486.0,,HTML,"{""HTML"": {""size"": 18229475, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,damianrobinson,algorithms_in_swift,63998,2024-08-06T16:39:12Z,2024-08-06T16:41:00Z,main,0,0,31130.0,Unlicense,Swift,"{""Swift"": {""size"": 1625, ""percentage"": ""100.00""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,Parthen,Sofia,89972,2025-02-21T05:19:25Z,2025-02-21T05:19:26Z,main,0,0,72825.0,GPL-3.0,,,1.0,1.0,1.0,0.0,0.0
+Gitea,dimaskus99,test_repos,76088,2024-12-07T22:08:38Z,2024-12-08T14:38:15Z,master,0,0,309743949.0,,C,"{""C++"": {""size"": 2268, ""percentage"": ""31.49""}, ""C"": {""size"": 4934, ""percentage"": ""68.51""}}",13.0,1.0,1.0,0.0,0.0
+Gitea,PreamDev,teST123321,87944,2025-01-26T19:15:43Z,2025-01-26T19:15:43Z,main,0,0,24109.0,,,,,0.0,0.0,4.0,
+Gitea,msnwritingservices,xds,66748,2024-09-03T14:38:04Z,2024-09-03T14:38:04Z,,0,0,24118.0,,,,,0.0,0.0,4.0,
+Gitea,hendrawan97,test-development,84459,2025-01-04T15:32:44Z,2025-01-04T15:32:44Z,main,0,0,24118.0,,,,,0.0,0.0,0.0,
+Gitea,AussieDropBear,ShorelineRP,81462,2024-12-20T06:30:25Z,2024-12-20T06:30:25Z,main,0,0,24116.0,,,,,0.0,0.0,0.0,
+Gitea,Org01,Rep01,63966,2024-08-06T14:56:16Z,2024-08-06T14:56:16Z,main,0,0,24101.0,,,,,0.0,0.0,0.0,
+Gitea,Mayee,design-pattern-java,86934,2025-01-18T05:22:20Z,2025-01-18T05:22:20Z,main,0,0,24115.0,,,,,0.0,0.0,0.0,
+Gitea,rosae,AutoMergePublicNodes,74130,2024-12-02T05:53:26Z,2024-12-02T06:02:29Z,master,0,0,6219520.0,NOASSERTION,Python,"{""Python"": {""size"": 41366, ""percentage"": ""100.00""}}",7401.0,1.0,2.0,0.0,0.0
+Gitea,1056516,playervpn.github.io,90629,2025-02-27T14:43:42Z,2025-02-27T14:45:41Z,main,0,0,2054728020.0,,HTML,"{""HTML"": {""size"": 111727655, ""percentage"": ""91.49""}, ""JavaScript"": {""size"": 10313947, ""percentage"": ""8.45""}, ""CSS"": {""size"": 70888, ""percentage"": ""0.06""}, ""Python"": {""size"": 814, ""percentage"": ""0.00""}, ""Nix"": {""size"": 165, ""percentage"": ""0.00""}, ""Ruby"": {""size"": 1245, ""percentage"": ""0.00""}}",2065.0,2.0,8.0,0.0,0.0
+Gitea,git-l,LANraragi,66582,2024-09-01T11:13:29Z,2024-09-01T11:13:41Z,dev,0,0,,,,,,,,0.0,0.0
+Gitea,HunterCha,SingKiwo,95838,2025-04-04T23:16:21Z,2025-04-11T08:48:38Z,main,0,0,11830211.0,,,,4.0,1.0,1.0,0.0,0.0
+Gitea,JhonyXavier,Job,69917,2024-10-17T11:55:42Z,2024-10-17T11:55:42Z,main,0,0,24105.0,,,,,0.0,0.0,0.0,
+Gitea,neworg,newrepoorg,60457,2024-07-02T09:01:28Z,2024-07-02T13:17:05Z,main,0,0,26479.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,Mikhael,simple-notes-python-app,95153,2025-03-26T18:03:43Z,2025-03-26T21:10:27Z,main,0,0,49574.0,,Python,"{""Python"": {""size"": 4238, ""percentage"": ""69.02""}, ""HTML"": {""size"": 1902, ""percentage"": ""30.98""}}",5.0,1.0,1.0,0.0,0.0
+Gitea,alphadroid-project,vendor_gms,67258,2024-09-08T10:32:36Z,2024-09-10T21:18:13Z,alpha-14,0,1,2642945.0,,Makefile,"{""Makefile"": {""size"": 15436, ""percentage"": ""62.15""}, ""Shell"": {""size"": 9401, ""percentage"": ""37.85""}}",16.0,2.0,19.0,0.0,0.0
+Gitea,MaksimLiadov,team-development,67701,2024-09-15T11:28:47Z,2024-09-15T12:47:34Z,main,1,0,34771.0,,TypeScript,"{""Shell"": {""size"": 75, ""percentage"": ""4.02""}, ""HTML"": {""size"": 251, ""percentage"": ""13.45""}, ""CSS"": {""size"": 245, ""percentage"": ""13.13""}, ""JavaScript"": {""size"": 322, ""percentage"": ""17.26""}, ""TypeScript"": {""size"": 973, ""percentage"": ""52.14""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,shiva,Luxury_senior_citizen_homes_in_chennai,59118,2024-06-12T11:46:27Z,2024-06-12T11:46:27Z,main,0,0,,,,,,,,,
+Gitea,Kartik,TestRepo,68276,2024-09-25T09:07:47Z,2024-09-30T09:12:31Z,main,0,0,26611.0,,,,11.0,5.0,1.0,0.0,0.0
+Gitea,naosense,test,94712,2025-03-20T13:37:39Z,2025-03-20T13:41:07Z,main,0,0,26459.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,Hatoreld47,Hatoreld47,95984,2025-04-07T10:09:51Z,2025-04-07T10:09:51Z,main,0,0,,,,,,,,,
+Gitea,RealNoFake,MalwareDatabase,89396,2025-02-14T14:15:10Z,2025-02-20T20:47:27Z,main,0,0,31433.0,,Python,"{""Python"": {""size"": 1995, ""percentage"": ""100.00""}}",6.0,1.0,1.0,0.0,0.0
+Gitea,1056516,orbit,90628,2025-02-27T14:42:41Z,2025-02-27T14:42:41Z,main,0,0,24103.0,,,,,0.0,0.0,0.0,
+Gitea,izzy2lost,UnrealEngine,85833,2025-01-12T08:03:31Z,2025-01-14T15:28:06Z,4.23-uwp,0,0,2477802604.0,NOASSERTION,,,73225.0,22.0,3058.0,0.0,0.0
+Gitea,lh-group,pro3,59158,2024-06-13T02:08:12Z,2024-06-13T02:08:12Z,main,0,0,24103.0,,,,,0.0,0.0,0.0,
+Gitea,nahuelsarser,pipeline-demo,59062,2024-06-11T18:37:30Z,2024-06-26T17:38:36Z,main,0,0,26895.0,,Java,"{""Java"": {""size"": 119, ""percentage"": ""100.00""}}",4.0,3.0,2.0,0.0,0.0
+Gitea,2722936,MyFirstCode,67868,2024-09-18T09:58:52Z,2024-09-18T09:58:52Z,main,0,0,24109.0,,,,,0.0,0.0,0.0,
+Gitea,honakac,.profile,59213,2024-06-14T09:57:02Z,2024-06-14T09:57:21Z,main,0,0,26460.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,hellodong,util_tlsrv,83167,2024-12-27T06:03:16Z,2024-12-27T06:03:59Z,master,0,0,53057.0,,C,"{""CMake"": {""size"": 2904, ""percentage"": ""15.76""}, ""Shell"": {""size"": 475, ""percentage"": ""2.58""}, ""Makefile"": {""size"": 527, ""percentage"": ""2.86""}, ""C"": {""size"": 14525, ""percentage"": ""78.81""}}",14.0,1.0,2.0,0.0,0.0
+Gitea,wys1310,YouTube_to_m3u,90920,2025-03-03T16:20:12Z,2025-03-03T16:20:22Z,main,0,1,69590789.0,MIT,Python,"{""Batchfile"": {""size"": 84, ""percentage"": ""2.96""}, ""Shell"": {""size"": 158, ""percentage"": ""5.57""}, ""Python"": {""size"": 2594, ""percentage"": ""91.47""}}",11948.0,2.0,15.0,0.0,0.0
+Gitea,benito.rodriguez,ASCII_ROMPECABEZAS,89607,2025-02-17T14:33:31Z,2025-02-17T14:33:32Z,main,0,0,27442.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,Golden007,MFA_OWIN_MIDDLEWARE,61174,2024-07-13T16:49:18Z,2024-07-13T17:19:08Z,main,0,0,154263641.0,,JavaScript,"{""C#"": {""size"": 14304, ""percentage"": ""5.66""}, ""CSS"": {""size"": 513, ""percentage"": ""0.20""}, ""ASP.NET"": {""size"": 6438, ""percentage"": ""2.55""}, ""JavaScript"": {""size"": 227022, ""percentage"": ""89.81""}, ""HTML"": {""size"": 4516, ""percentage"": ""1.79""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,Klaus,TD,68704,2024-09-30T08:27:17Z,2024-09-30T08:27:18Z,main,0,0,24098.0,,,,,0.0,0.0,0.0,
+Gitea,crustiphyzush,Phemex_Trading_Bot,92541,2025-03-09T15:27:35Z,2025-03-09T15:28:06Z,main,0,0,,,,,,,,,
+Gitea,Serge2008,scrabble_word_proccesor,72653,2024-11-14T22:44:17Z,2024-11-14T23:01:26Z,master,0,0,3450524.0,LGPL-3.0,Python,"{""Python"": {""size"": 5063, ""percentage"": ""100.00""}}",8.0,1.0,1.0,0.0,0.0
+Gitea,unwornwave50547,HSSSU,81523,2024-12-20T15:01:47Z,2024-12-20T16:29:32Z,main,0,0,33978920.0,AGPL-3.0,HTML,"{""Procfile"": {""size"": 14, ""percentage"": ""0.00""}, ""JavaScript"": {""size"": 168834, ""percentage"": ""0.91""}, ""HTML"": {""size"": 18335332, ""percentage"": ""99.00""}, ""CSS"": {""size"": 15682, ""percentage"": ""0.08""}}",28.0,1.0,1.0,0.0,0.0
+Gitea,Filse19,Filse19,90178,2025-02-24T07:40:28Z,2025-02-24T07:40:28Z,main,0,0,,,,,,,,,
+Gitea,CYGDEN,PARSERTG,72981,2024-11-17T18:10:25Z,2024-11-17T18:10:25Z,main,0,0,24105.0,,,,,0.0,0.0,0.0,
+Gitea,rarritheosohg,Aave_Wallet_Trading_Bot,93161,2025-03-09T18:15:03Z,2025-03-09T18:17:34Z,main,0,0,,,,,,,,,
+Gitea,trisacimko4q,KuCoin_Free_Access,93334,2025-03-09T19:35:35Z,2025-03-09T19:36:08Z,main,0,0,,,,,,,,,
+Gitea,TogoFire,vendor_oneplus_lemonadep,90624,2025-02-27T14:00:01Z,2025-02-27T14:07:04Z,15.1,0,0,1557190789.0,,Makefile,"{""Makefile"": {""size"": 105555, ""percentage"": ""81.81""}, ""Shell"": {""size"": 802, ""percentage"": ""0.62""}, ""GLSL"": {""size"": 22661, ""percentage"": ""17.56""}}",40.0,1.0,5.0,0.0,0.0
+Gitea,wj340881,ad,81140,2024-12-19T04:21:49Z,2025-01-25T03:06:50Z,main,0,0,472253.0,,,,4.0,1.0,1.0,0.0,0.0
+Gitea,thuanpham582002,test,80421,2024-12-16T09:08:55Z,2024-12-16T09:08:55Z,main,0,0,24110.0,,,,,0.0,0.0,0.0,
+Gitea,andref2015,math-quiz,62347,2024-07-26T08:43:32Z,2024-07-26T09:40:24Z,main,0,0,29964.0,,Go,"{""Go"": {""size"": 2838, ""percentage"": ""100.00""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,Baek_Hyun_jun,portfolio,87468,2025-01-22T19:58:39Z,2025-01-23T01:53:02Z,main,0,0,68834077.0,NOASSERTION,JavaScript,"{""JavaScript"": {""size"": 99439, ""percentage"": ""52.65""}, ""SCSS"": {""size"": 89425, ""percentage"": ""47.35""}}",3.0,1.0,2.0,0.0,0.0
+Gitea,based-us3r,porting-utils,80022,2024-12-14T09:50:37Z,2024-12-25T09:01:54Z,main,0,0,103031.0,GPL-3.0,TypeScript,"{""TypeScript"": {""size"": 3784, ""percentage"": ""100.00""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,reciever,cppcode,88874,2025-02-09T02:02:28Z,2025-02-09T02:02:28Z,main,0,0,27078.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,conttahydmowp16,JRiver_Media_Center,92324,2025-03-09T14:45:08Z,2025-03-09T14:45:39Z,main,0,0,,,,,,,,,
+Gitea,AngleMorning,B0x1uds,88898,2025-02-09T14:35:25Z,2025-02-11T11:49:07Z,main,0,0,37493.0,,Lua,"{""Lua"": {""size"": 9338, ""percentage"": ""100.00""}}",4.0,1.0,1.0,0.0,0.0
+Gitea,oarix,veclang,96502,2025-04-13T12:08:10Z,2025-04-13T17:44:38Z,main,0,0,30500.0,,C,"{""C"": {""size"": 2560, ""percentage"": ""96.82""}, ""Makefile"": {""size"": 84, ""percentage"": ""3.18""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,andrew-almaguer-jambit,ai-learning-platform,52980,2024-03-22T09:21:47Z,2024-11-04T12:07:56Z,main,1,0,27007845.0,MIT,Vue,"{""JavaScript"": {""size"": 1385, ""percentage"": ""1.07""}, ""Dockerfile"": {""size"": 982, ""percentage"": ""0.76""}, ""TypeScript"": {""size"": 43617, ""percentage"": ""33.75""}, ""HTML"": {""size"": 359, ""percentage"": ""0.28""}, ""Vue"": {""size"": 82675, ""percentage"": ""63.97""}, ""CSS"": {""size"": 231, ""percentage"": ""0.18""}}",42.0,2.0,2.0,0.0,0.0
+Gitea,Kralbet,Kralbet,65122,2024-08-16T13:49:31Z,2024-08-16T13:50:35Z,main,0,0,,,,,,,,,
+Gitea,Sayid05,UptimeKuma,73252,2024-11-21T12:08:23Z,2025-01-31T17:38:50Z,master,1,0,6598107.0,MIT,JavaScript,"{""JavaScript"": {""size"": 903802, ""percentage"": ""55.24""}, ""Dockerfile"": {""size"": 4408, ""percentage"": ""0.27""}, ""PowerShell"": {""size"": 387, ""percentage"": ""0.02""}, ""Go"": {""size"": 2699, ""percentage"": ""0.16""}, ""Shell"": {""size"": 2058, ""percentage"": ""0.13""}, ""C#"": {""size"": 557, ""percentage"": ""0.03""}, ""Java"": {""size"": 908, ""percentage"": ""0.06""}, ""PHP"": {""size"": 322, ""percentage"": ""0.02""}, ""Python"": {""size"": 216, ""percentage"": ""0.01""}, ""TypeScript"": {""size"": 22221, ""percentage"": ""1.36""}, ""HTML"": {""size"": 1102, ""percentage"": ""0.07""}, ""Vue"": {""size"": 681970, ""percentage"": ""41.68""}, ""SCSS"": {""size"": 15535, ""percentage"": ""0.95""}}",5585.0,2.0,695.0,0.0,0.0
+Gitea,cry0n1s1s,IceClient,68367,2024-09-27T00:18:17Z,2024-09-27T22:27:49Z,main,0,0,21838614.0,MIT,,,5.0,1.0,1.0,0.0,0.0
+Gitea,Oscar_HJ,piscine-go,70228,2024-10-21T08:10:45Z,2024-10-21T08:10:45Z,main,0,0,24109.0,,,,,0.0,0.0,0.0,
+Gitea,Usoft,ustacirak,61026,2024-07-11T12:41:41Z,2024-07-11T12:41:41Z,main,0,0,24105.0,,,,,0.0,0.0,0.0,
+Gitea,pubist,ElectricPowerSteering_TMS570_GM_C1XX,84815,2025-01-07T02:02:26Z,2025-01-07T02:04:40Z,main,0,0,,,,,,,,,
+Gitea,susannari,music-listening,59504,2024-06-17T17:09:19Z,2024-06-17T17:09:19Z,main,0,0,26520.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,ChantzD,Circuit_Knitting,51113,2024-02-15T18:46:29Z,2024-11-25T18:04:16Z,main,1,0,406258.0,MIT,Jupyter Notebook,"{""Python"": {""size"": 44875, ""percentage"": ""21.77""}, ""Jupyter Notebook"": {""size"": 161237, ""percentage"": ""78.23""}}",65.0,1.0,4.0,0.0,0.0
+Gitea,sarahitg11,uas-sarah-ihsan,88886,2025-02-09T07:28:10Z,2025-02-09T07:28:10Z,main,0,0,24116.0,,,,,0.0,0.0,0.0,
+Gitea,vardan_Sharma,First_repo,67343,2024-09-09T18:33:24Z,2024-09-09T18:41:29Z,main,0,0,47123.0,,HTML,"{""HTML"": {""size"": 9025, ""percentage"": ""55.38""}, ""CSS"": {""size"": 7272, ""percentage"": ""44.62""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,milla182005,projet-sql-B2,71946,2024-11-12T08:09:59Z,2024-11-12T08:09:59Z,main,0,0,24115.0,,,,,0.0,0.0,0.0,
+Gitea,xian,ruoyi-vue,73824,2024-11-28T05:06:29Z,2024-12-08T15:17:12Z,main,0,0,5071672.0,MIT,Java,"{""Batchfile"": {""size"": 2532, ""percentage"": ""0.14""}, ""Java"": {""size"": 1004691, ""percentage"": ""56.14""}, ""JavaScript"": {""size"": 155918, ""percentage"": ""8.71""}, ""HTML"": {""size"": 29115, ""percentage"": ""1.63""}, ""Vue"": {""size"": 577007, ""percentage"": ""32.24""}, ""SCSS"": {""size"": 18645, ""percentage"": ""1.04""}, ""Shell"": {""size"": 1681, ""percentage"": ""0.09""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,domain-owner,domain-owner,86819,2025-01-17T14:43:26Z,2025-01-17T14:43:52Z,auto,0,0,,,,,,,,,
+Gitea,John1400800,funny_photos,60045,2024-06-25T12:25:38Z,2024-06-25T12:27:08Z,main,0,0,151889.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,devsemarroba,bioclinica,69587,2024-10-12T18:46:25Z,2024-10-12T18:46:26Z,main,0,0,29354.0,NOASSERTION,,,1.0,1.0,1.0,0.0,0.0
+Gitea,Moonl1ght,sausage-store,70041,2024-10-19T08:43:52Z,2024-10-19T09:00:18Z,main,0,0,1099699.0,MIT,Java,"{""Java"": {""size"": 25622, ""percentage"": ""49.27""}, ""JavaScript"": {""size"": 1716, ""percentage"": ""3.30""}, ""TypeScript"": {""size"": 20071, ""percentage"": ""38.60""}, ""CSS"": {""size"": 176, ""percentage"": ""0.34""}, ""HTML"": {""size"": 4419, ""percentage"": ""8.50""}}",2.0,1.0,2.0,0.0,0.0
+Gitea,PS2320,New_Repo,70338,2024-10-22T12:08:02Z,2024-10-22T12:08:02Z,main,0,0,24105.0,,,,,0.0,0.0,0.0,
+Gitea,acertainmod,testxxxdelete,60218,2024-06-27T20:44:55Z,2024-06-27T20:46:08Z,main,0,0,27530.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,glimpsedream1,D-jobzy,69572,2024-10-12T13:23:51Z,2024-10-12T13:23:51Z,,0,0,,,,,,,,,
+Gitea,Lightheartedd,XueXiShuDan,68183,2024-09-23T14:17:11Z,2024-09-26T15:37:43Z,main,0,0,852209335.0,GPL-3.0,,,46.0,1.0,1.0,0.0,0.0
+Gitea,220-1101_Exam_Dumps,220-1101_Exam-Dumps,69503,2024-10-11T10:08:49Z,2024-10-11T10:08:49Z,main,0,0,24129.0,,,,,0.0,0.0,0.0,
+Gitea,kaya,test,64419,2024-08-08T19:41:31Z,2024-08-08T19:41:31Z,main,0,0,24099.0,,,,,0.0,0.0,0.0,
+Gitea,enverbisevac,demo,69233,2024-10-07T05:02:53Z,2024-10-07T05:02:53Z,main,0,0,24107.0,,,,,0.0,0.0,0.0,
+Gitea,tempdir,snippet,69561,2024-10-12T09:58:28Z,2024-10-12T10:02:06Z,main,0,0,29030.0,,Shell,"{""Shell"": {""size"": 1892, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,gauri123,gauri,62222,2024-07-24T18:52:50Z,2024-07-24T18:52:50Z,main,0,0,,,,,,,,,
+Gitea,Stefano,SanoJam,95854,2025-04-05T07:30:29Z,2025-04-05T16:16:55Z,main,0,0,8252176.0,,ShaderLab,"{""C#"": {""size"": 50320, ""percentage"": ""34.75""}, ""ShaderLab"": {""size"": 80492, ""percentage"": ""55.59""}, ""HLSL"": {""size"": 13994, ""percentage"": ""9.66""}}",25.0,1.0,3.0,0.0,0.0
+Gitea,vpnaruna,bottol,87426,2025-01-22T11:48:39Z,2025-01-22T12:16:58Z,main,0,0,38781.0,,Shell,"{""Shell"": {""size"": 9643, ""percentage"": ""100.00""}}",3.0,1.0,1.0,0.0,0.0
+Gitea,amuro13,memo,39115,2023-07-26T02:17:51Z,2024-08-21T02:46:59Z,main,0,0,976541.0,,Shell,"{""Shell"": {""size"": 3834, ""percentage"": ""77.13""}, ""Vim Script"": {""size"": 77, ""percentage"": ""1.55""}, ""Batchfile"": {""size"": 1060, ""percentage"": ""21.32""}}",29.0,1.0,1.0,0.0,0.0
+Gitea,nova360,whatssaping,73095,2024-11-19T02:46:48Z,2024-11-19T02:46:48Z,main,0,0,,,,,,,,,
+Gitea,ketombe,up,72997,2024-11-18T00:16:31Z,2024-11-18T00:17:35Z,main,0,0,,,,,,,,,
+Gitea,Bruno_Zeverini,HelloWorld,69051,2024-10-03T22:08:17Z,2024-11-06T20:05:54Z,main,0,0,63943.0,,Java,"{""Java"": {""size"": 1069, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,mattaffleck,mattspace,65758,2024-08-24T11:47:32Z,2024-08-24T11:47:32Z,main,0,0,24111.0,,,,,0.0,0.0,0.0,
+Gitea,taikhoancuatoi,ConFigOss.json,94361,2025-03-16T14:02:49Z,2025-03-16T14:03:16Z,main,0,0,28598.0,,,,2.0,1.0,1.0,0.0,0.0
+Gitea,thatonedoggo,facefusion,88416,2025-02-02T11:59:19Z,2025-02-02T11:59:23Z,master,0,0,3678636.0,NOASSERTION,Python,"{""Python"": {""size"": 684828, ""percentage"": ""99.65""}, ""CSS"": {""size"": 2377, ""percentage"": ""0.35""}}",109.0,4.0,7.0,0.0,0.0
+Gitea,zy84338719,ademo,94005,2025-03-11T08:47:19Z,2025-03-11T08:47:45Z,main,0,0,24106.0,,,,,0.0,0.0,0.0,
+Gitea,yvr-vishnu,solar-system,95851,2025-04-05T06:47:54Z,2025-04-05T06:47:57Z,main,0,0,3735319.0,MIT,JavaScript,"{""Dockerfile"": {""size"": 243, ""percentage"": ""1.60""}, ""JavaScript"": {""size"": 10007, ""percentage"": ""66.07""}, ""HTML"": {""size"": 4896, ""percentage"": ""32.33""}}",12.0,1.0,1.0,0.0,0.0
+Gitea,rutik1206,test,65352,2024-08-21T13:28:24Z,2024-08-21T13:28:26Z,main,0,0,27849.0,,,,1.0,2.0,1.0,0.0,0.0
+Gitea,antoinegentil,vampireSurvivorClone,64169,2024-08-07T14:57:41Z,2024-08-07T14:58:58Z,master,0,0,34028674.0,,GDScript,"{""GDScript"": {""size"": 5657, ""percentage"": ""100.00""}}",4.0,1.0,1.0,0.0,0.0
+Gitea,engineer855478,SIP_PACKAGE_Vector_BSW_RH850_BMW,84491,2025-01-04T19:13:35Z,2025-01-04T19:15:57Z,main,0,0,,,,,,,,,
+Gitea,pizzatwistlivingston,pizza-twist-livingston,87430,2025-01-22T13:03:47Z,2025-01-22T13:03:47Z,,0,0,,,,,,,,,
+Gitea,Madjes,tierraviva,88554,2025-02-04T22:58:49Z,2025-03-03T14:56:11Z,main,0,0,15298677.0,GPL-3.0,PHP,"{""JavaScript"": {""size"": 6744, ""percentage"": ""6.54""}, ""CSS"": {""size"": 60, ""percentage"": ""0.06""}, ""PHP"": {""size"": 50634, ""percentage"": ""49.09""}, ""Twig"": {""size"": 45715, ""percentage"": ""44.32""}}",14.0,1.0,2.0,0.0,0.0
+Gitea,eating2,DB_Project,59759,2024-06-21T01:52:17Z,2024-06-21T02:16:03Z,main,0,0,30431858.0,ISC,HTML,"{""JavaScript"": {""size"": 24280, ""percentage"": ""22.85""}, ""HTML"": {""size"": 81960, ""percentage"": ""77.15""}}",2.0,1.0,2.0,0.0,0.0
+Gitea,Barudako,Lerkodok,95777,2025-04-04T03:16:06Z,2025-04-04T03:17:31Z,main,0,0,,,,,,,,,
+Gitea,PreamDev,test,87943,2025-01-26T19:10:55Z,2025-01-26T19:10:55Z,main,0,0,24103.0,,,,,0.0,0.0,3.0,
+Gitea,witherzuo,NewsPhoto,70707,2024-10-26T15:25:01Z,2024-10-26T15:25:22Z,main,0,0,20015631.0,WTFPL,Python,"{""Dockerfile"": {""size"": 542, ""percentage"": ""1.52""}, ""Python"": {""size"": 25268, ""percentage"": ""70.86""}, ""Shell"": {""size"": 1930, ""percentage"": ""5.41""}, ""CSS"": {""size"": 7920, ""percentage"": ""22.21""}}",211.0,1.0,3.0,7.0,7.0
+Gitea,RABBAN,Season1-Episode1-RabbansFortniteLegacy,68189,2024-09-23T16:05:18Z,2024-09-24T12:51:10Z,main,0,0,30223.0,,,,9.0,1.0,1.0,0.0,0.0
+Gitea,bestergun,deneme,76817,2024-12-09T07:32:19Z,2024-12-09T07:32:42Z,main,0,0,26440.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,cisco-client,Cisco-Secure-Client,88892,2025-02-09T09:10:50Z,2025-02-18T22:04:30Z,main,0,0,,,,,,,,,
+Gitea,fadusazabanamasala,data2,59755,2024-06-20T23:08:02Z,2024-06-20T23:18:12Z,main,0,0,,,,,,,,,
+Gitea,makethingsbetter,test,88588,2025-02-05T08:06:50Z,2025-02-05T08:07:24Z,main,0,0,26469.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,Downx,Stree_2_Movie_Download_Filmyzilla_Dubbed_for_Free_from_Filmyzilla,66635,2024-09-02T08:37:19Z,2024-09-02T08:37:19Z,main,0,0,,,,,,,,,
+Gitea,TracyHuls,gamesover,80905,2024-12-17T20:11:46Z,2024-12-17T20:11:46Z,main,0,0,24109.0,,,,,0.0,0.0,0.0,
+Gitea,Qsgz2023ji5ban,Time,65092,2024-08-16T02:31:42Z,2024-08-16T02:31:45Z,main,0,0,1988576.0,MIT,JavaScript,"{""HTML"": {""size"": 56813, ""percentage"": ""38.88""}, ""CSS"": {""size"": 6618, ""percentage"": ""4.53""}, ""JavaScript"": {""size"": 82682, ""percentage"": ""56.59""}}",8.0,1.0,1.0,0.0,0.0
+Gitea,neanderthal,what_wpn_async,62002,2024-07-22T10:42:48Z,2024-07-26T09:24:39Z,master,0,0,187684.0,GPL-3.0,Python,"{""Python"": {""size"": 58101, ""percentage"": ""100.00""}}",112.0,1.0,5.0,0.0,0.0
+Gitea,7Wate,wiki,60998,2024-07-11T06:54:39Z,2024-10-17T06:38:59Z,main,0,0,11428514.0,,JavaScript,"{""JavaScript"": {""size"": 4706, ""percentage"": ""100.00""}}",681.0,5.0,7.0,0.0,0.0
+Gitea,stommydx,OIWorkspace,81957,2024-12-22T17:54:58Z,2025-04-14T09:58:54Z,master,0,0,133820.0,,C++,"{""CMake"": {""size"": 659, ""percentage"": ""0.88""}, ""Shell"": {""size"": 804, ""percentage"": ""1.08""}, ""C++"": {""size"": 73055, ""percentage"": ""98.04""}}",120.0,3.0,2.0,0.0,0.0
+Gitea,grybalkina,Sprint_01,88769,2025-02-07T08:15:14Z,2025-02-07T08:51:24Z,main,0,0,30123.0,,C,"{""C"": {""size"": 1153, ""percentage"": ""100.00""}}",6.0,1.0,1.0,0.0,0.0
+Gitea,Hadek,mcp_test,91228,2025-03-07T16:44:16Z,2025-03-07T18:45:32Z,main,0,0,42290.0,,Python,"{""Python"": {""size"": 2001, ""percentage"": ""100.00""}}",2.0,1.0,2.0,0.0,0.0
+Gitea,intermediate_developer,thinkpad-stufsz,91289,2025-03-08T20:39:22Z,2025-03-08T20:39:23Z,main,0,0,43632617.0,Unlicense,,,5.0,1.0,1.0,0.0,0.0
+Gitea,chebb777,SummerPractise,60420,2024-07-01T19:35:32Z,2024-07-01T19:35:32Z,main,0,0,31316.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,chocomintx5,YATO,69830,2024-10-16T09:14:31Z,2024-10-16T09:32:19Z,main,0,0,134914.0,,Python,"{""Python"": {""size"": 7946, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,91,91,81139,2024-12-19T02:51:53Z,2024-12-19T02:52:08Z,main,0,0,38942.0,,HTML,"{""HTML"": {""size"": 8964, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,go-packages,paypale,96186,2025-04-09T09:33:58Z,2025-04-10T12:25:26Z,master,1,0,241971.0,MIT,Go,"{""Go"": {""size"": 158013, ""percentage"": ""100.00""}}",362.0,5.0,89.0,0.0,0.0
+Gitea,Sahil-Ranpariya,JavaScript,66950,2024-09-05T09:13:03Z,2024-09-05T09:15:27Z,main,0,0,36284.0,,JavaScript,"{""JavaScript"": {""size"": 5788, ""percentage"": ""100.00""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,carlad-1,repository-3,36870,2023-04-05T12:04:57Z,2024-12-02T18:38:05Z,main,0,0,8799714.0,,,,9.0,6.0,2.0,10.0,5.0
+Gitea,dolphick,dolphick,37844,2023-05-29T12:26:35Z,2025-03-06T17:32:12Z,main,0,0,26474.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,storekit.org,remax,69361,2024-10-09T03:56:30Z,2024-10-28T05:05:25Z,main,0,0,,,,,,,,0.0,0.0
+Gitea,vaarun-singghh,MERN,59809,2024-06-21T20:48:35Z,2024-06-21T20:48:35Z,main,0,0,24109.0,,,,,0.0,0.0,0.0,
+Gitea,omarjamil27,NetMirrorApps,89045,2025-02-11T09:53:39Z,2025-02-11T10:03:01Z,main,0,0,34034.0,,JavaScript,"{""JavaScript"": {""size"": 5305, ""percentage"": ""100.00""}}",3.0,1.0,1.0,0.0,0.0
+Gitea,pure-soul-kk,vendor_xiaomi_sweet-miuicamera,67669,2024-09-14T08:35:11Z,2024-09-14T13:38:06Z,fourteen,0,0,333661806.0,,Shell,"{""Makefile"": {""size"": 2806, ""percentage"": ""44.61""}, ""Shell"": {""size"": 3303, ""percentage"": ""52.51""}, ""C"": {""size"": 181, ""percentage"": ""2.88""}}",28.0,1.0,9.0,0.0,0.0
+Gitea,medic,obsidian-mastodon,96102,2025-04-08T10:43:31Z,2025-04-10T07:46:59Z,main,0,0,73587.0,NOASSERTION,TypeScript,"{""JavaScript"": {""size"": 1617, ""percentage"": ""7.27""}, ""TypeScript"": {""size"": 20461, ""percentage"": ""91.99""}, ""CSS"": {""size"": 164, ""percentage"": ""0.74""}}",12.0,1.0,2.0,0.0,0.0
+Gitea,Extbhite,test-renderer,59730,2024-06-20T19:31:56Z,2024-06-20T19:32:04Z,main,0,0,,,,,,,,,
+Gitea,madviv001,solar-system,88660,2025-02-05T22:07:17Z,2025-02-05T22:07:27Z,main,0,0,3735315.0,MIT,JavaScript,"{""Dockerfile"": {""size"": 243, ""percentage"": ""1.60""}, ""JavaScript"": {""size"": 10007, ""percentage"": ""66.07""}, ""HTML"": {""size"": 4896, ""percentage"": ""32.33""}}",12.0,1.0,1.0,0.0,0.0
+Gitea,ruanshichengg,ConFigOss.json,94360,2025-03-16T13:35:20Z,2025-03-16T13:38:52Z,master,0,0,259923.0,,HTML,"{""HTML"": {""size"": 254, ""percentage"": ""80.63""}, ""JavaScript"": {""size"": 30, ""percentage"": ""9.52""}, ""SCSS"": {""size"": 31, ""percentage"": ""9.84""}}",3.0,1.0,1.0,0.0,0.0
+Gitea,Joys,site-ecomm,68334,2024-09-26T12:02:44Z,2024-10-05T18:11:36Z,main,0,0,2079042.0,,PHP,"{""JavaScript"": {""size"": 821, ""percentage"": ""0.62""}, ""CSS"": {""size"": 14, ""percentage"": ""0.01""}, ""PHP"": {""size"": 87379, ""percentage"": ""66.22""}, ""Twig"": {""size"": 43748, ""percentage"": ""33.15""}}",6.0,1.0,1.0,0.0,0.0
+Gitea,Katya3352,new_color,88200,2025-01-30T07:59:28Z,2025-02-03T10:49:57Z,main,0,0,27498.0,,HTML,"{""HTML"": {""size"": 331, ""percentage"": ""65.42""}, ""JavaScript"": {""size"": 175, ""percentage"": ""34.58""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,AaronMegs,depot-1,42654,2023-09-13T11:39:07Z,2024-11-08T06:26:06Z,main,0,0,28926.0,,,,4.0,3.0,1.0,2.0,2.0
+Gitea,Astri_ghu,grand-prix-go,66732,2024-09-03T09:05:45Z,2024-09-03T09:54:17Z,main,0,0,26550.0,,Shell,"{""Shell"": {""size"": 23, ""percentage"": ""100.00""}}",5.0,1.0,1.0,0.0,0.0
+Gitea,MaskedWolff,homepvt,94100,2025-03-12T17:53:35Z,2025-03-12T23:58:10Z,main,0,0,,,,,,,,,
+Gitea,gitea,actions-proto-def,34975,2022-11-21T06:12:29Z,2025-02-24T03:19:30Z,main,6,6,45035.0,MIT,Makefile,"{""Makefile"": {""size"": 1308, ""percentage"": ""100.00""}}",15.0,1.0,7.0,14.0,0.0
+Gitea,fourstrokesdigital,Muhammad-Faisal,95729,2025-04-03T12:29:35Z,2025-04-03T12:29:35Z,main,0,0,,,,,,,,,
+Gitea,ElCapor,OpenArchitecture,60066,2024-06-25T21:02:20Z,2024-06-26T12:10:17Z,master,0,0,,,,,,,,,
+Gitea,Absoluteland,Absoluteland,79728,2024-12-13T09:46:41Z,2024-12-13T09:46:41Z,main,0,0,24115.0,,,,,0.0,0.0,0.0,
+Gitea,Azaki-san,repo_name,80965,2024-12-18T10:49:31Z,2024-12-18T10:49:31Z,main,0,0,24109.0,,,,,0.0,0.0,0.0,
+Gitea,MartenMurik,sprint,63598,2024-08-05T10:48:30Z,2024-08-05T10:48:30Z,main,0,0,24108.0,,,,,0.0,0.0,0.0,
+Gitea,bts,offlineyddic,96387,2025-04-11T12:08:56Z,2025-04-11T12:08:56Z,main,0,0,24106.0,,,,,0.0,0.0,0.0,
+Gitea,davops,solar-system,95435,2025-03-31T07:05:11Z,2025-03-31T07:05:14Z,main,0,0,240686.0,MIT,JavaScript,"{""Dockerfile"": {""size"": 243, ""percentage"": ""1.56""}, ""JavaScript"": {""size"": 10431, ""percentage"": ""66.76""}, ""HTML"": {""size"": 4950, ""percentage"": ""31.68""}}",17.0,1.0,2.0,0.0,0.0
+Gitea,official_troller,nothinghere,46954,2023-12-15T18:56:21Z,2024-10-18T18:51:16Z,main,0,0,47031.0,,,,35.0,1.0,1.0,0.0,0.0
+Gitea,gitPera,ReactSite,87922,2025-01-26T13:03:17Z,2025-01-26T13:57:53Z,master,0,0,4828377.0,MIT,PHP,"{""PHP"": {""size"": 3047523, ""percentage"": ""97.94""}, ""CSS"": {""size"": 22675, ""percentage"": ""0.73""}, ""JavaScript"": {""size"": 35710, ""percentage"": ""1.15""}, ""HTML"": {""size"": 920, ""percentage"": ""0.03""}, ""Hack"": {""size"": 41, ""percentage"": ""0.00""}, ""Smarty"": {""size"": 4865, ""percentage"": ""0.16""}}",3.0,1.0,1.0,0.0,0.0
+Gitea,emiliagnatiuk,programowanie-obiektowe,69072,2024-10-04T08:51:24Z,2024-10-18T09:36:35Z,main,0,0,28214.0,,C++,"{""C++"": {""size"": 1225, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,ris-saurabh,Authsec_react_bootstrap,71757,2024-11-09T12:38:02Z,2024-11-09T12:38:02Z,main,0,0,26578.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,acedumpspdf11,acedumpspdf1,88672,2025-02-06T07:50:32Z,2025-02-06T07:50:33Z,main,0,0,,,,,,,,,
+Gitea,Ammuagamudayar,Ammuagamudayar,65346,2024-08-21T11:14:47Z,2024-08-21T11:14:47Z,main,0,0,,,,,,,,,
+Gitea,kenzay01,SP_lab_4,76577,2024-12-08T14:50:58Z,2024-12-08T16:01:09Z,main,0,0,291624955.0,,C,"{""C++"": {""size"": 2270, ""percentage"": ""29.88""}, ""C"": {""size"": 5326, ""percentage"": ""70.12""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,safartool,desert-safari-tool,71821,2024-11-10T13:14:02Z,2024-11-10T13:15:19Z,main,0,0,28679.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,sky.stary0972,android_studio,96079,2025-04-08T05:25:59Z,2025-04-08T05:25:59Z,main,0,0,24118.0,,,,,0.0,0.0,0.0,
+Gitea,2125019_chronopic,ageDetectorService,94536,2025-03-18T17:29:06Z,2025-03-18T17:49:34Z,master,0,0,149289589.0,,Java,"{""Dockerfile"": {""size"": 940, ""percentage"": ""2.57""}, ""Java"": {""size"": 35655, ""percentage"": ""97.43""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,fkpiaoji,mytu,68211,2024-09-24T05:22:19Z,2024-09-24T11:33:47Z,main,0,0,1604879.0,,HTML,"{""HTML"": {""size"": 541, ""percentage"": ""100.00""}}",6.0,1.0,1.0,0.0,0.0
+Gitea,DJMrTV,VLib,73360,2024-11-23T11:20:52Z,2024-12-21T14:50:40Z,main,0,0,303727.0,GPL-3.0,C++,"{""C++"": {""size"": 145430, ""percentage"": ""93.00""}, ""CMake"": {""size"": 1504, ""percentage"": ""0.96""}, ""C"": {""size"": 9386, ""percentage"": ""6.00""}, ""Shell"": {""size"": 63, ""percentage"": ""0.04""}}",6.0,1.0,1.0,0.0,0.0
+Gitea,HaRLoK222,prekoll,88630,2025-02-05T18:57:44Z,2025-02-05T18:57:45Z,main,0,0,31630.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,InfoTitans,danzupat,61638,2024-07-17T04:33:06Z,2024-07-18T22:55:55Z,main,0,0,31928.0,,CSS,"{""Dockerfile"": {""size"": 390, ""percentage"": ""20.55""}, ""Python"": {""size"": 332, ""percentage"": ""17.49""}, ""Shell"": {""size"": 186, ""percentage"": ""9.80""}, ""CSS"": {""size"": 990, ""percentage"": ""52.16""}}",4.0,1.0,2.0,0.0,0.0
+Gitea,st_piano,aspixel,89774,2025-02-19T02:42:41Z,2025-02-19T02:42:41Z,main,0,0,24106.0,,,,,0.0,0.0,0.0,
+Gitea,Zhany,test,91060,2025-03-05T07:27:22Z,2025-03-05T07:27:22Z,main,0,0,24100.0,,,,,0.0,0.0,0.0,
+Gitea,donsenxu,gitea,79755,2024-12-13T11:43:51Z,2024-12-13T11:44:41Z,main,0,0,41932246.0,MIT,Go,"{""Shell"": {""size"": 45697, ""percentage"": ""0.30""}, ""Makefile"": {""size"": 42156, ""percentage"": ""0.27""}, ""Dockerfile"": {""size"": 4526, ""percentage"": ""0.03""}, ""Go"": {""size"": 12157803, ""percentage"": ""79.05""}, ""Jsonnet"": {""size"": 15441, ""percentage"": ""0.10""}, ""Handlebars"": {""size"": 1268955, ""percentage"": ""8.25""}, ""Nix"": {""size"": 736, ""percentage"": ""0.00""}, ""Roff"": {""size"": 851224, ""percentage"": ""5.53""}, ""TypeScript"": {""size"": 481461, ""percentage"": ""3.13""}, ""JavaScript"": {""size"": 31080, ""percentage"": ""0.20""}, ""CSS"": {""size"": 347267, ""percentage"": ""2.26""}, ""Less"": {""size"": 4789, ""percentage"": ""0.03""}, ""Vue"": {""size"": 128194, ""percentage"": ""0.83""}}",18755.0,17.0,1535.0,0.0,0.0
+Gitea,asem11,CFA,89628,2025-02-17T20:30:37Z,2025-02-18T14:10:06Z,main,0,0,22815562.0,GPL-3.0,TeX,"{""R"": {""size"": 187270, ""percentage"": ""46.89""}, ""Python"": {""size"": 15116, ""percentage"": ""3.79""}, ""TeX"": {""size"": 196974, ""percentage"": ""49.32""}}",75.0,1.0,4.0,0.0,0.0
+Gitea,jeevan-mishra,website,90762,2025-03-01T09:47:40Z,2025-03-02T14:35:43Z,main,0,0,184666565.0,,,,2.0,1.0,1.0,0.0,0.0
+Gitea,Aiya,piscine,93921,2025-03-10T10:23:53Z,2025-03-10T10:23:53Z,main,0,0,24102.0,,,,,0.0,0.0,0.0,
+Gitea,sefabasnak,1-false,94829,2025-03-22T01:34:10Z,2025-03-22T01:34:11Z,main,0,0,,,,,,,,,
+Gitea,PeteW,tester,61571,2024-07-16T07:12:54Z,2024-07-16T07:16:21Z,main,0,0,1410744.0,,,,3.0,1.0,1.0,0.0,0.0
+Gitea,b88nnow,b88nnow,95262,2025-03-28T08:44:42Z,2025-03-28T08:44:42Z,main,0,0,,,,,,,,,
+Gitea,Karina0207,lab3,83542,2024-12-29T13:32:40Z,2024-12-29T13:32:40Z,main,0,0,24105.0,,,,,0.0,0.0,0.0,
+Gitea,traveltipspot,Aeromexico-change-flight,94971,2025-03-24T10:02:40Z,2025-03-24T10:02:41Z,main,0,0,,,,,,,,,
+Gitea,GrandPasha99,GrandPashaa,96201,2025-04-09T12:36:20Z,2025-04-09T12:36:42Z,main,0,0,27802.0,,,,2.0,1.0,1.0,0.0,0.0
+Gitea,nazarbychkar,coursework-SP-lab4,72704,2024-11-15T11:18:15Z,2024-11-28T20:11:05Z,main,0,0,262578534.0,,C,"{""Dockerfile"": {""size"": 1231, ""percentage"": ""13.42""}, ""C++"": {""size"": 2270, ""percentage"": ""24.75""}, ""C"": {""size"": 5672, ""percentage"": ""61.83""}}",14.0,1.0,1.0,0.0,0.0
+Gitea,cogsafeshicp528,Coldcard_Wallet_Trading_Bot,92647,2025-03-09T15:50:41Z,2025-03-09T15:51:18Z,main,0,0,,,,,,,,,
+Gitea,zhyto,zhyto.cities.yesterweb.org,86106,2025-01-13T14:58:44Z,2025-01-13T16:22:38Z,master,0,0,52452.0,,,,2.0,1.0,1.0,0.0,0.0
+Gitea,kfdgsjh23,tngfhgf,90551,2025-02-27T07:40:23Z,2025-02-27T07:40:23Z,main,0,0,24107.0,,,,,0.0,0.0,0.0,
+Gitea,jsrojoo,dotfiles,89484,2025-02-15T20:06:48Z,2025-04-01T19:14:02Z,main,0,1,304786.0,,Lua,"{""Shell"": {""size"": 5374, ""percentage"": ""15.80""}, ""Lua"": {""size"": 24319, ""percentage"": ""71.51""}, ""Python"": {""size"": 4315, ""percentage"": ""12.69""}}",21.0,1.0,1.0,0.0,0.0
+Gitea,liuruibin,files,46458,2023-12-04T08:15:41Z,2024-07-12T08:39:51Z,main,1,0,151848148.0,,,,3.0,1.0,1.0,0.0,0.0
+Gitea,SetiaBudii,Try,59639,2024-06-19T09:11:38Z,2024-06-19T09:16:51Z,master,0,0,182248.0,,Java,"{""Java"": {""size"": 11460, ""percentage"": ""88.52""}, ""Gherkin"": {""size"": 1486, ""percentage"": ""11.48""}}",2.0,1.0,2.0,0.0,0.0
+Gitea,mgarcia809,Prueba2,79822,2024-12-13T16:33:01Z,2024-12-13T16:33:02Z,main,0,0,36614.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,wepmaschda,Testrepo,60064,2024-06-25T20:47:12Z,2024-06-25T20:49:55Z,main,0,0,24109.0,,,,,0.0,0.0,,
+Gitea,Harsh-Dubey,swayaam,88037,2025-01-28T10:27:30Z,2025-01-28T10:30:00Z,master,0,0,45547742.0,,HTML,"{""TypeScript"": {""size"": 32965, ""percentage"": ""28.29""}, ""HTML"": {""size"": 58579, ""percentage"": ""50.27""}, ""CSS"": {""size"": 24687, ""percentage"": ""21.19""}, ""JavaScript"": {""size"": 288, ""percentage"": ""0.25""}}",2.0,1.0,1.0,0.0,0.0
+Gitea,RahulGautamSingh,labels,49982,2024-01-24T14:48:01Z,2025-03-29T06:01:39Z,main,0,1,26822.0,,,,5.0,4.0,2.0,7.0,5.0
+Gitea,rrobby63,Carrental,86446,2025-01-15T12:54:16Z,2025-01-15T12:54:16Z,main,0,0,,,,,,,,,
+Gitea,giteatestuser,TestRepo,60625,2024-07-05T12:02:23Z,2024-07-05T12:02:23Z,main,0,0,24112.0,,,,,0.0,0.0,0.0,
+Gitea,Innocent9954,Innocentvip,60498,2024-07-03T08:11:29Z,2024-07-03T08:11:49Z,main,0,0,,,,,,,,,
+Gitea,zaidkhan0997,proprietary_vendor_xiaomi_miuicamera-lisa,82986,2024-12-26T13:01:41Z,2025-01-15T18:10:50Z,15,0,1,333538498.0,,Shell,"{""Makefile"": {""size"": 1253, ""percentage"": ""24.29""}, ""Shell"": {""size"": 3725, ""percentage"": ""72.20""}, ""C"": {""size"": 181, ""percentage"": ""3.51""}}",27.0,1.0,9.0,0.0,0.0
+Gitea,zakariasalhi12,ROOT,46866,2023-12-13T15:23:38Z,2024-11-18T16:33:59Z,master,0,0,40335.0,,CSS,"{""HTML"": {""size"": 1696, ""percentage"": ""15.64""}, ""CSS"": {""size"": 9151, ""percentage"": ""84.36""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,n1zzy,injection_files,90386,2025-02-25T21:36:53Z,2025-02-25T21:37:27Z,main,0,0,225042.0,,,,1.0,1.0,1.0,0.0,0.0
+Gitea,f99ck,f99ck.gitea.io,80597,2024-12-17T00:31:12Z,2024-12-17T00:31:14Z,main,0,0,29729838.0,,HTML,"{""HTML"": {""size"": 3121634, ""percentage"": ""99.83""}, ""JavaScript"": {""size"": 5187, ""percentage"": ""0.17""}}",4.0,1.0,1.0,0.0,0.0
+Gitea,carles-p,reports_project,58874,2024-06-08T10:20:21Z,2024-06-10T18:40:17Z,develop,0,0,74229.0,,Python,"{""Dockerfile"": {""size"": 194, ""percentage"": ""0.79""}, ""Python"": {""size"": 24275, ""percentage"": ""99.21""}}",43.0,1.0,1.0,0.0,0.0
+Gitea,cipoodakk,egov-sample,96544,2025-04-14T00:21:25Z,2025-04-14T01:07:38Z,master,0,0,80041336.0,,Java,"{""Dockerfile"": {""size"": 282, ""percentage"": ""0.28""}, ""Java"": {""size"": 81545, ""percentage"": ""80.06""}, ""CSS"": {""size"": 20026, ""percentage"": ""19.66""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,zxcvbnm,er,72127,2024-11-13T08:53:01Z,2024-11-28T05:52:28Z,main,0,0,,,,,,,,,
+Gitea,Colbat,automate_jeu_hasard,88964,2025-02-10T10:46:19Z,2025-04-09T07:37:10Z,main,1,0,113519.0,NOASSERTION,Python,"{""Python"": {""size"": 37984, ""percentage"": ""100.00""}}",30.0,1.0,3.0,0.0,0.0
+Gitea,Hyperling,example-android-database-room,81740,2024-12-21T19:53:00Z,2024-12-29T15:58:18Z,main,0,0,441802.0,MIT,Kotlin,"{""Kotlin"": {""size"": 17652, ""percentage"": ""100.00""}}",3.0,2.0,1.0,0.0,0.0
+Gitea,Asterisk,press-kit,83782,2024-12-30T17:21:35Z,2024-12-30T17:21:36Z,main,0,0,27662.0,0BSD,,,1.0,1.0,1.0,0.0,0.0
+Gitea,NicklasAndersson,test,88968,2025-02-10T11:41:27Z,2025-02-10T11:41:27Z,main,0,0,24111.0,,,,,0.0,0.0,0.0,
+Gitea,quiprodinge284,QuickStrike_Free_Access,92983,2025-03-09T17:07:44Z,2025-03-09T17:07:46Z,main,0,0,,,,,,,,,
+Gitea,Genzo28,Venisu,67467,2024-09-11T06:23:44Z,2024-09-11T06:25:30Z,main,0,0,,,,,,,,,
+Gitea,sitam,introduction-git,95530,2025-04-01T06:29:18Z,2025-04-01T06:49:09Z,master,0,0,27156.0,,Python,"{""Python"": {""size"": 156, ""percentage"": ""100.00""}}",1.0,1.0,1.0,0.0,0.0
+Gitea,ermonomm,demo,87108,2025-01-19T18:55:29Z,2025-01-19T18:55:29Z,main,0,0,24103.0,,,,,0.0,0.0,0.0,
+Gitea,aleawalker,Runpost-Instagram-Posts-Boosting-Strategy,67683,2024-09-14T19:10:50Z,2024-09-14T19:10:50Z,main,0,0,,,,,,,,,
+Gitea,Kangur18,sprint,87200,2025-01-20T11:40:31Z,2025-01-20T11:40:31Z,main,0,0,24105.0,,,,,0.0,0.0,0.0,
+Gitea,jaggy1010,ChallengeApp,59138,2024-06-12T15:53:39Z,2024-07-04T00:16:19Z,master,0,0,56102.0,,C#,"{""C#"": {""size"": 17384, ""percentage"": ""100.00""}}",14.0,1.0,1.0,0.0,0.0
+Gitea,AndyChu,WpfGitTest1,71265,2024-11-03T14:50:14Z,2024-11-03T14:50:53Z,master,0,0,69939.0,,C#,"{""C#"": {""size"": 3974, ""percentage"": ""100.00""}}",6.0,1.0,1.0,0.0,0.0
+Gitea,portellam1,acpi-sleep,96037,2025-04-07T16:06:25Z,2025-04-08T02:44:20Z,,1,0,100574.0,GPL-3.0,Shell,"{""Shell"": {""size"": 15351, ""percentage"": ""100.00""}}",55.0,3.0,2.0,0.0,0.0
+Gitea,paula.saez,ProyectoRedMetro_PSM,95663,2025-04-02T14:23:24Z,2025-04-02T14:23:24Z,main,0,0,,,,,,,,,
+Gitea,MariaBuzina,test2025,96371,2025-04-11T08:59:57Z,2025-04-11T08:59:57Z,main,0,0,24110.0,,,,,0.0,0.0,0.0,
+Gitea,CasperVector,casthss,2345,2019-11-06T21:57:49Z,2024-08-28T09:03:07Z,master,0,0,130112.0,,TeX,"{""Batchfile"": {""size"": 364, ""percentage"": ""1.41""}, ""TeX"": {""size"": 25090, ""percentage"": ""97.34""}, ""Perl"": {""size"": 322, ""percentage"": ""1.25""}}",42.0,1.0,1.0,0.0,0.0
+Gitea,ShorelineRP,EUP,81464,2024-12-20T06:34:08Z,2024-12-20T06:34:08Z,main,0,0,24105.0,,,,,0.0,0.0,0.0,
+Gitea,APtheC,Portfolio,94561,2025-03-19T02:19:11Z,2025-03-19T02:19:11Z,master,0,0,40322.0,,CSS,"{""HTML"": {""size"": 1696, ""percentage"": ""15.64""}, ""CSS"": {""size"": 9151, ""percentage"": ""84.36""}}",1.0,1.0,1.0,0.0,0.0
