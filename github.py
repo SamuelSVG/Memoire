@@ -3,6 +3,7 @@ import requests
 from endpoints import Endpoints
 from request_types import RequestTypes
 from metrics import Metrics
+from datetime import datetime, timedelta
 
 class GitHub(BasePlatform):
     """
@@ -12,14 +13,14 @@ class GitHub(BasePlatform):
         self.headers = headers
 
 
-    def fetch_page(self, page):
+    def fetch_page(self, page, creation_date):
         """
         Function to fetch a page of repositories from the GitHub API.
         :param page: The page number to fetch.
         :return: JSON response from the API.
         """
         params = {
-            "q": "size:>0", # Empty query to fetch all repositories
+            "q": f"created:<={creation_date}", # Empty query to fetch all repositories
             "fork": "false",
             "sort": "updated",
             "order": "desc",
@@ -30,7 +31,7 @@ class GitHub(BasePlatform):
         return response.json()
 
 
-    def fetch_repositories(self, page_num, platform=""):
+    def fetch_repositories(self, page_num, creation_date=(datetime.now() - timedelta(30)).strftime('%Y-%m-%d'), platform=""):
         """
         Function to fetch a given number of pages of repositories from the GitHub API.
         :param page_num: Number of pages to fetch.
@@ -41,7 +42,7 @@ class GitHub(BasePlatform):
         for page in range(1, page_num):  # 100 repos per page
             self.logger.info(f"Fetching page {page}...")
             try:
-                data = self.fetch_page(page)
+                data = self.fetch_page(page, creation_date)
                 repositories.extend(data['items'])
             except requests.exceptions.RequestException as e:
                 self.logger.error(f"Error fetching page {page}: {e}")

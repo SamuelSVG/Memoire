@@ -1,3 +1,4 @@
+import os
 from abc import ABC, abstractmethod
 import requests
 from endpoints import Endpoints
@@ -5,6 +6,8 @@ import pandas as pd
 import logging
 from tenacity import retry, stop_after_attempt, retry_if_exception_type, wait_fixed, before_log,after_log
 from requests.exceptions import HTTPError, Timeout
+
+from git_operations import add_git_metrics
 from metrics import Metrics
 from request_types import RequestTypes
 from platforms import Platforms
@@ -62,42 +65,43 @@ class BasePlatform(ABC):
             self.logger.error(f"Error fetching {url}: insufficient rights")
         return response
 
-    def select_clonable_repositories(self, df, platform, n_repositories=10):
+    def select_clonable_repositories(self, initial_df, platform, n_repositories, final_df=None):
         """
         Function to select repositories that can be cloned based on platform-specific criteria.
-        :param df: DataFrame of repositories.
+        :param initial_df: DataFrame of repositories.
         :param platform: Platform to fetch the metric from.
         :return: DataFrame with clonable repositories.
         """
-        clonable_repositories = pd.DataFrame({col: pd.Series(dtype=df[col].dtype) for col in df.columns})
-        temp_df = df.copy()
-        while len(clonable_repositories) < n_repositories:
-            self.logger.info(f"Fetching repository {len(clonable_repositories)+1} out of {n_repositories}")
-            if len(temp_df)+len(clonable_repositories) < n_repositories :
-                self.logger.info(f"Not enough repositories to select {n_repositories} clonable repositories.")
+        #clonable_repositories = pd.DataFrame({col: pd.Series(dtype=initial_df[col].dtype) for col in initial_df.columns})
+        temp_df = initial_df.copy()
+        if final_df is None:
+            final_df = temp_df.iloc[0:0].copy()
+        else:
+            temp_df = pd.concat([temp_df, final_df]).drop_duplicates(subset=["owner", "repo"],keep=False)
+
+        initial_len = len(final_df)
+        while len(final_df)-initial_len < n_repositories:
+            if len(temp_df) <= 0:
+                self.logger.info(f"Could only clone {len(final_df)-initial_len} / {n_repositories} repositories.")
                 break
+            self.logger.info(f"Fetching repository {len(final_df)} / {initial_len+n_repositories}...")
             # Randomly select a row from the DataFrame
             random_row = temp_df.sample(n=1, random_state=None)
             temp_df = temp_df.drop(random_row.index)
+            random_row.reset_index(drop=True, inplace=True)
             owner, repo = random_row["owner"].values[0], random_row["repo"].values[0]
             if "hack" in repo.lower() or "crack" in repo.lower() or "repo4nsw" in owner.lower() or "3z" in owner.lower():
                 # Skip repositories that are linked to illicit activities
                 continue
             # Check if the repository is clonable
             try:
-                temp = platform.name + "_REPO"
-                if platform == Platforms.GITLAB:
-                    url = getattr(Endpoints, temp)(random_row["id"].values[0])
-                else:
-                    url = getattr(Endpoints, temp)(owner, repo)
-                response = self.request_with_retry(url, RequestTypes.GET, headers=self.headers)
-                if str(response.status_code).startswith('2') :
-                    clonable_repositories = pd.concat([clonable_repositories, random_row], ignore_index=True)
+                add_git_metrics(random_row, platform,  os.path.abspath("/Volumes/retour/Git_Repositories"), False)
+                final_df = pd.concat([final_df, random_row], ignore_index=True)
             except Exception as e:
                 self.logger.error(f"Error fetching {owner}/{repo}: {e}")
                 continue
 
-        return clonable_repositories
+        return final_df
 
     def get_metric(self,metric,owner,repo,platform):
         """

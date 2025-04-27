@@ -72,7 +72,6 @@ def get_repo_license(repo_path):
         license_name = data.get("licenses", [])[0].get("spdx_id", "No license detected")
         return license_name
     except subprocess.CalledProcessError as e:
-        logging.error(f"Error detecting license: {e}")
         return None
 
 def get_language_distribution(repo_path):
@@ -91,7 +90,6 @@ def get_language_distribution(repo_path):
             return main_language, json.dumps(data)
 
     except subprocess.CalledProcessError as e:
-        logging.error(f"Error when analyzing language distribution: {e}")
         return None, None
 
 def get_commit_count(repo_path):
@@ -199,7 +197,6 @@ def add_git_metrics(df, platform, path, delete_repositories=True):
 
     for index, row in df.iterrows():
         owner, repo = row["owner"], row["repo"]
-        logging.info(f"Processing repository {index + 1} out of {len(df)}")
         try:
             repo_path = os.path.join(path, platform.name, f"{owner}-{repo}")
             # Convert Windows path to Docker-compatible format

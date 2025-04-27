@@ -4,6 +4,8 @@ from endpoints import Endpoints
 from request_types import RequestTypes
 from metrics import Metrics
 import math
+from datetime import datetime, timedelta
+from excluded_names import EXCLUDED_NAMES
 
 class GiteaForgejo(BasePlatform):
     """
@@ -35,26 +37,52 @@ class GiteaForgejo(BasePlatform):
         response = self.request_with_retry(url, RequestTypes.GET, headers=self.headers, params=params)
         return response.json()
 
+    def fetch_repositories(self, target, creation_date=None, platform=None):
+        """
+        Fetch a target number of acceptable repositories (older than creation_date) from Gitea/Forgejo.
 
-    def fetch_repositories(self, page_num, platform=""):
+        :param target: Number of repositories you want to fetch.
+        :param creation_date: Date cutoff for repo creation (default: 30 days ago).
+        :param platform: Platform to fetch from.
+        :return: List of repositories' data.
         """
-        Function to fetch a given number of pages of repositories from the Gitea or Forgejo API.
-        :param page_num: Number of pages to fetch.
-        :param platform: Platform to fetch repositories from.
-        :return: List of dictionaries containing repository data.
-        """
+        if creation_date is None:
+            creation_date = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
+
+        if platform is None:
+            raise ValueError("Platform must be specified.")
+
+        creation_cutoff = datetime.strptime(creation_date, '%Y-%m-%d')
+
         repositories = []
-        for page in range(1, page_num):  # 100 repos per page
+        page = 1
+
+        while len(repositories) < target:
             self.logger.info(f"Fetching page {page}...")
             try:
                 data = self.fetch_page(page, platform)
-                repositories.extend(data.get("data", []))
+                repos_in_page = data.get("data", [])
+
+                if not repos_in_page:
+                    self.logger.info("No more repositories found.")
+                    break
+
+                for repo in repos_in_page:
+                    created_at = datetime.fromisoformat(repo.get("created_at").replace("Z", "+00:00")).date()
+                    if ((created_at <= creation_cutoff.date()
+                            and not any(bad_word in repo["owner"]["username"].lower() for bad_word in EXCLUDED_NAMES))
+                            and not any(bad_word in repo["name"].lower() for bad_word in EXCLUDED_NAMES)):
+                        repositories.append(repo)
+                        if len(repositories) >= target:
+                            break
+
+                page += 1
+
             except requests.exceptions.RequestException as e:
                 self.logger.error(f"Error fetching page {page}: {e}")
                 break
 
         if repositories:
-            # Extract relevant repository data
             data = [
                 {
                     "platform": platform.value.capitalize(),
@@ -63,15 +91,14 @@ class GiteaForgejo(BasePlatform):
                     "id": repo["id"],
                     "created": repo["created_at"],
                     "updated": repo["updated_at"],
-                    "default_branch": repo["default_branch"],
-                    "#stars": repo["stars_count"],
-                    "#forks": repo["forks_count"]
+                    "default_branch": repo.get("default_branch"),
+                    "#stars": repo.get("stars_count"),
+                    "#forks": repo.get("forks_count"),
                 }
-                for repo in repositories
+                for repo in repositories[:target]  # ensure no extra repos
             ]
             return data
         return None
-
 
     def get_contributors(self, platform, owner, repo):
         """

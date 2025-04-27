@@ -34,24 +34,24 @@ matching_features = {
     "platform": ["#stars", "#forks", "#issues", "#pull_requests"],
 }
 
-def get_clone_error_number(df_github, df_gitlab, df_bitbucket, df_gitea, df_forgejo):
+def get_clone_error_number(df_github, df_gitlab, df_gitea, df_forgejo):
     print(f"Github repositories that couldn't be cloned: {df_github['size'].isnull().sum()}")
     print(f"Gitlab repositories that couldn't be cloned: {df_gitlab['size'].isnull().sum()}")
-    print(f"Bitbucket repositories that couldn't be cloned: {df_bitbucket['size'].isnull().sum()}")
+    #print(f"Bitbucket repositories that couldn't be cloned: {df_bitbucket['size'].isnull().sum()}")
     print(f"Gitea repositories that couldn't be cloned: {df_gitea['size'].isnull().sum()}")
     print(f"Forgejo repositories that couldn't be cloned: {df_forgejo['size'].isnull().sum()}")
 
-def get_most_present_owner(df_github, df_gitlab, df_bitbucket, df_gitea, df_forgejo):
+def get_most_present_owner(df_github, df_gitlab, df_gitea, df_forgejo):
     print(f"Most present owner in GitHub: {df_github['owner'].value_counts().idxmax()} has {df_github['owner'].value_counts().max()} repositories")
     print(f"Most present owner in Gitlab: {df_gitlab['owner'].value_counts().idxmax()} has {df_gitlab['owner'].value_counts().max()} repositories")
-    print(f"Most present owner in Bitbucket: {df_bitbucket['owner'].value_counts().idxmax()} has {df_bitbucket['owner'].value_counts().max()} repositories")
+    #print(f"Most present owner in Bitbucket: {df_bitbucket['owner'].value_counts().idxmax()} has {df_bitbucket['owner'].value_counts().max()} repositories")
     print(f"Most present owner in Gitea: {df_gitea['owner'].value_counts().idxmax()} has {df_gitea['owner'].value_counts().max()} repositories")
     print(f"Most present owner in Forgejo: {df_forgejo['owner'].value_counts().idxmax()} has {df_forgejo['owner'].value_counts().max()} repositories")
 
-def get_unique_owner_number(df_github, df_gitlab, df_bitbucket, df_gitea, df_forgejo):
+def get_unique_owner_number(df_github, df_gitlab, df_gitea, df_forgejo):
     print(f"Unique owners in GitHub: {df_github['owner'].nunique()}")
     print(f"Unique owners in Gitlab: {df_gitlab['owner'].nunique()}")
-    print(f"Unique owners in Bitbucket: {df_bitbucket['owner'].nunique()}")
+    #print(f"Unique owners in Bitbucket: {df_bitbucket['owner'].nunique()}")
     print(f"Unique owners in Gitea: {df_gitea['owner'].nunique()}")
     print(f"Unique owners in Forgejo: {df_forgejo['owner'].nunique()}")
 
@@ -271,14 +271,14 @@ def plot_numeric_distribution(df_github, df_gitlab, df_bitbucket, df_gitea, df_f
     print(f"Gitea - Max {metric_name}: {int(df_gitea[metric.value].max())}, Mean {metric_name}: {int(df_gitea[metric.value].mean())}, Median {metric_name}: {int(df_gitea[metric.value].median())}")
     print(f"Forgejo - Max {metric_name}: {int(df_forgejo[metric.value].max())}, Mean {metric_name}: {int(df_forgejo[metric.value].mean())}, Median {metric_name}: {int(df_forgejo[metric.value].median())}")
 
-def plot_step_lines(df_github, df_gitlab, df_bitbucket, df_gitea, df_forgejo):
+def plot_step_lines(df_github, df_gitlab, df_gitea, df_forgejo):
     plt.figure(figsize=(12, 6))
 
     # Dictionary to store dataframes and their platform labels
     platforms = {
         "GitHub": df_github,
         "GitLab": df_gitlab,
-        "Bitbucket": df_bitbucket,
+        #"Bitbucket": df_bitbucket,
         "Gitea": df_gitea,
         "Forgejo": df_forgejo
     }
@@ -312,6 +312,69 @@ def plot_step_lines(df_github, df_gitlab, df_bitbucket, df_gitea, df_forgejo):
     plt.legend(title="Platform")
     plt.grid()
 
+    plt.show()
+
+
+def create_correlation_matrix(df):
+    """
+    Create a correlation matrix for repository metrics and plot it.
+    """
+    numeric_columns = ["created", "updated", "#stars", "#forks", "size",
+                       "#commits", "#branches", "#contributors", "#issues", "#pull_requests"]
+
+    # Only keep columns that exist
+    existing_columns = [col for col in numeric_columns if col in df.columns]
+
+    # Convert datetime columns before subsetting
+    if 'created' in df.columns:
+        df['created'] = pd.to_datetime(df['created'], errors='coerce')
+    if 'updated' in df.columns:
+        df['updated'] = pd.to_datetime(df['updated'], errors='coerce')
+
+    df_subset = df[existing_columns].copy()
+
+    # Convert all numeric columns to float (except datetime)
+    for col in df_subset.select_dtypes(include=['object']).columns:
+        df_subset[col] = pd.to_numeric(df_subset[col], errors='coerce')
+
+    # Add derived feature: age_days
+    if 'created' in df.columns and 'updated' in df.columns:
+        df_subset['age_days'] = (df['updated'] - df['created']).dt.total_seconds() / (60 * 60 * 24)
+
+    # Compute and plot correlation matrix
+    corr_matrix = df_subset.corr(numeric_only=True)
+
+    plt.figure(figsize=(12, 8))
+    sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", center=0)
+    plt.title("Correlation Matrix of Repository Metrics")
+    plt.show()
+
+
+def plot_lorenz_curve(values, title="Lorenz Curve"):
+    # Drop missing values and sort
+    values = np.array(sorted(values.dropna()))
+
+    # Cumulative share of values
+    cumulative_values = np.cumsum(values)
+    cumulative_share = cumulative_values / cumulative_values[-1]
+
+    # Cumulative share of population (uniform steps)
+    n = len(values)
+    cumulative_population = np.arange(1, n + 1) / n
+
+    # Add starting point (0, 0)
+    cumulative_share = np.insert(cumulative_share, 0, 0)
+    cumulative_population = np.insert(cumulative_population, 0, 0)
+
+    # Plot
+    plt.figure(figsize=(8, 6))
+    plt.plot(cumulative_population, cumulative_share, label='Lorenz Curve')
+    plt.plot([0, 1], [0, 1], '--', color='gray', label='Equality Line')
+    plt.title(title)
+    plt.xlabel('Cumulative Share of Repositories')
+    plt.ylabel('Cumulative Share of Commits')
+    plt.legend()
+    plt.grid(True)
     plt.show()
 
 

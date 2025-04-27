@@ -10,6 +10,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
+from datetime import datetime, timedelta
+from excluded_names import EXCLUDED_NAMES
 
 class Gitlab(BasePlatform):
     """
@@ -24,7 +26,6 @@ class Gitlab(BasePlatform):
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
     service = Service(ChromeDriverManager().install())
-
 
     def fetch_page(self, page):
         """
@@ -42,26 +43,44 @@ class Gitlab(BasePlatform):
         response = self.request_with_retry(Endpoints.GITLAB_SEARCH.value, RequestTypes.GET, headers=self.headers, params=params)
         return response.json()
 
-
-    def fetch_repositories(self, page_num, platform=""):
+    def fetch_repositories(self, target, creation_date=None, platform="GitLab"):
         """
-        Function to fetch a given number of pages of repositories from the GitLab API.
-        :param page_num: Number of pages to fetch.
-        :param platform: Platform to fetch repositories from.
+        Fetch a target number of acceptable repositories (older than creation_date) from GitLab.
+
+        :param target: Number of repositories you want to fetch.
+        :param creation_date: Date cutoff for repo creation (default: 30 days ago).
+        :param platform: Platform name (default: GitLab).
         :return: List of dictionaries containing repository data.
         """
+        if creation_date is None:
+            creation_date = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
+
+        creation_cutoff = datetime.strptime(creation_date, '%Y-%m-%d')
+
         repositories = []
-        total_fetched = 0
         page = 1
-        while total_fetched < page_num*100:  # 100 repos per page
+
+        while len(repositories) < target:
             self.logger.info(f"Fetching page {page}...")
             try:
                 data = self.fetch_page(page)
                 page += 1
-                # Filter and add only the values where the field "parent" is "null"
-                repositories_without_forks = [repo for repo in data if "forked_from_project" not in repo]
-                repositories.extend(repositories_without_forks)
-                total_fetched += len(repositories_without_forks)
+
+                if not data:
+                    self.logger.info("No more repositories found.")
+                    break  # No more data
+
+                # Filter out forks and repositories created too recently
+                for repo in data:
+                    if "forked_from_project" not in repo:
+                        created_at = datetime.fromisoformat(repo["created_at"].replace("Z", "+00:00")).date()
+                        if ((created_at <= creation_cutoff.date()
+                             and not any(bad_word in repo["path_with_namespace"].lower() for bad_word in EXCLUDED_NAMES))
+                             and not any(bad_word in repo["path"].lower() for bad_word in EXCLUDED_NAMES)):
+                            repositories.append(repo)
+                            if len(repositories) >= target:
+                                break
+
             except requests.exceptions.RequestException as e:
                 self.logger.error(f"Error fetching page {page}: {e}")
                 break
@@ -70,7 +89,7 @@ class Gitlab(BasePlatform):
         if repositories:
             data = [
                 {
-                    "platform": "GitLab",
+                    "platform": platform,
                     "owner": repo["path_with_namespace"].rsplit("/", 1)[0],
                     "repo": repo["path"],
                     "id": repo["id"],
@@ -80,11 +99,10 @@ class Gitlab(BasePlatform):
                     "#stars": repo.get("star_count", None),
                     "#forks": repo.get("forks_count", None),
                 }
-                for repo in repositories[:page_num*100]
+                for repo in repositories[:target]  # Limit strictly to the target number
             ]
             return data
         return None
-
 
     def add_metric(self, df, metric, platform=None):
         """
