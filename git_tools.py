@@ -20,12 +20,12 @@ logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 def check_docker():
     """Check if Docker is installed and running."""
     try:
-        subprocess.run(["docker", "--version"], check=True, stdout=subprocess.PIPE)
+        subprocess.run(["docker", "info"], check=True, stdout=subprocess.PIPE)
         logging.info("Docker is installed and running")
         return True
     except subprocess.CalledProcessError:
-        logging.error("Docker is not installed and running")
-        sys.exit(1)
+        logging.error("Docker is not installed or not running")
+        raise
 
 
 def build_linguist_image():

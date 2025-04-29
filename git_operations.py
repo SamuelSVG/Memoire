@@ -44,7 +44,7 @@ def clone_repository(owner, repo, platform, repo_path, shallow=False, metadata=F
 
     except Exception as e:
         logging.error(f"Error cloning repository: {e}")
-        return False
+        raise
 
 def get_repo_size(repo_path):
     """
@@ -215,6 +215,7 @@ def add_git_metrics(df, platform, path, delete_repositories=True):
                 delete_directory(repo_path)
         except Exception as e:
             logging.error(f"Error processing repository '{owner}/{repo}': {e}")
+            raise
 
 # TODO: Test this function
 def compare_git_clone_speed(df, platform):
