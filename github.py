@@ -4,6 +4,8 @@ from endpoints import Endpoints
 from request_types import RequestTypes
 from metrics import Metrics
 from datetime import datetime, timedelta
+from excluded_names import EXCLUDED_NAMES
+import time
 
 class GitHub(BasePlatform):
     """
@@ -19,31 +21,61 @@ class GitHub(BasePlatform):
         :param page: The page number to fetch.
         :return: JSON response from the API.
         """
+        today = datetime.now().strftime('%Y-%m-%d')
         params = {
-            "q": f"created:<={creation_date}", # Empty query to fetch all repositories
-            "fork": "false",
-            "sort": "updated",
-            "order": "desc",
-            "per_page": 100, # Maximum allowed per page
-            "page": page, # Page number
+            "q": f"created:<={creation_date} pushed:{today} fork:false",
+            "per_page": 100,
+            "page": page,
+            "sort": "updated",  # Optional: sort by recent updates
+            "order": "desc"
         }
         response = self.request_with_retry(Endpoints.GITHUB_SEARCH.value, RequestTypes.GET, headers=self.headers, params=params)
         return response.json()
 
 
-    def fetch_repositories(self, page_num, creation_date=(datetime.now() - timedelta(30)).strftime('%Y-%m-%d'), platform=""):
+    def fetch_repositories(self, target, creation_date=None, platform="GitHub"):
         """
         Function to fetch a given number of pages of repositories from the GitHub API.
-        :param page_num: Number of pages to fetch.
+        :param target: Number of pages to fetch.
         :param platform: Platform to fetch repositories from.
         :return: List of dictionaries containing repository data.
         """
+        if target > 1000:
+            raise ValueError("n_repositories must be less than or equal to 1000 because GitHub has a hard limit on"
+                             "the search endpoint.")
+
+        if creation_date is None:
+            creation_date = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
+
+        if platform is None:
+            raise ValueError("Platform must be specified.")
+
         repositories = []
-        for page in range(1, page_num):  # 100 repos per page
+        page = 1
+
+        while len(repositories) < target:
+            if page > 10:
+                time.sleep(30)
+                page = 1
             self.logger.info(f"Fetching page {page}...")
             try:
                 data = self.fetch_page(page, creation_date)
-                repositories.extend(data['items'])
+                repos_in_page = data.get("items", [])
+                if not repos_in_page:
+                    self.logger.info(f"No more repositories found on page {page}.")
+                    break
+
+                for repo in repos_in_page:
+                    if ((repo["owner"]["login"], repo["name"]) not in [(r["owner"]["login"], r["name"]) for r in repositories]
+                            and not any(bad_word in repo["owner"]["login"].lower() for bad_word in EXCLUDED_NAMES)
+                            and not any(bad_word in repo["name"].lower() for bad_word in EXCLUDED_NAMES)):
+
+                        repositories.append(repo)
+                        if len(repositories) >= target:
+                            break
+
+                page += 1
+
             except requests.exceptions.RequestException as e:
                 self.logger.error(f"Error fetching page {page}: {e}")
                 break
@@ -52,7 +84,7 @@ class GitHub(BasePlatform):
         if repositories:
             data = [
                 {
-                    "platform": "GitHub",
+                    "platform": platform,
                     "owner": repo["owner"]["login"],
                     "repo": repo["name"],
                     "id": repo["id"],
@@ -62,7 +94,7 @@ class GitHub(BasePlatform):
                     "#stars": repo["stargazers_count"],
                     "#forks": repo["forks_count"]
                 }
-                for repo in repositories
+                for repo in repositories[:target]
             ]
             return data
         return None
