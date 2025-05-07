@@ -69,7 +69,8 @@ class GiteaForgejo(BasePlatform):
 
                 for repo in repos_in_page:
                     created_at = datetime.fromisoformat(repo.get("created_at").replace("Z", "+00:00")).date()
-                    if ((created_at <= creation_cutoff.date()
+                    if ((repo["owner"]["username"], repo["name"]) not in [(r["owner"]["username"], r["name"]) for r in repositories]
+                            and (created_at <= creation_cutoff.date()
                             and not any(bad_word in repo["owner"]["username"].lower() for bad_word in EXCLUDED_NAMES))
                             and not any(bad_word in repo["name"].lower() for bad_word in EXCLUDED_NAMES)):
                         repositories.append(repo)

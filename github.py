@@ -55,7 +55,9 @@ class GitHub(BasePlatform):
 
         while len(repositories) < target:
             if page > 10:
+                self.logger.info(f"Hard limit reached, sleeping for 30 seconds...")
                 time.sleep(30)
+                self.logger.info(f"Resuming fetching...")
                 page = 1
             self.logger.info(f"Fetching page {page}...")
             try:
