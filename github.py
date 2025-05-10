@@ -40,12 +40,8 @@ class GitHub(BasePlatform):
         :param platform: Platform to fetch repositories from.
         :return: List of dictionaries containing repository data.
         """
-        if target > 1000:
-            raise ValueError("n_repositories must be less than or equal to 1000 because GitHub has a hard limit on"
-                             "the search endpoint.")
-
         if creation_date is None:
-            creation_date = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
+            creation_date = (datetime.now() - timedelta(days=15)).strftime('%Y-%m-%d')
 
         if platform is None:
             raise ValueError("Platform must be specified.")

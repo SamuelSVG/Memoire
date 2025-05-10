@@ -74,8 +74,9 @@ class Gitlab(BasePlatform):
                 for repo in data:
                     if "forked_from_project" not in repo:
                         created_at = datetime.fromisoformat(repo["created_at"].replace("Z", "+00:00")).date()
+                        creation_cutoff = datetime.fromisoformat(repo["last_activity_at"].replace("Z", "+00:00")).date() - timedelta(days=15)
                         if ((repo["path_with_namespace"], repo["path"]) not in [(r["path_with_namespace"], r["path"]) for r in repositories]
-                             and (created_at <= creation_cutoff.date()
+                             and (created_at <= creation_cutoff
                              and not any(bad_word in repo["path_with_namespace"].lower() for bad_word in EXCLUDED_NAMES))
                              and not any(bad_word in repo["path"].lower() for bad_word in EXCLUDED_NAMES)):
                             repositories.append(repo)

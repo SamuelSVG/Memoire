@@ -85,18 +85,18 @@ class BasePlatform(ABC):
                 self.logger.info(f"Could only clone {len(final_df)-initial_len} / {n_repositories} repositories.")
                 break
             self.logger.info(f"Fetching repository {len(final_df)} / {initial_len+n_repositories}...")
-            # Randomly select a row from the DataFrame
-            random_row = temp_df.sample(n=1, random_state=None)
-            temp_df = temp_df.drop(random_row.index)
-            random_row.reset_index(drop=True, inplace=True)
-            owner, repo = random_row["owner"].values[0], random_row["repo"].values[0]
-            if "hack" in repo.lower() or "crack" in repo.lower() or "repo4nsw" in owner.lower() or "3z" in owner.lower():
-                # Skip repositories that are linked to illicit activities
-                continue
+            if platform == Platforms.GITEA:
+                current_row = temp_df.iloc[[0]] # Select the first available row instead of a random one
+            else:
+                current_row = temp_df.sample(n=1, random_state=None) # Randomly select a row from the DataFrame
+
+            temp_df = temp_df.drop(current_row.index)
+            current_row.reset_index(drop=True, inplace=True)
+            owner, repo = current_row["owner"].values[0], current_row["repo"].values[0]
             # Check if the repository is clonable
             try:
-                add_git_metrics(random_row, platform,  os.path.abspath("/Volumes/retour/Git_Repositories"), False)
-                final_df = pd.concat([final_df, random_row], ignore_index=True)
+                add_git_metrics(current_row, platform,  os.path.abspath("/Volumes/retour/Git_Repositories"), False)
+                final_df = pd.concat([final_df, current_row], ignore_index=True)
             except Exception as e:
                 self.logger.error(f"Error fetching {owner}/{repo}: {e}")
                 continue

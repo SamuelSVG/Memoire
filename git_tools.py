@@ -60,6 +60,7 @@ def build_licensee_image():
 
 def analyze_directory(tool, path):
     """Analyze a directory using the specified GitHub tool inside the Docker container."""
+    # IF THERE IS AN ISSUE FOR LINUX PLEASE ADD :Z AFTER THE DOCKER PATH
     if plat.system() == "Windows":
         docker_path = path[2:]
     else:
