@@ -76,6 +76,16 @@ class BasePlatform(ABC):
         temp_df = initial_df.copy()
         if final_df is None:
             final_df = temp_df.iloc[0:0].copy()
+        elif platform == Platforms.GITEA:
+            last_owner = final_df.iloc[-1]["owner"]
+            last_repo = final_df.iloc[-1]["repo"]
+            # Find the index in temp_df where this repo appears
+            match = temp_df[(temp_df["owner"] == last_owner) & (temp_df["repo"] == last_repo)]
+            if not match.empty:
+                # Get the index of the first occurrence
+                index = match.index[0]
+                # Drop all rows before this index
+                temp_df = temp_df.iloc[index+1:]
         else:
             temp_df = pd.concat([temp_df, final_df]).drop_duplicates(subset=["owner", "repo"],keep=False)
 
