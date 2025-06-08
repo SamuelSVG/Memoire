@@ -236,13 +236,14 @@ def compare_git_clone_speed(df, platform):
 
             # Shallow clone
             start_time = time.time()
-            clone_repository(owner, repo, platform, shallow=True)
+            clone_repository(owner, repo, platform, repo_path, metadata=True)
+            clone_repository(owner, repo, platform, repo_path, shallow=True)
             shallow_clone_time = time.time() - start_time
             df.at[index, "shallow_clone_time"] = shallow_clone_time
 
             # Full clone
             start_time = time.time()
-            clone_repository(owner, repo, platform)
+            clone_repository(owner, repo, platform, repo_path)
             full_clone_time = time.time() - start_time
             df.at[index, "full_clone_time"] = full_clone_time
 

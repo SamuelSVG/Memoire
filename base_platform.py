@@ -105,7 +105,7 @@ class BasePlatform(ABC):
             owner, repo = current_row["owner"].values[0], current_row["repo"].values[0]
             # Check if the repository is clonable
             try:
-                add_git_metrics(current_row, platform,  os.path.abspath("/Volumes/retour/Git_Repositories"), False)
+                add_git_metrics(current_row, platform,  os.path.abspath("temp"), False)
                 final_df = pd.concat([final_df, current_row], ignore_index=True)
             except Exception as e:
                 self.logger.error(f"Error fetching {owner}/{repo}: {e}")

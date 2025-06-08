@@ -22,6 +22,7 @@ metric_bins = {
     "contributor": [0, 1, 5, 10, 20, np.inf],
     "issue": [-np.inf, 0, 5, 10, 100, np.inf],
     "pull_request": [-np.inf, 0, 5, 10, 100, np.inf],
+    "star": [-np.inf, 0, 5, 10, 100, np.inf],
     "created": [0, 14, 30, 90, 180, 360, np.inf],
 }
 
@@ -32,7 +33,8 @@ metric_labels = {
     "contributor": ["1", "2-5", "6-10", "11-20", ">20"],
     "issue": ["0", "1-5", "6-10", "11-100", ">100"],
     "pull_request": ["0", "1-5", "6-10", "11-100", ">100"],
-    "created": ["0-14 days", "15-30 days", "31-90 days", "91-180 days", "181-360 days", ">360 days"],
+    "star": ["0", "1-5", "6-10", "11-100", ">100"],
+    "created": ["0-14 jours", "15-30 jours", "31-90 jours", "91-180 jours", "181-360 jours", ">360 jours"],
 }
 
 matching_features = {
@@ -68,6 +70,8 @@ def extract_major_languages(lang_json, threshold=20):
     """Extracts languages contributing more than a given threshold (default: 20%)."""
     try:
         lang_dict = json.loads(lang_json)
+        n = len(lang_dict)
+        threshold = 100 / (n + 1)
         return [lang for lang, details in lang_dict.items() if float(details.get("percentage", 0)) > threshold]
     except (json.JSONDecodeError, KeyError, ValueError):
         return ["No metric"]
@@ -80,7 +84,7 @@ def bin_alphanumeric_data(df, platform, metric, n_boot=1000):
     metric_column = metric.value
 
     # Handle missing values
-    df[metric_column] = df[metric_column].fillna("No metric")
+    df[metric_column] = df[metric_column].fillna("Pas de donnée")
 
     # Extract language data if the metric is LANGUAGE_DISTRIBUTION
     if metric == Metrics.LANGUAGE_DISTRIBUTION:
@@ -174,13 +178,14 @@ def plot_alphanumeric_distribution(metric, df_github, df_gitlab, df_gitea, df_fo
             capsize=3
         )
 
-    plt.title(f"{metric_name} Distribution on the Main Platforms (with 95% Bootstrapped CI)")
-    plt.xlabel(metric_name)
-    plt.ylabel("Percentage of Repositories (%)")
+    #plt.title(f"{metric_name} Distribution on the Main Platforms (with 95% Bootstrapped CI)")
+    plt.xlabel("licence")
+    plt.ylabel("Pourcentage de dépôts (%)")
     plt.xticks(rotation=45)
     plt.grid(axis="y", linestyle="--", alpha=0.7)
-    plt.legend(title="Platform")
+    plt.legend(title="Platforme")
     plt.tight_layout()
+    plt.savefig(f"Figures/{metric_name}_distribution.png", dpi=300, bbox_inches='tight')
     plt.show()
 
     df_github_clean = df_github.copy()
@@ -225,8 +230,8 @@ def bin_data(df, platform, metric, n_boot):
     # Check if the metric column is a date
     if metric == Metrics.CREATED:
         df[metric_column] = pd.to_datetime(df[metric_column], errors='coerce').dt.tz_localize(None)
-        reference_date = datetime.strptime("09/05/2025", "%d/%m/%Y")
-        df[metric_column] = (reference_date - df[metric_column]).dt.days
+        reference_date = pd.to_datetime(df["updated"], errors='coerce').dt.tz_localize(None)
+        df[metric_column] = (reference_date - df[metric_column]).dt.days + 1
 
     df.loc[:, metric_column] = pd.to_numeric(df[metric_column], errors='coerce')
 
@@ -319,12 +324,13 @@ def plot_numeric_distribution(df_github, df_gitlab, df_gitea, df_forgejo, metric
         )
 
     plt.xticks(bin_positions, metric_labels[metric_name])
-    plt.xlabel(f"{metric_name} ranges")
-    plt.ylabel("Percentage of Repositories (%)")
-    plt.title(f"Repository {metric_name} Distribution Across Platforms (with 95% Bootstrapped CI)")
-    plt.legend(title="Platform")
+    plt.xlabel(f"Nombre de pull requests des dépôts")
+    plt.ylabel("Pourcentage de dépôts (%)")
+    #plt.title(f"Repository {metric_name} Distribution Across Platforms (with 95% Bootstrapped CI)")
+    plt.legend(title="Platforme")
     plt.grid(axis="y", linestyle="--", alpha=0.7)
     plt.tight_layout()
+    plt.savefig(f"Figures/{metric_name}_distribution.png", dpi=300, bbox_inches='tight')
     plt.show()
 
     if metric == Metrics.CREATED:
@@ -390,13 +396,14 @@ def plot_step_lines(df_github, df_gitlab, df_gitea, df_forgejo, metric):
     sns.lineplot(data=combined_df, x="date", y="cumulative_count", hue="Platform", drawstyle="steps-mid", marker="o")
 
     # Formatting
-    plt.xlabel("Date")
-    plt.ylabel("Cumulative Count")
-    plt.title("Cumulative Repositories Created Over Time")
+    plt.xlabel("Date de mise à jour")
+    plt.ylabel("Nombre cumulé de dépôts mis à jour")
+    #plt.title("Cumulative Repositories Created Over Time")
     plt.xticks(rotation=45)
-    plt.legend(title="Platform")
+    plt.legend(title="Platforme")
     plt.grid()
 
+    plt.savefig("Figures/cumulative_repositories_updated_15.png", dpi=300, bbox_inches='tight')
     plt.show()
 
 
@@ -430,8 +437,9 @@ def create_correlation_matrix(df):
     corr_matrix = df_subset.corr(numeric_only=True)
 
     plt.figure(figsize=(12, 8))
-    sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", center=0)
-    plt.title("Correlation Matrix of Repository Metrics")
+    sns.heatmap(corr_matrix, annot=True, fmt=".2f", center=0)
+    #plt.title("Correlation Matrix of Repository Metrics")
+    plt.savefig("Figures/correlation_matrix_forgejo.png", dpi=300, bbox_inches='tight')
     plt.show()
 
 
@@ -480,7 +488,7 @@ def propensity_score_matching(
     df_platform1 = df_platform1.dropna(subset=covariates + ["platform", outcome_col])
     df_platform2 = df_platform2.dropna(subset=covariates + ["platform", outcome_col])
 
-    if Metrics.CREATED.value in covariates:
+    if outcome_col == Metrics.CREATED.value or Metrics.CREATED.value in covariates:
         df_platform1[Metrics.CREATED.value] = pd.to_datetime(df_platform1[Metrics.CREATED.value], errors='coerce').dt.tz_localize(None)
         df_platform2[Metrics.CREATED.value] = pd.to_datetime(df_platform2[Metrics.CREATED.value], errors='coerce').dt.tz_localize(None)
         reference_date = datetime.strptime("09/05/2025", "%d/%m/%Y")
@@ -528,4 +536,4 @@ def propensity_score_matching(
 
     # Plot covariate balance
     if plot_balance:
-        psm.effect_size_plot()
+        psm.effect_size_plot(title="", save=True)
