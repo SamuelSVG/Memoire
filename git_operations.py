@@ -26,6 +26,9 @@ def clone_repository(owner, repo, platform, repo_path, shallow=False, metadata=F
     :param owner: Owner of the repository.
     :param repo: Repository name.
     :param platform: Platform to fetch the repository from.
+    :param repo_path: Local path where the repository will be cloned.
+    :param shallow: If True, performs a shallow clone (only the latest commit).
+    :param metadata: If True, performs a metadata-only clone (no files checked out).
     """
     temp = platform.name + "_CLONE"
     url = getattr(Endpoints, temp)(owner, repo)
@@ -95,7 +98,6 @@ def get_language_distribution(repo_path):
 def get_commit_count(repo_path):
     """Get the number of commits in a Git repository."""
     try:
-        # Run 'git rev-list --count HEAD' to count the commits
         result = subprocess.run(
             ["git", "rev-list", "--count", "HEAD"],
             cwd=repo_path,  # Run the command inside the repo
@@ -104,7 +106,7 @@ def get_commit_count(repo_path):
             check=True
         )
 
-        commit_count = int(result.stdout.strip())  # Remove extra whitespace
+        commit_count = int(result.stdout.strip())
         return commit_count
 
     except subprocess.CalledProcessError as e:
@@ -114,19 +116,17 @@ def get_commit_count(repo_path):
 def get_branch_count(repo_path):
     """Get the number of branches in a Git repository."""
     try:
-        # Run 'git branch --list' to get all branches and count them
         result = subprocess.run(
             ["git", "branch", "-a"],
-            cwd=repo_path,  # Run the command inside the repo
+            cwd=repo_path,
             capture_output=True,
             text=True,
             check=True
         )
 
-        # Split the output by newlines and count non-empty branches
         branches = result.stdout.strip().split("\n")
-        branch_count = len([branch for branch in branches if branch.strip()]) #-2 pour kick current et head
-        if branch_count > 2: #Cas où on a 0 branche (dépot vide)
+        branch_count = len([branch for branch in branches if branch.strip()]) #-2 to avoid counting current and head
+        if branch_count > 2: #Empty repository case
             branch_count -= 2
 
         return branch_count
@@ -160,7 +160,6 @@ def get_contributor_count(repo_path):
                 check=True
             )
 
-        # Extract just the number
         contributor_count = int(result.stdout.strip())
         return contributor_count
 
@@ -186,6 +185,12 @@ def delete_directory(repo_path):
         return False
 
 def add_git_metrics(df, platform, path, delete_repositories=True):
+    """Function to add various Git metrics to a DataFrame of repositories.
+    :param df: DataFrame containing repository information.
+    :param platform: Platform to fetch the repositories from.
+    :param path: Path where the repositories will be cloned.
+    :param delete_repositories: If True, delete the cloned repositories after processing.
+    """
     # Set up the Docker containers for the tools
     setup_tools_containers()
 
@@ -217,8 +222,12 @@ def add_git_metrics(df, platform, path, delete_repositories=True):
             logging.error(f"Error processing repository '{owner}/{repo}': {e}")
             raise
 
-# TODO: Test this function
 def compare_git_clone_speed(df, platform):
+    """Function to compare the speed of shallow and full cloning of repositories.
+    :param df: DataFrame containing repository information.
+    :param platform: Platform to fetch the repositories from.
+    """
+
     # Ensure the necessary columns exist in the DataFrame
     columns = ["shallow_clone_time", "full_clone_time"]
     for column in columns:

@@ -3,24 +3,14 @@ from base_platform import BasePlatform
 import requests
 from endpoints import Endpoints
 from request_types import RequestTypes
-from metrics import Metrics
 from datetime import datetime, timedelta
 
 class Bitbucket(BasePlatform):
-    """
-    This class defines the Bitbucket platform-specific matcher.
-    """
     def __init__(self, headers):
         self.headers = headers
 
 
     def fetch_page(self, url=None):
-        """
-        Function to fetch a page of repositories from the GitHub API.
-        :param page: The page number to fetch.
-        :param url: The URL to fetch.
-        :return: JSON response from the API.
-        """
         date = (datetime.now() - timedelta(30)).strftime('%Y-%m-%d')
         params = {
             "after": date,
@@ -34,12 +24,6 @@ class Bitbucket(BasePlatform):
 
 
     def fetch_repositories(self, page_num, platform=""):
-        """
-        Function to fetch a given number of pages of repositories from the GitHub API.
-        :param page_num: Number of pages to fetch.
-        :param platform: Platform to fetch repositories from.
-        :return: List of dictionaries containing repository data.
-        """
         repositories = []
         next_page = ""
         total_fetched = 0

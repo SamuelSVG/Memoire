@@ -6,9 +6,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import json
-from sklearn.linear_model import LogisticRegression
-from sklearn.preprocessing import StandardScaler
-from sklearn.neighbors import NearestNeighbors
 from scipy.stats import mannwhitneyu
 from psmpy import PsmPy
 from metrics import Metrics
@@ -66,8 +63,8 @@ def count_languages(row):
     lang_dict = json.loads(row)
     return len(lang_dict)
 
-def extract_major_languages(lang_json, threshold=20):
-    """Extracts languages contributing more than a given threshold (default: 20%)."""
+def extract_major_languages(lang_json):
+    """Extracts languages contributing more than a given threshold."""
     try:
         lang_dict = json.loads(lang_json)
         n = len(lang_dict)
@@ -154,7 +151,6 @@ def plot_alphanumeric_distribution(metric, df_github, df_gitlab, df_gitea, df_fo
     # Sort metric categories for consistent plotting
     summary_df[metric_name] = pd.Categorical(summary_df[metric_name], categories=top_10_metric, ordered=True)
 
-    # Plot
     plt.figure(figsize=(12, 8))
     ax = sns.barplot(
         data=summary_df,
@@ -168,7 +164,7 @@ def plot_alphanumeric_distribution(metric, df_github, df_gitlab, df_gitea, df_fo
     # Add confidence interval error bars
     for i, row in summary_df.iterrows():
         x_val = list(summary_df[metric_name].cat.categories).index(row[metric_name])
-        platform_offset = platform_order.index(row["platform"]) * 0.2 - 0.3  # adjust for number of platforms
+        platform_offset = platform_order.index(row["platform"]) * 0.2 - 0.3
         ax.errorbar(
             x=x_val + platform_offset,
             y=row["mean"],
@@ -178,14 +174,14 @@ def plot_alphanumeric_distribution(metric, df_github, df_gitlab, df_gitea, df_fo
             capsize=3
         )
 
-    #plt.title(f"{metric_name} Distribution on the Main Platforms (with 95% Bootstrapped CI)")
-    plt.xlabel("licence")
-    plt.ylabel("Pourcentage de dépôts (%)")
+    plt.title(f"{metric_name} Distribution on the Main Platforms (with 95% Bootstrapped CI)")
+    plt.xlabel(f"{metric_name}")
+    plt.ylabel("Percentage of repositories (%)")
     plt.xticks(rotation=45)
     plt.grid(axis="y", linestyle="--", alpha=0.7)
-    plt.legend(title="Platforme")
+    plt.legend(title="Platform")
     plt.tight_layout()
-    plt.savefig(f"Figures/{metric_name}_distribution.png", dpi=300, bbox_inches='tight')
+    #plt.savefig(f"Figures/{metric_name}_distribution.png", dpi=300, bbox_inches='tight')
     plt.show()
 
     df_github_clean = df_github.copy()
@@ -219,15 +215,18 @@ def plot_alphanumeric_distribution(metric, df_github, df_gitlab, df_gitea, df_fo
 
 def bin_data(df, platform, metric, n_boot):
     """
-    Bin the data based on the given metric and perform bootstrapping to estimate confidence intervals.
-    Returns a DataFrame with multiple bootstrap samples for each platform.
+    Bin numerical data into specified ranges for a given metric and platform.
+    :param df: DataFrame containing repository data.
+    :param platform: Platform name.
+    :param metric: Metric to analyze.
+    :param n_boot: Number of bootstrap samples to generate.
+    :return: DataFrame with binned data and bootstrapped percentages.
     """
     metric_name = str(metric.name.lower())
     metric_column = metric.value
 
     df = df.dropna(subset=[metric_column]).copy()
 
-    # Check if the metric column is a date
     if metric == Metrics.CREATED:
         df[metric_column] = pd.to_datetime(df[metric_column], errors='coerce').dt.tz_localize(None)
         reference_date = pd.to_datetime(df["updated"], errors='coerce').dt.tz_localize(None)
@@ -241,7 +240,6 @@ def bin_data(df, platform, metric, n_boot):
 
     df[bin_col] = pd.cut(df[metric_column], bins=bins, labels=labels, include_lowest=True)
 
-    # Ensure bin column is a categorical with correct order
     df[bin_col] = pd.Categorical(df[bin_col], categories=labels, ordered=True)
 
     # Bootstrapping
@@ -265,7 +263,6 @@ def bin_data(df, platform, metric, n_boot):
     platform_order = ["GitHub", "GitLab", "Gitea", "Forgejo"]
     result_df["platform"] = pd.Categorical(result_df["platform"], categories=platform_order, ordered=True)
 
-    # Set bin column as ordered categorical again (in case lost during DataFrame creation)
     result_df[bin_col] = pd.Categorical(result_df[bin_col], categories=labels, ordered=True)
 
     return result_df
@@ -303,7 +300,6 @@ def plot_numeric_distribution(df_github, df_gitlab, df_gitea, df_forgejo, metric
     summary_df["platform"] = pd.Categorical(summary_df["platform"], categories=platform_order, ordered=True)
     summary_df[bin_col] = pd.Categorical(summary_df[bin_col], categories=metric_labels[metric_name], ordered=True)
 
-    # Plot
     plt.figure(figsize=(12, 6))
     width = 0.2
     bin_positions = np.arange(len(metric_labels[metric_name]))
@@ -324,13 +320,13 @@ def plot_numeric_distribution(df_github, df_gitlab, df_gitea, df_forgejo, metric
         )
 
     plt.xticks(bin_positions, metric_labels[metric_name])
-    plt.xlabel(f"Nombre de pull requests des dépôts")
-    plt.ylabel("Pourcentage de dépôts (%)")
-    #plt.title(f"Repository {metric_name} Distribution Across Platforms (with 95% Bootstrapped CI)")
-    plt.legend(title="Platforme")
+    plt.xlabel(f"{metric_name}")
+    plt.ylabel("Percentage of repositories (%)")
+    plt.title(f"Repository {metric_name} Distribution Across Platforms (with 95% Bootstrapped CI)")
+    plt.legend(title="Platform")
     plt.grid(axis="y", linestyle="--", alpha=0.7)
     plt.tight_layout()
-    plt.savefig(f"Figures/{metric_name}_distribution.png", dpi=300, bbox_inches='tight')
+    #plt.savefig(f"Figures/{metric_name}_distribution.png", dpi=300, bbox_inches='tight')
     plt.show()
 
     if metric == Metrics.CREATED:
@@ -364,9 +360,11 @@ def plot_numeric_distribution(df_github, df_gitlab, df_gitea, df_forgejo, metric
         print(f"{name1} vs {name2}: U={stat:.2f}, p-value={p:.4f}")
 
 def plot_step_lines(df_github, df_gitlab, df_gitea, df_forgejo, metric):
+    """
+    Plot cumulative repositories updated over time for each platform using step lines.
+    """
     plt.figure(figsize=(12, 6))
 
-    # Dictionary to store dataframes and their platform labels
     platforms = {
         "GitHub": df_github,
         "GitLab": df_gitlab,
@@ -378,32 +376,26 @@ def plot_step_lines(df_github, df_gitlab, df_gitea, df_forgejo, metric):
     combined_data = []
 
     for label, df in platforms.items():
-        # Convert to datetime and extract date
         df[metric.value] = pd.to_datetime(df[metric.value])
         df["date"] = df[metric.value].dt.date
 
-        # Count occurrences per day
         date_counts = df["date"].value_counts().sort_index().cumsum()
 
-        # Append platform name as a column
         temp_df = pd.DataFrame({"date": date_counts.index, "cumulative_count": date_counts.values, "Platform": label})
         combined_data.append(temp_df)
 
-    # Combine all platform data
     combined_df = pd.concat(combined_data)
 
-    # Plot using Seaborn with hue for automatic color assignment
     sns.lineplot(data=combined_df, x="date", y="cumulative_count", hue="Platform", drawstyle="steps-mid", marker="o")
 
-    # Formatting
-    plt.xlabel("Date de mise à jour")
-    plt.ylabel("Nombre cumulé de dépôts mis à jour")
-    #plt.title("Cumulative Repositories Created Over Time")
+    plt.xlabel("Update Date")
+    plt.ylabel("Cumulative count")
+    plt.title("Cumulative Repositories Created Over Time")
     plt.xticks(rotation=45)
-    plt.legend(title="Platforme")
+    plt.legend(title="Platform")
     plt.grid()
 
-    plt.savefig("Figures/cumulative_repositories_updated_15.png", dpi=300, bbox_inches='tight')
+    #plt.savefig("Figures/cumulative_repositories_updated_15.png", dpi=300, bbox_inches='tight')
     plt.show()
 
 
@@ -414,10 +406,8 @@ def create_correlation_matrix(df):
     numeric_columns = ["created", "updated", "#stars", "#forks", "size",
                        "#commits", "#branches", "#contributors", "#issues", "#pull_requests"]
 
-    # Only keep columns that exist
     existing_columns = [col for col in numeric_columns if col in df.columns]
 
-    # Convert datetime columns before subsetting
     if 'created' in df.columns:
         df['created'] = pd.to_datetime(df['created'], errors='coerce')
     if 'updated' in df.columns:
@@ -425,41 +415,34 @@ def create_correlation_matrix(df):
 
     df_subset = df[existing_columns].copy()
 
-    # Convert all numeric columns to float (except datetime)
     for col in df_subset.select_dtypes(include=['object']).columns:
         df_subset[col] = pd.to_numeric(df_subset[col], errors='coerce')
 
-    # Add derived feature: age_days
+    # Compute age in days if both 'created' and 'updated' are present
     if 'created' in df.columns and 'updated' in df.columns:
         df_subset['age_days'] = (df['updated'] - df['created']).dt.total_seconds() / (60 * 60 * 24)
 
-    # Compute and plot correlation matrix
     corr_matrix = df_subset.corr(numeric_only=True)
 
     plt.figure(figsize=(12, 8))
     sns.heatmap(corr_matrix, annot=True, fmt=".2f", center=0)
-    #plt.title("Correlation Matrix of Repository Metrics")
-    plt.savefig("Figures/correlation_matrix_forgejo.png", dpi=300, bbox_inches='tight')
+    plt.title("Correlation Matrix of Repository Metrics")
+    #plt.savefig("Figures/correlation_matrix_forgejo.png", dpi=300, bbox_inches='tight')
     plt.show()
 
 
 def plot_lorenz_curve(values, title="Lorenz Curve"):
-    # Drop missing values and sort
     values = np.array(sorted(values.dropna()))
 
-    # Cumulative share of values
     cumulative_values = np.cumsum(values)
     cumulative_share = cumulative_values / cumulative_values[-1]
 
-    # Cumulative share of population (uniform steps)
     n = len(values)
     cumulative_population = np.arange(1, n + 1) / n
 
-    # Add starting point (0, 0)
     cumulative_share = np.insert(cumulative_share, 0, 0)
     cumulative_population = np.insert(cumulative_population, 0, 0)
 
-    # Plot
     plt.figure(figsize=(8, 6))
     plt.plot(cumulative_population, cumulative_share, label='Lorenz Curve')
     plt.plot([0, 1], [0, 1], '--', color='gray', label='Equality Line')
@@ -480,7 +463,19 @@ def propensity_score_matching(
         verbose=True,
         plot_balance=True
 ):
-    assert covariates is not None, "You must specify covariates for matching."
+    """
+    Perform propensity score matching between two platforms based on specified covariates.
+    :param df_platform1: dataframe for the first platform.
+    :param df_platform2: dataframe for the second platform.
+    :param treated_platform: the platform to be treated as the experimental group.
+    :param outcome_col: the outcome column to be analyzed (e.g., created, size).
+    :param covariates: list of covariates to be used for matching.
+    :param caliper: the caliper value for matching.
+    :param verbose: if True, print detailed output.
+    :param plot_balance: if True, plot covariate balance after matching.
+    """
+    if covariates is None:
+        return None
 
     df_platform1 = df_platform1.copy()
     df_platform2 = df_platform2.copy()
@@ -488,6 +483,7 @@ def propensity_score_matching(
     df_platform1 = df_platform1.dropna(subset=covariates + ["platform", outcome_col])
     df_platform2 = df_platform2.dropna(subset=covariates + ["platform", outcome_col])
 
+    # If the outcome column is 'created', convert it to days since a reference date
     if outcome_col == Metrics.CREATED.value or Metrics.CREATED.value in covariates:
         df_platform1[Metrics.CREATED.value] = pd.to_datetime(df_platform1[Metrics.CREATED.value], errors='coerce').dt.tz_localize(None)
         df_platform2[Metrics.CREATED.value] = pd.to_datetime(df_platform2[Metrics.CREATED.value], errors='coerce').dt.tz_localize(None)
@@ -504,7 +500,6 @@ def propensity_score_matching(
     columns_to_keep = [id_col, 'treatment', outcome_col] + covariates
     df = df[columns_to_keep]
 
-    # Initialize PsmPy
     psm = PsmPy(df, treatment='treatment', indx=id_col, exclude=[outcome_col])
 
     # Estimate propensity scores
@@ -537,3 +532,5 @@ def propensity_score_matching(
     # Plot covariate balance
     if plot_balance:
         psm.effect_size_plot(title="", save=True)
+        return None
+    return None

@@ -19,29 +19,30 @@ class GitHub(BasePlatform):
         """
         Function to fetch a page of repositories from the GitHub API.
         :param page: The page number to fetch.
+        :param creation_date: The date before which repositories were created.
         :return: JSON response from the API.
         """
         today = datetime.now().strftime('%Y-%m-%d')
         params = {
-            "q": f"created:<={creation_date} pushed:{today} fork:false",
+            "q": f"created:<={creation_date} pushed:{today} fork:false", # Filter for repositories created before the creation_date and pushed today
             "per_page": 100,
             "page": page,
-            "sort": "updated",  # Optional: sort by recent updates
+            "sort": "updated",
             "order": "desc"
         }
         response = self.request_with_retry(Endpoints.GITHUB_SEARCH.value, RequestTypes.GET, headers=self.headers, params=params)
         return response.json()
 
 
-    def fetch_repositories(self, target, creation_date=None, platform="GitHub"):
+    def fetch_repositories(self, target, creation_date=15, platform="GitHub"):
         """
         Function to fetch a given number of pages of repositories from the GitHub API.
+        :param creation_date: Number of days before which repositories were created to filter.
         :param target: Number of pages to fetch.
         :param platform: Platform to fetch repositories from.
         :return: List of dictionaries containing repository data.
         """
-        if creation_date is None:
-            creation_date = (datetime.now() - timedelta(days=15)).strftime('%Y-%m-%d')
+        creation_date = (datetime.now() - timedelta(days=creation_date)).strftime('%Y-%m-%d')
 
         if platform is None:
             raise ValueError("Platform must be specified.")
@@ -50,7 +51,7 @@ class GitHub(BasePlatform):
         page = 1
 
         while len(repositories) < target:
-            if page > 10:
+            if page > 10: # Hard limit to prevent excessive API calls
                 self.logger.info(f"Hard limit reached, sleeping for 30 seconds...")
                 time.sleep(30)
                 self.logger.info(f"Resuming fetching...")
@@ -214,14 +215,12 @@ class GitHub(BasePlatform):
         Function to add a given metric to a DataFrame of repositories.
         :param df: DataFrame of repositories.
         :param metric: Metric to fetch.
-        :param platform: Platform to fetch the metric from.
         :return: DataFrame with the added metric column.
         """
         metric_counts = []
         for index, row in df.iterrows():
             self.logger.info(f"Fetching data for {row["owner"]}/{row["repo"]}...")
 
-            # Gitlab requires to use multiple different endpoints to fetch different metrics so we need to use a switch case
             match metric:
                 case Metrics.SIZE:
                     owner, repo, branch = row["owner"], row["repo"], row["default_branch"]

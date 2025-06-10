@@ -31,28 +31,22 @@ class GiteaForgejo(BasePlatform):
             "page": page
         }
 
-        # Set the platform endpoint based on the platform name
         platform_endpoint = platform.name + "_SEARCH"
         url = getattr(Endpoints, platform_endpoint).value
         response = self.request_with_retry(url, RequestTypes.GET, headers=self.headers, params=params)
         return response.json()
 
-    def fetch_repositories(self, target, creation_date=None, platform=None):
+    def fetch_repositories(self, target, creation_date=15, platform=None):
         """
         Fetch a target number of acceptable repositories (older than creation_date) from Gitea/Forgejo.
 
         :param target: Number of repositories you want to fetch.
-        :param creation_date: Date cutoff for repo creation (default: 30 days ago).
+        :param creation_date: Date cutoff for repo creation (default: 15 days ago).
         :param platform: Platform to fetch from.
         :return: List of repositories' data.
         """
-        if creation_date is None:
-            creation_date = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
-
         if platform is None:
             raise ValueError("Platform must be specified.")
-
-        #creation_cutoff = datetime.strptime(creation_date, '%Y-%m-%d')
 
         repositories = []
         page = 1
@@ -69,7 +63,7 @@ class GiteaForgejo(BasePlatform):
 
                 for repo in repos_in_page:
                     created_at = datetime.fromisoformat(repo.get("created_at").replace("Z", "+00:00")).date()
-                    creation_cutoff = datetime.fromisoformat(repo.get("updated_at").replace("Z", "+00:00")).date() - timedelta(days=15)
+                    creation_cutoff = datetime.fromisoformat(repo.get("updated_at").replace("Z", "+00:00")).date() - timedelta(days=creation_date)
                     if ((repo["owner"]["username"], repo["name"]) not in [(r["owner"]["username"], r["name"]) for r in repositories]
                             and (created_at <= creation_cutoff
                             and not any(bad_word in repo["owner"]["username"].lower() for bad_word in EXCLUDED_NAMES))

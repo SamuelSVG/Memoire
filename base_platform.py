@@ -22,10 +22,10 @@ class BasePlatform(ABC):
 
 
     @abstractmethod
-    def fetch_repositories(self, page_num, platform):
+    def fetch_repositories(self, repo_num, platform):
         """
-        Function to fetch a given number of pages of repositories from a platform-specific API.
-        :param page_num: Number of pages to fetch.
+        Function to fetch a given number of repositories from a platform-specific API.
+        :param repo_num: Number of repositories to fetch.
         :param platform: Platform to fetch repositories from.
         """
         pass
@@ -67,12 +67,14 @@ class BasePlatform(ABC):
 
     def select_clonable_repositories(self, initial_df, platform, n_repositories, final_df=None):
         """
-        Function to select repositories that can be cloned based on platform-specific criteria.
+        Function to select repositories that can be cloned.
         :param initial_df: DataFrame of repositories.
-        :param platform: Platform to fetch the metric from.
+        :param platform: Platform to fetch the repositories from.
+        :param n_repositories: Number of repositories to select.
+        :param final_df: DataFrame to append the clonable repositories to.
         :return: DataFrame with clonable repositories.
         """
-        #clonable_repositories = pd.DataFrame({col: pd.Series(dtype=initial_df[col].dtype) for col in initial_df.columns})
+        # If final_df is None, initialize it as an empty DataFrame
         temp_df = initial_df.copy()
         if final_df is None:
             final_df = temp_df.iloc[0:0].copy()

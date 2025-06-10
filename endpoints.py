@@ -108,6 +108,7 @@ class Endpoints(Enum):
     def GITLAB_LICENSE(id):
         return f"https://gitlab.com/api/v4/projects/{id}?license=true"
 
+
     BITBUCKET_SEARCH = "https://api.bitbucket.org/2.0/repositories"
     @staticmethod
     def BITBUCKET_REPO(owner, repo):

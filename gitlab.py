@@ -37,26 +37,21 @@ class Gitlab(BasePlatform):
             "visibility": "public",
             "order_by": "last_activity_at",  # Sort by most recently updated
             "sort": "desc",
-            "per_page": 100,  # Maximum allowed per page
-            "page": page,  # Current page
+            "per_page": 100,
+            "page": page,
         }
         response = self.request_with_retry(Endpoints.GITLAB_SEARCH.value, RequestTypes.GET, headers=self.headers, params=params)
         return response.json()
 
-    def fetch_repositories(self, target, creation_date=None, platform="GitLab"):
+    def fetch_repositories(self, target, creation_date=15, platform="GitLab"):
         """
         Fetch a target number of acceptable repositories (older than creation_date) from GitLab.
 
         :param target: Number of repositories you want to fetch.
-        :param creation_date: Date cutoff for repo creation (default: 30 days ago).
+        :param creation_date: Date cutoff for repo creation (default: 15 days ago).
         :param platform: Platform name (default: GitLab).
         :return: List of dictionaries containing repository data.
         """
-        if creation_date is None:
-            creation_date = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
-
-        creation_cutoff = datetime.strptime(creation_date, '%Y-%m-%d')
-
         repositories = []
         page = 1
 
@@ -68,13 +63,13 @@ class Gitlab(BasePlatform):
 
                 if not data:
                     self.logger.info("No more repositories found.")
-                    break  # No more data
+                    break
 
                 # Filter out forks and repositories created too recently
                 for repo in data:
                     if "forked_from_project" not in repo:
                         created_at = datetime.fromisoformat(repo["created_at"].replace("Z", "+00:00")).date()
-                        creation_cutoff = datetime.fromisoformat(repo["last_activity_at"].replace("Z", "+00:00")).date() - timedelta(days=15)
+                        creation_cutoff = datetime.fromisoformat(repo["last_activity_at"].replace("Z", "+00:00")).date() - timedelta(days=creation_date)
                         if ((repo["path_with_namespace"], repo["path"]) not in [(r["path_with_namespace"], r["path"]) for r in repositories]
                              and (created_at <= creation_cutoff
                              and not any(bad_word in repo["path_with_namespace"].lower() for bad_word in EXCLUDED_NAMES))
@@ -118,7 +113,6 @@ class Gitlab(BasePlatform):
         for index, row in df.iterrows():
             self.logger.info(f"Fetching data for {row["owner"]}/{row["repo"]}...")
 
-            # Gitlab requires to use multiple different endpoints to fetch different metrics so we need to use a switch case
             match metric:
                 case Metrics.COMMIT:
                     owner, repo = row["owner"], row["repo"]
