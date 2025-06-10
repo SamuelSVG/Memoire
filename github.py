@@ -184,6 +184,31 @@ class GitHub(BasePlatform):
             self.logger.exception(f"Exception fetching {owner}/{repo}: {e}")
             return None
 
+    def get_issues_pull_requests(self, owner, repo):
+        """
+        Function to fetch the number of issues and pull requests for a given repository from the GitHub API.
+        :param owner: Owner of the repository.
+        :param repo: Repository name.
+        :return: Tuple containing the number of issues and pull requests for the given repository.
+        """
+        url = Endpoints.GITHUB_GRAPHQL.value
+        query = {
+            "query": "{ repository(owner: \"" + f"{owner}" + "\", name: \"" + f"{repo}" + "\") { issues {totalCount} pullRequests {totalCount} } }"
+        }
+
+        try:
+            response = self.request_with_retry(url, RequestTypes.POST, params=query, headers=self.headers)
+            if not str(response.status_code).startswith('4'):
+                return  (response.json()["data"]["repository"]["issues"]["totalCount"],
+                         response.json()["data"]["repository"]["pullRequests"]["totalCount"])
+            else:
+                self.logger.error(f"Error fetching {owner}/{repo}: {response.status_code}")
+                return None
+        except Exception as e:
+            self.logger.exception(f"Exception fetching {owner}/{repo}: {e}")
+            return None
+
+
     def add_metric(self, df, metric):
         """
         Function to add a given metric to a DataFrame of repositories.
@@ -203,9 +228,15 @@ class GitHub(BasePlatform):
                     metric_counts.append(self.get_size(owner,repo,branch))
                 case Metrics.ISSUE:
                     owner, repo = row["owner"], row["repo"]
-                    metric_counts.append(self.get_issues(owner, repo))
+                    metric_counts.append(self.get_issues_pull_requests(owner, repo))
                 case Metrics.PULL_REQUEST:
                     owner, repo = row["owner"], row["repo"]
-                    metric_counts.append(self.get_pull_requests(owner, repo))
+                    metric_counts.append(self.get_issues_pull_requests(owner, repo))
 
-        df[metric.value] = metric_counts
+        if metric == Metrics.ISSUE or metric == Metrics.PULL_REQUEST:
+            # If the metric is ISSUE or PULL_REQUEST, we need to add both counts to the DataFrame
+            df[Metrics.ISSUE.value] = [count[0] for count in metric_counts]
+            df[Metrics.PULL_REQUEST.value] = [count[1] for count in metric_counts]
+
+        else:
+            df[metric.value] = metric_counts

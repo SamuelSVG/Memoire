@@ -131,10 +131,10 @@ class Gitlab(BasePlatform):
                     metric_counts.append(self.get_contributors(owner,repo, default_branch))
                 case Metrics.ISSUE:
                     owner, repo = row["owner"], row["repo"]
-                    metric_counts.append(self.get_issues(owner,repo))
+                    metric_counts.append(self.get_issues_pull_requests(owner,repo))
                 case Metrics.PULL_REQUEST:
                     owner, repo = row["owner"], row["repo"]
-                    metric_counts.append(self.get_pull_requests(owner,repo))
+                    metric_counts.append(self.get_issues_pull_requests(owner,repo))
                 case Metrics.LANGUAGE:
                     id = row["id"]
                     metric_counts.append(self.get_language(id))
@@ -146,6 +146,9 @@ class Gitlab(BasePlatform):
         if metric == Metrics.COMMIT or metric == Metrics.BRANCH:
             df[Metrics.COMMIT.value] = [count[0] if count else None for count in metric_counts]
             df[Metrics.BRANCH.value] = [count[1] if count else None for count in metric_counts]
+        elif metric == Metrics.ISSUE or metric == Metrics.PULL_REQUEST:
+            df[Metrics.ISSUE.value] = [count[0] if count else None for count in metric_counts]
+            df[Metrics.PULL_REQUEST.value] = [count[1] if count else None for count in metric_counts]
         else:
             df[metric.value] = metric_counts
 
@@ -248,6 +251,27 @@ class Gitlab(BasePlatform):
             self.logger.exception(f"Exception fetching {owner}/{repo}: {e}")
             return None
 
+    def get_issues_pull_requests(self, owner, repo):
+        """
+        Function to fetch the number of issues and pull requests for a given repository from the GitLab API.
+        :param owner: Owner of the repository.
+        :param repo: Repository name.
+        :return: Tuple containing the number of issues and pull requests for the given repository.
+        """
+        url = Endpoints.GITLAB_GRAPHQL.value
+        query = {"query": "{ project(fullPath: \"" + f"{owner}/{repo}" + "\") { issues { count } mergeRequests { count } } }"}
+
+        try:
+            response = self.request_with_retry(url, RequestTypes.POST, params=query, headers=self.headers)
+            if not str(response.status_code).startswith('4'):
+                return (response.json()["data"]["project"]["issues"]["count"],
+                        response.json()["data"]["project"]["mergeRequests"]["count"])
+            else:
+                self.logger.error(f"Error fetching {owner}/{repo}: {response.status_code}")
+                return None
+        except Exception as e:
+            self.logger.exception(f"Exception fetching {owner}/{repo}: {e}")
+            return None
 
     def get_language(self, id):
         """
