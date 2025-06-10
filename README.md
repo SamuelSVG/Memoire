@@ -72,3 +72,7 @@ Il est **indispensable** que **Docker** soit installé et fonctionnel.
 Les outils `github-linguist` et `licensee` sont utilisés dans des **conteneurs Docker** pour garantir la **portabilité** et la **reproductibilité** des résultats.
 
 ---
+
+### Note importante : Toutes les fonctions développées dans le cadre de la recherche lors de ce travail ont été conservées dans le code. Seules les fonctions utilisées dans le notebook sont utilisées dans le travail.
+
+---
