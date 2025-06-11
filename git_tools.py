@@ -37,6 +37,8 @@ def build_linguist_image():
         logging.info("Github-Linguist image already exists.")
     else:
         if not os.path.isdir("linguist"):
+            if plat.system() == "Windows":
+                subprocess.run(["git", "config","--global", "core.autocrlf", "input"], check=True)
             subprocess.run(["git", "clone", "https://github.com/github-linguist/linguist"], check=True)
         subprocess.run(["docker", "build", "-t", DOCKER_IMAGE_LINGUIST, "linguist"], check=True)
         shutil.rmtree("linguist")
@@ -52,6 +54,8 @@ def build_licensee_image():
         logging.info("Licensee image already exists.")
     else:
         if not os.path.isdir("licensee"):
+            if plat.system() == "Windows":
+                subprocess.run(["git", "config","--global", "core.autocrlf", "input"], check=True)
             subprocess.run(["git", "clone", "https://github.com/licensee/licensee"], check=True)
         subprocess.run(["docker", "build", "-t", DOCKER_IMAGE_LICENSEE, "licensee"], check=True)
         shutil.rmtree("licensee")

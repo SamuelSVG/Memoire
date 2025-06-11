@@ -34,7 +34,7 @@ def clone_repository(owner, repo, platform, repo_path, shallow=False, metadata=F
     url = getattr(Endpoints, temp)(owner, repo)
     try:
         if os.path.exists(repo_path):
-            shutil.rmtree(repo_path)
+            delete_directory(repo_path)
         logging.info(f"Cloning {url} into {repo_path}...")
         if shallow:
             git.Repo.clone_from(url, repo_path, depth=1)
@@ -169,7 +169,7 @@ def get_contributor_count(repo_path):
 
 def force_remove_readonly(func, path, _):
     """Clear the read-only flag and retry deletion."""
-    os.chmod(path, stat.S_IWRITE)  # Make file writable
+    os.chmod(path, stat.S_IWUSR)  # Make file writable
     func(path)  # Retry deletion
 
 def delete_directory(repo_path):
